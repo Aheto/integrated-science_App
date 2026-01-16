@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Mini OpenStax: Identify the end products of digestion and explain absorption">
+  <title>Mini OpenStax — Identify the end products of digestion and explain absorption</title>
+  <style>
+    :root {
+      --green: #006b3d;
+      --gold: #cead00;
+      --light: #f9f9f9;
+      --dark: #2d2d2d;
+    }
+    body { 
+      font-family: 'Segoe UI', system-ui, sans-serif; 
+      margin: 0; 
+      padding: 0; 
+      background: #fff; 
+      color: var(--dark); 
+      line-height: 1.6;
+    }
+    .container { 
+      max-width: 800px; 
+      margin: 0 auto; 
+      padding: 1rem; 
+    }
+    .header { 
+      display: flex; 
+      justify-content: space-between; 
+      align-items: center; 
+      margin-bottom: 1rem; 
+      flex-wrap: wrap; 
+      gap: 0.5rem; 
+    }
+    .role-badge { 
+      background: #e9ecef; 
+      padding: 0.25rem 0.5rem; 
+      border-radius: 4px; 
+      font-size: 0.85rem; 
+    }
+    .chapter-nav { 
+      margin: 1.2rem 0; 
+      display: flex; 
+      flex-wrap: wrap; 
+      gap: 0.4rem; 
+      justify-content: center; 
+    }
+    .chapter-btn {
+      padding: 0.4rem 0.8rem; 
+      background: var(--green); 
+      color: white; 
+      text-decoration: none; 
+      border-radius: 4px; 
+      font-size: 0.9rem;
+    }
+    .chapter-btn.active, .chapter-btn:hover { 
+      background: #00502e; 
+    }
+    .section { 
+      margin-bottom: 1.5rem; 
+      padding-bottom: 1rem;
+      border-bottom: 1px solid #eee;
+    }
+    .word-list { 
+      display: flex; 
+      flex-wrap: wrap; 
+      gap: 0.5rem; 
+      margin: 0.5rem 0; 
+    }
+    .word-item { 
+      background: var(--light); 
+      padding: 0.25rem 0.5rem; 
+      border-radius: 4px; 
+      font-family: monospace; 
+      font-size: 0.95rem;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 0.5rem;
+      text-align: left;
+    }
+    th {
+      background-color: #f0f7f4;
+    }
+    .checkpoint, .thought-experiment {
+      background: #f8f9fa;
+      padding: 1rem;
+      border-left: 4px solid var(--gold);
+      margin: 1.5rem 0;
+    }
+    .quiz { 
+      margin-top: 2rem; 
+    }
+    .question { 
+      margin-bottom: 1.2rem; 
+    }
+    .options { 
+      margin-left: 1rem; 
+    }
+    .option { 
+      margin: 0.4rem 0; 
+    }
+    .btn {
+      background: var(--green); 
+      color: white; 
+      border: none; 
+      padding: 0.5rem 1rem;
+      border-radius: 4px; 
+      cursor: pointer; 
+      font-size: 1rem; 
+      margin-right: 0.5rem;
+      display: inline-block;
+    }
+    .btn:hover { 
+      background: #00502e; 
+    }
+    .btn-secondary { 
+      background: #6c757d; 
+    }
+    .btn-secondary:hover { 
+      background: #5a6268; 
+    }
+    .feedback { 
+      margin-top: 1.5rem; 
+      padding: 1rem; 
+      background: var(--light); 
+      border-left: 4px solid var(--green); 
+    }
+    footer { 
+      text-align: center; 
+      margin-top: 2rem; 
+      font-size: 0.9rem; 
+      padding-top: 1.5rem;
+      border-top: 1px solid #eee;
+    }
+    a { 
+      color: var(--green); 
+      text-decoration: none; 
+    }
+    a:hover { 
+      text-decoration: underline; 
+    }
+    blockquote {
+      margin: 1rem 0;
+      padding-left: 1rem;
+      border-left: 3px solid var(--green);
+      color: #555;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div>
+        <h1 id="chapter-title">Identify the end products of digestion and explain absorption</h1>
+        <div class="lo-tags" id="lo-tags">B7/JHS1.3.1.1.3</div>
+      </div>
+      <div class="role-badge">Student View</div>
+    </div>
+
+    <nav class="chapter-nav" id="chapter-nav"></nav>
+
+    <main id="main-content">
+      <!-- === REPLACE THIS SECTION PER LESSON === -->
+      <div class="section">
+        <h2>🎯 What You’ll Learn</h2>
+        <ul id="objectives">
+          <li>Identify the end products of digesting starch, protein, and fats/oils.</li>
+          <li>Explain how nutrients are absorbed into the bloodstream through the small intestine.</li>
+          <li>Draw a flowchart showing: starch → sugar, protein → amino acids, oil → fatty acids.</li>
+          <li>Relate digestion to real Ghanaian meals like banku, fish, and palm oil.</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2>🔤 Important Words</h2>
+        <p id="word-list-desc">Key terms for this lesson:</p>
+        <div class="word-list" id="word-list">
+          <span class="word-item">Glucose</span>
+          <span class="word-item">Amino acid</span>
+          <span class="word-item">Fatty acid</span>
+          <span class="word-item">Absorption</span>
+          <span class="word-item">Villi</span>
+          <span class="word-item">Small intestine</span>
+          <span class="word-item">Enzyme</span>
+          <span class="word-item">Nutrient</span>
+        </div>
+      </div>
+
+      <div class="section" id="lesson-content">
+        <h2>📘 From Food to Fuel: The Final Stage of Digestion</h2>
+        <p>After food is broken down in the stomach and small intestine, it becomes tiny molecules that your body can absorb and use for energy, growth, and repair.</p>
+
+        <h3>🔬 End Products of Digestion</h3>
+        <table>
+          <thead>
+            <tr><th>Food Type</th><th>End Product</th><th>Ghanaian Example</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Starchy foods</strong></td><td>Glucose (simple sugar)</td><td>Banku, yam, rice, plantain</td></tr>
+            <tr><td><strong>Proteins</strong></td><td>Amino acids</td><td>Fish, meat, beans, eggs</td></tr>
+            <tr><td><strong>Fats/Oils</strong></td><td>Fatty acids + glycerol</td><td>Palm oil, shea butter, avocado</td></tr>
+          </tbody>
+        </table>
+
+        <h3>🩸 How Absorption Happens</h3>
+        <ul>
+          <li>The **small intestine** has millions of tiny finger-like projections called **villi**.</li>
+          <li>Villi increase surface area—like a sponge—to absorb nutrients quickly.</li>
+          <li>Glucose and amino acids enter the **bloodstream** directly.</li>
+          <li>Fatty acids enter the **lymphatic system**, then the blood.</li>
+          <li>Blood carries nutrients to every cell in your body!</li>
+        </ul>
+
+        <blockquote>
+          💭 <strong>Thought Experiment</strong>: If someone’s villi are damaged (e.g., by disease), what might happen to their nutrition—even if they eat well?
+        </blockquote>
+
+        <h3>✅ Exemplar Activity: Draw a Flowchart</h3>
+        <p>Create a simple diagram showing digestion end products:</p>
+        <ul>
+          <li>Starch (from banku) → Glucose</li>
+          <li>Protein (from fish) → Amino acids</li>
+          <li>Palm oil → Fatty acids + Glycerol</li>
+        </ul>
+        <p>Add arrows and label where absorption occurs (small intestine).</p>
+
+        <h3>🌱 Why This Matters</h3>
+        <ul>
+          <li>Your brain runs on **glucose**—without it, you feel dizzy or tired.</li>
+          <li>Muscles need **amino acids** to grow after exercise.</li>
+          <li>**Fatty acids** help build cell membranes and store energy.</li>
+          <li>Good absorption = better health, learning, and strength.</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2>✅ Check Your Understanding</h2>
+        <div class="checkpoint" id="checkpoint-questions">
+          <ol>
+            <li>What is the end product of starch digestion?</li>
+            <li>How do amino acids get into your bloodstream?</li>
+            <li>Draw a flowchart showing the digestion of a meal of banku, fish, and palm oil.</li>
+            <li>Why are villi important for nutrient absorption?</li>
+          </ol>
+          <p><em>Confirm your understanding before moving on.</em></p>
+        </div>
+      </div>
+
+      <div class="section" id="next-preview">
+        <h3>🔜 Coming Up</h3>
+        <p>In the next unit, we’ll explore forces and motion—how pushes, pulls, and gravity affect everyday objects and movement.</p>
+      </div>
+      <!-- === END REPLACE SECTION === -->
+
+      <div id="student-name-prompt" class="section" style="display:none;">
+        <h2>👤 Your Name</h2>
+        <div id="name-display"></div>
+        <input type="text" id="student-name" placeholder="Enter your name" maxlength="30"
+          style="padding:0.5rem;font-size:1rem;width:100%;margin:0.5rem 0;display:none;">
+        <div id="name-buttons"></div>
+      </div>
+
+      <div class="quiz" id="quiz-container" style="display:none;">
+        <h2>📝 Quick Check (20 Questions)</h2>
+        <p>Select the best answer for each question.</p>
+        <form id="quiz-form"></form>
+        <button type="button" class="btn" id="submit-quiz">Check Answers</button>
+      </div>
+
+      <div id="feedback"></div>
+
+      <!-- FOOTER -->
+      <footer>
+        <a href="../premium.html" style="display:block; margin-bottom:0.5rem;">✨ Unlock Premium Features</a>
+        <a href="#" id="send-analytics" style="color:#6c757d;">📤 Send Anonymous Usage Data</a>
+        <br>
+        <a href="../dashboard.html">📊 View Dashboard</a>
+      </footer>
+    </main>
+  </div>
+
+  <script>
+    (function () {
+      'use strict';
+      window.startTime = Date.now();
+
+      function createSeededRNG(seed) {
+        let state = Math.abs((seed * 9301 + 49297) % 233280);
+        return () => {
+          state = (state * 9301 + 49297) % 233280;
+          return state / 233280;
+        };
+      }
+
+      function shuffleWithSeed(array, seed) {
+        const rng = createSeededRNG(seed);
+        const arr = [...array];
+        for (let i = arr.length - 1; i > 0; i--) {
+          const j = Math.floor(rng() * (i + 1));
+          [arr[i], arr[j]] = [arr[j], arr[i]];
+        }
+        return arr;
+      }
+
+      const currentChapter = 18;
+      const MAX_CHAPTER = 300;
+      const WHATSAPP_NUMBER = "233257320201";
+
+      const ANALYTICS_KEY = 'miniopenstax_analytics_consent';
+      const EVENTS_KEY = 'miniopenstax_events';
+
+      function isAnalyticsEnabled() {
+        return localStorage.getItem(ANALYTICS_KEY) === '1';
+      }
+
+      function logEvent(eventType, data = {}) {
+        if (!isAnalyticsEnabled()) return;
+        const event = { type: eventType, timestamp: Date.now(), lesson: currentChapter, data };
+        const events = JSON.parse(localStorage.getItem(EVENTS_KEY) || '[]');
+        events.push(event);
+        localStorage.setItem(EVENTS_KEY, JSON.stringify(events));
+        if (events.length >= 20) sendAnalyticsEvents();
+      }
+
+      function enableAnalytics() {
+        localStorage.setItem(ANALYTICS_KEY, '1');
+      }
+
+      function sendAnalyticsEvents() {
+        const events = JSON.parse(localStorage.getItem(EVENTS_KEY) || '[]');
+        if (events.length === 0) return;
+        const summary = {
+          lessons_attempted: [...new Set(events.map(e => e.lesson))].length,
+          quizzes_submitted: events.filter(e => e.type === 'quiz_submitted').length,
+          mastery_count: events.filter(e => e.type === 'mastery_achieved').length,
+          first_event: new Date(events[0].timestamp).toISOString().split('T')[0],
+          last_event: new Date(events[events.length - 1].timestamp).toISOString().split('T')[0]
+        };
+        const report = `*Mini OpenStax — Anonymous Usage Report*\n` +
+          `Lessons Tried: ${summary.lessons_attempted}\n` +
+          `Quizzes Taken: ${summary.quizzes_submitted}\n` +
+          `Mastery Achieved: ${summary.mastery_count}\n` +
+          `Period: ${summary.first_event} to ${summary.last_event}\n\n` +
+          `Thank you for helping improve literacy tools!`;
+        localStorage.removeItem(EVENTS_KEY);
+        const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(report)}`;
+        window.open(url, '_blank');
+      }
+
+      const CHAPTER_CONFIG = {
+        title: "Identify the end products of digestion and explain absorption",
+        loTags: ["B7/JHS1.3.1.1.3"],
+        objectives: [
+          "Identify the end products of digesting starch, protein, and fats/oils.",
+          "Explain how nutrients are absorbed into the bloodstream through the small intestine.",
+          "Draw a flowchart showing: starch → sugar, protein → amino acids, oil → fatty acids.",
+          "Relate digestion to real Ghanaian meals like banku, fish, and palm oil."
+        ],
+        words: [
+          "Glucose", "Amino acid", "Fatty acid", "Absorption",
+          "Villi", "Small intestine", "Enzyme", "Nutrient"
+        ],
+        wordListDesc: "Key terms for this lesson:",
+        checkpointQuestions: `
+          <ol>
+            <li>What is the end product of starch digestion?</li>
+            <li>How do amino acids get into your bloodstream?</li>
+            <li>Draw a flowchart showing the digestion of a meal of banku, fish, and palm oil.</li>
+            <li>Why are villi important for nutrient absorption?</li>
+          </ol>
+          <p><em>Confirm your understanding before moving on.</em></p>
+        `,
+        nextPreview: "In the next unit, we’ll explore forces and motion—how pushes, pulls, and gravity affect everyday objects and movement.",
+        assessmentItems: [
+          { id: "1", prompt: "What is the end product of starch digestion?", options: [
+            {id:"a",text:"Amino acids",is_correct:false},
+            {id:"b",text:"Glucose",is_correct:true},
+            {id:"c",text:"Fatty acids",is_correct:false},
+            {id:"d",text:"Protein",is_correct:false}
+          ]},
+          { id: "2", prompt: "What are proteins broken down into?", options: [
+            {id:"a",text:"Glucose",is_correct:false},
+            {id:"b",text:"Fatty acids",is_correct:false},
+            {id:"c",text:"Amino acids",is_correct:true},
+            {id:"d",text:"Glycerol only",is_correct:false}
+          ]},
+          { id: "3", prompt: "Where does nutrient absorption mainly occur?", options: [
+            {id:"a",text:"Mouth",is_correct:false},
+            {id:"b",text:"Stomach",is_correct:false},
+            {id:"c",text:"Small intestine",is_correct:true},
+            {id:"d",text:"Large intestine",is_correct:false}
+          ]},
+          { id: "4", prompt: "What are villi?", options: [
+            {id:"a",text:"Tiny finger-like projections that absorb nutrients",is_correct:true},
+            {id:"b",text:"Enzymes in saliva",is_correct:false},
+            {id:"c",text:"Muscles in the stomach",is_correct:false},
+            {id:"d",text:"Types of fat",is_correct:false}
+          ]},
+          { id: "5", prompt: "What happens to palm oil during digestion?", options: [
+            {id:"a",text:"It turns into glucose",is_correct:false},
+            {id:"b",text:"It becomes amino acids",is_correct:false},
+            {id:"c",text:"It breaks into fatty acids and glycerol",is_correct:true},
+            {id:"d",text:"It passes unchanged",is_correct:false}
+          ]},
+          { id: "6", prompt: "Which Ghanaian food provides starch for glucose production?", options: [
+            {id:"a",text:"Banku",is_correct:true},
+            {id:"b",text:"Fish",is_correct:false},
+            {id:"c",text:"Egg",is_correct:false},
+            {id:"d",text:"Meat",is_correct:false}
+          ]},
+          { id: "7", prompt: "How do glucose molecules enter the body?", options: [
+            {id:"a",text:"Through the skin",is_correct:false},
+            {id:"b",text:"Absorbed into blood via villi in small intestine",is_correct:true},
+            {id:"c",text:"Stored in the stomach",is_correct:false},
+            {id:"d",text:"Exhaled through lungs",is_correct:false}
+          ]},
+          { id: "8", prompt: "Why is glucose important for students?", options: [
+            {id:"a",text:"It powers the brain for focus and memory",is_correct:true},
+            {id:"b",text:"It makes hair grow",is_correct:false},
+            {id:"c",text:"It replaces water",is_correct:false},
+            {id:"d",text:"It is only for athletes",is_correct:false}
+          ]},
+          { id: "9", prompt: "Which core competency is developed when drawing a digestion flowchart?", options: [
+            {id:"a",text:"Creativity and Communication",is_correct:true},
+            {id:"b",text:"Musical talent",is_correct:false},
+            {id:"c",text:"Athletic ability",is_correct:false},
+            {id:"d",text:"Cooking skill",is_correct:false}
+          ]},
+          { id: "10", prompt: "What role do enzymes play in digestion?", options: [
+            {id:"a",text:"They speed up chemical breakdown of food",is_correct:true},
+            {id:"b",text:"They store fat",is_correct:false},
+            {id:"c",text:"They produce saliva only",is_correct:false},
+            {id:"d",text:"They replace teeth",is_correct:false}
+          ]},
+          { id: "11", prompt: "What is 'absorption'?", options: [
+            {id:"a",text:"The process of taking digested nutrients into the blood",is_correct:true},
+            {id:"b",text:"Chewing food",is_correct:false},
+            {id:"c",text:"Swallowing water",is_correct:false},
+            {id:"d",text:"Breathing air",is_correct:false}
+          ]},
+          { id: "12", prompt: "How can students learn about digestion without a lab?", options: [
+            {id:"a",text:"By watching animations, using diagrams, and researching",is_correct:true},
+            {id:"b",text:"By skipping meals",is_correct:false},
+            {id:"c",text:"By eating only snacks",is_correct:false},
+            {id:"d",text:"By ignoring science",is_correct:false}
+          ]},
+          { id: "13", prompt: "Which statement about fatty acids is TRUE?", options: [
+            {id:"a",text:"They help build cell membranes and store energy",is_correct:true},
+            {id:"b",text:"They are only harmful",is_correct:false},
+            {id:"c",text:"They turn into protein",is_correct:false},
+            {id:"d",text:"They are not absorbed",is_correct:false}
+          ]},
+          { id: "14", prompt: "What happens if villi are damaged?", options: [
+            {id:"a",text:"Nutrient absorption decreases, leading to malnutrition",is_correct:true},
+            {id:"b",text:"Digestion speeds up",is_correct:false},
+            {id:"c",text:"More fat is stored",is_correct:false},
+            {id:"d",text:"No effect",is_correct:false}
+          ]},
+          { id: "15", prompt: "Which activity fulfills the curriculum exemplar?", options: [
+            {id:"a",text:"Drawing a flowchart of digestion end products",is_correct:true},
+            {id:"b",text:"Memorising song lyrics",is_correct:false},
+            {id:"c",text:"Skipping class",is_correct:false},
+            {id:"d",text:"Eating during the lesson only",is_correct:false}
+          ]},
+          { id: "16", prompt: "Why is the small intestine coiled?", options: [
+            {id:"a",text:"To increase surface area for absorption",is_correct:true},
+            {id:"b",text:"To slow down food",is_correct:false},
+            {id:"c",text:"To produce acid",is_correct:false},
+            {id:"d",text:"To store waste",is_correct:false}
+          ]},
+          { id: "17", prompt: "What nutrient comes from beans and fish?", options: [
+            {id:"a",text:"Protein → amino acids",is_correct:true},
+            {id:"b",text:"Starch → glucose",is_correct:false},
+            {id:"c",text:"Fat → sugar",is_correct:false},
+            {id:"d",text:"Water → oxygen",is_correct:false}
+          ]},
+          { id: "18", prompt: "How does digestion support physical activity?", options: [
+            {id:"a",text:"Glucose fuels muscles; amino acids repair tissue",is_correct:true},
+            {id:"b",text:"It makes you sleepy",is_correct:false},
+            {id:"c",text:"It reduces strength",is_correct:false},
+            {id:"d",text:"It is unrelated",is_correct:false}
+          ]},
+          { id: "19", prompt: "What is the correct sequence for starch digestion?", options: [
+            {id:"a",text:"Starch → Maltose → Glucose",is_correct:true},
+            {id:"b",text:"Starch → Protein → Amino acids",is_correct:false},
+            {id:"c",text:"Starch → Fat → Fatty acids",is_correct:false},
+            {id:"d",text:"Starch → Water → Oxygen",is_correct:false}
+          ]},
+          { id: "20", prompt: "What conclusion can you draw about digestion?", options: [
+            {id:"a",text:"Digestion transforms food into usable molecules that sustain life, learning, and growth",is_correct:true},
+            {id:"b",text:"Only the stomach matters",is_correct:false},
+            {id:"c",text:"Absorption is unimportant",is_correct:false},
+            {id:"d",text:"All food becomes the same thing",is_correct:false}
+          ]}
+        ]
+      };
+
+      function renderContent() {
+        document.getElementById('chapter-title').textContent = CHAPTER_CONFIG.title;
+        document.getElementById('lo-tags').textContent = CHAPTER_CONFIG.loTags[0];
+
+        document.getElementById('objectives').innerHTML =
+          CHAPTER_CONFIG.objectives.map(obj => `<li>${obj}</li>`).join('');
+
+        document.getElementById('word-list-desc').textContent = CHAPTER_CONFIG.wordListDesc;
+        document.getElementById('word-list').innerHTML =
+          CHAPTER_CONFIG.words.map(w => `<span class="word-item">${w}</span>`).join('');
+
+        document.getElementById('checkpoint-questions').innerHTML = CHAPTER_CONFIG.checkpointQuestions;
+
+        document.getElementById('next-preview').innerHTML = `
+          <h3>🔜 Coming Up</h3>
+          <p>${CHAPTER_CONFIG.nextPreview}</p>
+        `;
+      }
+
+      function renderNavigation() {
+        const nav = document.getElementById('chapter-nav');
+        const buttons = [{ label: "Home", url: "../index.html", active: false }];
+        for (let i = 0; i < 4; i++) {
+          const c = currentChapter + i;
+          const lessonNum = c + 1;
+          if (c > MAX_CHAPTER) break;
+          buttons.push({
+            label: `Lesson ${lessonNum}`,
+            url: `chapter-${c}.html`,
+            active: i === 0
+          });
+        }
+        nav.innerHTML = buttons.map(b =>
+          `<a href="${b.url}" class="chapter-btn ${b.active ? 'active' : ''}">${b.label}</a>`
+        ).join('');
+      }
+
+      function renderQuiz() {
+        const form = document.getElementById('quiz-form');
+        window.quizCorrectMap = {};
+        const baseSeed = currentChapter * 1000000 + (Date.now() % 1000000);
+
+        form.innerHTML = CHAPTER_CONFIG.assessmentItems.map(q => {
+          const seed = baseSeed + parseInt(q.id, 10);
+          const shuffledOpts = shuffleWithSeed([...q.options], seed);
+          const correct = q.options.find(o => o.is_correct);
+          window.quizCorrectMap[q.id] = correct.id;
+
+          const optHtml = shuffledOpts.map((opt, idx) => {
+            const letter = String.fromCharCode(65 + idx);
+            return `<div class="option"><label><input type="radio" name="q${q.id}" value="${opt.id}" required> ${letter}. ${opt.text}</label></div>`;
+          }).join('');
+
+          return `<div class="question"><strong>${q.id}. ${q.prompt}</strong><div class="options">${optHtml}</div></div>`;
+        }).join('');
+      }
+
+      function showFeedback(answers) {
+        const items = CHAPTER_CONFIG.assessmentItems;
+        let correctCount = 0, correctList = [], incorrectList = [];
+
+        items.forEach((item, i) => {
+          const ans = answers[i];
+          const correctId = window.quizCorrectMap[item.id];
+          const correctOpt = item.options.find(o => o.id === correctId);
+          const isCorrect = ans === correctId;
+          if (isCorrect) {
+            correctCount++;
+            correctList.push(`${item.id}. ${item.prompt} → ✅ ${correctOpt.text}`);
+          } else {
+            incorrectList.push(`${item.id}. ${item.prompt} → ❌ Your answer: ${item.options.find(o => o.id === ans)?.text || '—'} | ✅ ${correctOpt.text}`);
+          }
+        });
+
+        const score = correctCount, total = 20, mastery = score >= 15;
+        const timeOnTask = Math.floor((Date.now() - window.startTime) / 1000);
+        const attempts = (parseInt(localStorage.getItem(`quiz_attempts_${currentChapter}`)) || 0) + 1;
+        localStorage.setItem(`quiz_attempts_${currentChapter}`, attempts);
+        localStorage.setItem(`mastery_${currentChapter}`, mastery ? '1' : '0');
+        const studentName = localStorage.getItem('student_name') || '[Name]';
+
+        logEvent('quiz_submitted', { score, time_sec: timeOnTask, mastery, attempts });
+        if (mastery) logEvent('mastery_achieved', {});
+
+        let report = `*Mini OpenStax — ${CHAPTER_CONFIG.title}*\nStudent: ${studentName}\nScore: ${score}/${total} (${Math.round(score/total*100)}%) — ${mastery ? '✅ MASTERED' : '❌ Needs Review'}\nTime: ${timeOnTask}s | Attempts: ${attempts}\n\n`;
+        if (correctList.length) report += `✅ CORRECT (${correctList.length}):\n${correctList.join('\n')}\n\n`;
+        if (incorrectList.length) report += `❌ INCORRECT (${incorrectList.length}):\n${incorrectList.join('\n')}\n\n`;
+        report += `Report generated via Mini OpenStax.`;
+
+        localStorage.setItem(`saved_report_${currentChapter}_${Date.now()}`, report);
+
+        const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(report)}`;
+        document.getElementById('feedback').innerHTML = `
+          <div class="feedback">
+            <h3>📊 Results: ${score}/${total}</h3>
+            <p><strong>${mastery ? '🎉 Excellent!' : score >= 10 ? 'Good!' : 'Keep practicing.'}</strong> ${
+              mastery ? 'You’ve mastered the concept!' :
+              score >= 10 ? 'Review missed items.' : 'Practice this lesson again.'
+            }</p>
+            <p><strong>Time:</strong> ${timeOnTask}s | <strong>Attempts:</strong> ${attempts}</p>
+            <a href="${url}" target="_blank" class="btn" style="background:#25D366;text-decoration:none;">
+              📲 Send Report via WhatsApp
+            </a>
+          </div>
+        `;
+      }
+
+      function setupQuizListeners() {
+        document.getElementById('submit-quiz').addEventListener('click', () => {
+          const form = document.getElementById('quiz-form');
+          const answers = [];
+          for (let i = 1; i <= 20; i++) {
+            const el = form.querySelector(`input[name="q${i}"]:checked`);
+            answers.push(el ? el.value : null);
+          }
+          if (answers.includes(null)) {
+            alert("Please answer all questions.");
+            return;
+          }
+          showFeedback(answers);
+        });
+      }
+
+      function initNamePrompt() {
+        const saved = localStorage.getItem('student_name');
+        const savedRole = localStorage.getItem('user_role') || 'student';
+        const promptDiv = document.getElementById('student-name-prompt');
+        const quizDiv = document.getElementById('quiz-container');
+        const display = document.getElementById('name-display');
+        const input = document.getElementById('student-name');
+        const buttons = document.getElementById('name-buttons');
+        const roleBadge = document.querySelector('.role-badge');
+        roleBadge.textContent = savedRole === 'instructor' ? 'Instructor View' : 'Student View';
+
+        if (saved) {
+          promptDiv.style.display = 'block';
+          quizDiv.style.display = 'none';
+          display.innerHTML = `<p><strong>Current name:</strong> ${saved} (${savedRole})</p>`;
+          buttons.innerHTML = `
+            <button type="button" class="btn" id="keep-btn">✅ Keep This Name</button>
+            <button type="button" class="btn btn-secondary" id="change-btn">✏️ Use a Different Name</button>
+          `;
+          document.getElementById('keep-btn').onclick = () => {
+            promptDiv.style.display = 'none';
+            quizDiv.style.display = 'block';
+            logEvent('lesson_start', {});
+          };
+          document.getElementById('change-btn').onclick = () => {
+            display.style.display = 'none';
+            input.style.display = 'block';
+            buttons.innerHTML = `
+              <button type="button" class="btn" id="save-new">💾 Save and Start Quiz</button>
+              <div style="margin-top:1rem; font-size:0.9rem;">
+                <label>
+                  <input type="checkbox" id="teacher-mode"> 
+                  I'm an instructor (analytics auto-enabled to improve lessons)
+                </label>
+              </div>
+            `;
+            input.value = '';
+            input.focus();
+            document.getElementById('save-new').onclick = () => {
+              const name = input.value.trim();
+              if (name) {
+                localStorage.setItem('student_name', name);
+                const isTeacher = document.getElementById('teacher-mode').checked;
+                localStorage.setItem('user_role', isTeacher ? 'instructor' : 'student');
+                if (isTeacher) enableAnalytics();
+                promptDiv.style.display = 'none';
+                quizDiv.style.display = 'block';
+                roleBadge.textContent = isTeacher ? 'Instructor View' : 'Student View';
+                logEvent('lesson_start', {});
+              } else {
+                alert("Please enter your name.");
+                input.focus();
+              }
+            };
+          };
+        } else {
+          promptDiv.style.display = 'block';
+          quizDiv.style.display = 'none';
+          display.style.display = 'none';
+          input.style.display = 'block';
+          buttons.innerHTML = `
+            <button type="button" class="btn" id="save-first">💾 Save and Start Quiz</button>
+            <div style="margin-top:1rem; font-size:0.9rem;">
+              <label>
+                <input type="checkbox" id="teacher-mode"> 
+                I'm an instructor (analytics auto-enabled to improve lessons)
+              </label>
+            </div>
+          `;
+          document.getElementById('save-first').onclick = () => {
+            const name = input.value.trim();
+            if (name) {
+              localStorage.setItem('student_name', name);
+              const isTeacher = document.getElementById('teacher-mode').checked;
+              localStorage.setItem('user_role', isTeacher ? 'instructor' : 'student');
+              if (isTeacher) enableAnalytics();
+              promptDiv.style.display = 'none';
+              quizDiv.style.display = 'block';
+              roleBadge.textContent = isTeacher ? 'Instructor View' : 'Student View';
+              logEvent('lesson_start', {});
+            } else {
+              alert("Please enter your name.");
+              input.focus();
+            }
+          };
+        }
+      }
+
+      function init() {
+        renderContent();
+        renderNavigation();
+        renderQuiz();
+        setupQuizListeners();
+        initNamePrompt();
+      }
+
+      document.addEventListener('DOMContentLoaded', () => {
+        document.getElementById('send-analytics').onclick = (e) => {
+          e.preventDefault();
+          if (confirm('Send anonymous usage data to help improve Mini OpenStax?')) {
+            sendAnalyticsEvents();
+          }
+        };
+      });
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+      } else {
+        init();
+      }
+    })();
+  </script>
+</body>
+</html>
