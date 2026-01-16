@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Mini OpenStax: Demonstrate how to care for domestic animals">
+  <title>Mini OpenStax — Demonstrate how to care for domestic animals</title>
+  <style>
+    :root {
+      --green: #006b3d;
+      --gold: #cead00;
+      --light: #f9f9f9;
+      --dark: #2d2d2d;
+    }
+    body { 
+      font-family: 'Segoe UI', system-ui, sans-serif; 
+      margin: 0; 
+      padding: 0; 
+      background: #fff; 
+      color: var(--dark); 
+      line-height: 1.6;
+    }
+    .container { 
+      max-width: 800px; 
+      margin: 0 auto; 
+      padding: 1rem; 
+    }
+    .header { 
+      display: flex; 
+      justify-content: space-between; 
+      align-items: center; 
+      margin-bottom: 1rem; 
+      flex-wrap: wrap; 
+      gap: 0.5rem; 
+    }
+    .role-badge { 
+      background: #e9ecef; 
+      padding: 0.25rem 0.5rem; 
+      border-radius: 4px; 
+      font-size: 0.85rem; 
+    }
+    .chapter-nav { 
+      margin: 1.2rem 0; 
+      display: flex; 
+      flex-wrap: wrap; 
+      gap: 0.4rem; 
+      justify-content: center; 
+    }
+    .chapter-btn {
+      padding: 0.4rem 0.8rem; 
+      background: var(--green); 
+      color: white; 
+      text-decoration: none; 
+      border-radius: 4px; 
+      font-size: 0.9rem;
+    }
+    .chapter-btn.active, .chapter-btn:hover { 
+      background: #00502e; 
+    }
+    .section { 
+      margin-bottom: 1.5rem; 
+      padding-bottom: 1rem;
+      border-bottom: 1px solid #eee;
+    }
+    .word-list { 
+      display: flex; 
+      flex-wrap: wrap; 
+      gap: 0.5rem; 
+      margin: 0.5rem 0; 
+    }
+    .word-item { 
+      background: var(--light); 
+      padding: 0.25rem 0.5rem; 
+      border-radius: 4px; 
+      font-family: monospace; 
+      font-size: 0.95rem;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 0.5rem;
+      text-align: left;
+    }
+    th {
+      background-color: #f0f7f4;
+    }
+    .checkpoint, .thought-experiment {
+      background: #f8f9fa;
+      padding: 1rem;
+      border-left: 4px solid var(--gold);
+      margin: 1.5rem 0;
+    }
+    .quiz { 
+      margin-top: 2rem; 
+    }
+    .question { 
+      margin-bottom: 1.2rem; 
+    }
+    .options { 
+      margin-left: 1rem; 
+    }
+    .option { 
+      margin: 0.4rem 0; 
+    }
+    .btn {
+      background: var(--green); 
+      color: white; 
+      border: none; 
+      padding: 0.5rem 1rem;
+      border-radius: 4px; 
+      cursor: pointer; 
+      font-size: 1rem; 
+      margin-right: 0.5rem;
+      display: inline-block;
+    }
+    .btn:hover { 
+      background: #00502e; 
+    }
+    .btn-secondary { 
+      background: #6c757d; 
+    }
+    .btn-secondary:hover { 
+      background: #5a6268; 
+    }
+    .feedback { 
+      margin-top: 1.5rem; 
+      padding: 1rem; 
+      background: var(--light); 
+      border-left: 4px solid var(--green); 
+    }
+    footer { 
+      text-align: center; 
+      margin-top: 2rem; 
+      font-size: 0.9rem; 
+      padding-top: 1.5rem;
+      border-top: 1px solid #eee;
+    }
+    a { 
+      color: var(--green); 
+      text-decoration: none; 
+    }
+    a:hover { 
+      text-decoration: underline; 
+    }
+    blockquote {
+      margin: 1rem 0;
+      padding-left: 1rem;
+      border-left: 3px solid var(--green);
+      color: #555;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div>
+        <h1 id="chapter-title">Demonstrate how to care for domestic animals</h1>
+        <div class="lo-tags" id="lo-tags">B7/JHS1.2.4.1.4</div>
+      </div>
+      <div class="role-badge">Student View</div>
+    </div>
+
+    <nav class="chapter-nav" id="chapter-nav"></nav>
+
+    <main id="main-content">
+      <!-- === REPLACE THIS SECTION PER LESSON === -->
+      <div class="section">
+        <h2>🎯 What You’ll Learn</h2>
+        <ul id="objectives">
+          <li>Explain the four key needs of domestic animals: feeding, housing, health, and hygiene.</li>
+          <li>Demonstrate proper care practices for common animals (chickens, goats, pigs, dogs).</li>
+          <li>Create a weekly care schedule for a school or home animal project.</li>
+          <li>Discuss how good care improves animal health, productivity, and human well-being.</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2>🔤 Important Words</h2>
+        <p id="word-list-desc">Key terms for this lesson:</p>
+        <div class="word-list" id="word-list">
+          <span class="word-item">Animal husbandry</span>
+          <span class="word-item">Hygiene</span>
+          <span class="word-item">Shelter</span>
+          <span class="word-item">Vaccination</span>
+          <span class="word-item">Nutrition</span>
+          <span class="word-item">Parasite</span>
+          <span class="word-item">Clean water</span>
+          <span class="word-item">Welfare</span>
+        </div>
+      </div>
+
+      <div class="section" id="lesson-content">
+        <h2>📘 Caring for Animals: The Four Pillars</h2>
+        <p>Healthy animals = healthy people. Good care—called **animal husbandry**—ensures animals stay productive, disease-free, and comfortable.</p>
+
+        <h3>🍗 1. Proper Feeding (Nutrition)</h3>
+        <ul>
+          <li><strong>Chickens</strong>: Layer mash + clean water daily</li>
+          <li><strong>Goats</strong>: Fresh grass, leaves, mineral licks</li>
+          <li><strong>Pigs</strong>: Balanced feed (not kitchen waste alone)</li>
+          <li><strong>Dogs</strong>: Cooked food, bones, clean water</li>
+          <li>✅ Always provide **clean water**—even more than food!</li>
+        </ul>
+
+        <h3>🏠 2. Suitable Housing (Shelter)</h3>
+        <ul>
+          <li><strong>Coops** for chickens: dry, ventilated, predator-proof</li>
+          <li><strong>Pens** for goats/pigs: raised floor, shade, drainage</li>
+          <li><strong>Kennels** for dogs: dry, sheltered from rain/sun</li>
+          <li>✅ Clean bedding weekly to prevent disease</li>
+        </ul>
+
+        <h3>💉 3. Health Management</h3>
+        <ul>
+          <li><strong>Vaccinate** against common diseases (e.g., Newcastle for poultry)</li>
+          <li><strong>Deworm** regularly (every 2–3 months)</li>
+          <li><strong>Watch for signs**: lethargy, coughing, diarrhea, loss of appetite</li>
+          <li>✅ Call a vet or animal health worker early!</li>
+        </ul>
+
+        <h3>🧼 4. Hygiene & Cleanliness</h3>
+        <ul>
+          <li>Remove manure and waste daily</li>
+          <li>Disinfect pens/coops monthly</li>
+          <li>Wash hands after handling animals</li>
+          <li>Keep feed and water containers clean</li>
+        </ul>
+
+        <blockquote>
+          💭 <strong>Thought Experiment</strong>: A chicken coop smells bad, has wet bedding, and birds look weak. What’s wrong? How would you fix it?
+        </blockquote>
+
+        <h3>📅 Exemplar Activity: Weekly Care Plan</h3>
+        <p>Create a simple schedule for 5 layer chickens:</p>
+        <table>
+          <thead>
+            <tr><th>Day</th><th>Morning</th><th>Evening</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Monday</td><td>Feed + fresh water</td><td>Collect eggs, check health</td></tr>
+            <tr><td>Wednesday</td><td>Feed + water</td><td>Clean waterer</td></tr>
+            <tr><td>Saturday</td><td>Feed + water</td><td>Full coop cleaning + bedding change</td></tr>
+          </tbody>
+        </table>
+
+        <h3>🌱 Why Care Matters</h3>
+        <ul>
+          <li>Healthy animals lay more eggs, give more milk, and grow faster.</li>
+          <li>Reduces disease risk to humans (zoonotic diseases like rabies).</li>
+          <li>Shows respect for life—part of responsible citizenship.</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2>✅ Check Your Understanding</h2>
+        <div class="checkpoint" id="checkpoint-questions">
+          <ol>
+            <li>List the four pillars of animal care.</li>
+            <li>Why is clean water more important than extra feed?</li>
+            <li>Design a weekly care plan for two goats.</li>
+            <li>How does poor hygiene in a pig pen affect human health?</li>
+          </ol>
+          <p><em>Confirm your understanding before moving on.</em></p>
+        </div>
+      </div>
+
+      <div class="section" id="next-preview">
+        <h3>🔜 Coming Up</h3>
+        <p>In the next unit, we’ll explore energy—how it changes form, moves through systems, and powers everything from cooking to electricity.</p>
+      </div>
+      <!-- === END REPLACE SECTION === -->
+
+      <div id="student-name-prompt" class="section" style="display:none;">
+        <h2>👤 Your Name</h2>
+        <div id="name-display"></div>
+        <input type="text" id="student-name" placeholder="Enter your name" maxlength="30"
+          style="padding:0.5rem;font-size:1rem;width:100%;margin:0.5rem 0;display:none;">
+        <div id="name-buttons"></div>
+      </div>
+
+      <div class="quiz" id="quiz-container" style="display:none;">
+        <h2>📝 Quick Check (20 Questions)</h2>
+        <p>Select the best answer for each question.</p>
+        <form id="quiz-form"></form>
+        <button type="button" class="btn" id="submit-quiz">Check Answers</button>
+      </div>
+
+      <div id="feedback"></div>
+
+      <!-- FOOTER -->
+      <footer>
+        <a href="../premium.html" style="display:block; margin-bottom:0.5rem;">✨ Unlock Premium Features</a>
+        <a href="#" id="send-analytics" style="color:#6c757d;">📤 Send Anonymous Usage Data</a>
+        <br>
+        <a href="../dashboard.html">📊 View Dashboard</a>
+      </footer>
+    </main>
+  </div>
+
+  <script>
+    (function () {
+      'use strict';
+      window.startTime = Date.now();
+
+      function createSeededRNG(seed) {
+        let state = Math.abs((seed * 9301 + 49297) % 233280);
+        return () => {
+          state = (state * 9301 + 49297) % 233280;
+          return state / 233280;
+        };
+      }
+
+      function shuffleWithSeed(array, seed) {
+        const rng = createSeededRNG(seed);
+        const arr = [...array];
+        for (let i = arr.length - 1; i > 0; i--) {
+          const j = Math.floor(rng() * (i + 1));
+          [arr[i], arr[j]] = [arr[j], arr[i]];
+        }
+        return arr;
+      }
+
+      const currentChapter = 15;
+      const MAX_CHAPTER = 300;
+      const WHATSAPP_NUMBER = "233257320201";
+
+      const ANALYTICS_KEY = 'miniopenstax_analytics_consent';
+      const EVENTS_KEY = 'miniopenstax_events';
+
+      function isAnalyticsEnabled() {
+        return localStorage.getItem(ANALYTICS_KEY) === '1';
+      }
+
+      function logEvent(eventType, data = {}) {
+        if (!isAnalyticsEnabled()) return;
+        const event = { type: eventType, timestamp: Date.now(), lesson: currentChapter, data };
+        const events = JSON.parse(localStorage.getItem(EVENTS_KEY) || '[]');
+        events.push(event);
+        localStorage.setItem(EVENTS_KEY, JSON.stringify(events));
+        if (events.length >= 20) sendAnalyticsEvents();
+      }
+
+      function enableAnalytics() {
+        localStorage.setItem(ANALYTICS_KEY, '1');
+      }
+
+      function sendAnalyticsEvents() {
+        const events = JSON.parse(localStorage.getItem(EVENTS_KEY) || '[]');
+        if (events.length === 0) return;
+        const summary = {
+          lessons_attempted: [...new Set(events.map(e => e.lesson))].length,
+          quizzes_submitted: events.filter(e => e.type === 'quiz_submitted').length,
+          mastery_count: events.filter(e => e.type === 'mastery_achieved').length,
+          first_event: new Date(events[0].timestamp).toISOString().split('T')[0],
+          last_event: new Date(events[events.length - 1].timestamp).toISOString().split('T')[0]
+        };
+        const report = `*Mini OpenStax — Anonymous Usage Report*\n` +
+          `Lessons Tried: ${summary.lessons_attempted}\n` +
+          `Quizzes Taken: ${summary.quizzes_submitted}\n` +
+          `Mastery Achieved: ${summary.mastery_count}\n` +
+          `Period: ${summary.first_event} to ${summary.last_event}\n\n` +
+          `Thank you for helping improve literacy tools!`;
+        localStorage.removeItem(EVENTS_KEY);
+        const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(report)}`;
+        window.open(url, '_blank');
+      }
+
+      const CHAPTER_CONFIG = {
+        title: "Demonstrate how to care for domestic animals",
+        loTags: ["B7/JHS1.2.4.1.4"],
+        objectives: [
+          "Explain the four key needs of domestic animals: feeding, housing, health, and hygiene.",
+          "Demonstrate proper care practices for common animals (chickens, goats, pigs, dogs).",
+          "Create a weekly care schedule for a school or home animal project.",
+          "Discuss how good care improves animal health, productivity, and human well-being."
+        ],
+        words: [
+          "Animal husbandry", "Hygiene", "Shelter", "Vaccination",
+          "Nutrition", "Parasite", "Clean water", "Welfare"
+        ],
+        wordListDesc: "Key terms for this lesson:",
+        checkpointQuestions: `
+          <ol>
+            <li>List the four pillars of animal care.</li>
+            <li>Why is clean water more important than extra feed?</li>
+            <li>Design a weekly care plan for two goats.</li>
+            <li>How does poor hygiene in a pig pen affect human health?</li>
+          </ol>
+          <p><em>Confirm your understanding before moving on.</em></p>
+        `,
+        nextPreview: "In the next unit, we’ll explore energy—how it changes form, moves through systems, and powers everything from cooking to electricity.",
+        assessmentItems: [
+          { id: "1", prompt: "What are the four pillars of animal care?", options: [
+            {id:"a",text:"Feeding, housing, health, hygiene",is_correct:true},
+            {id:"b",text:"Playing, sleeping, running, eating",is_correct:false},
+            {id:"c",text:"Buying, selling, naming, photographing",is_correct:false},
+            {id:"d",text:"Only feeding and watering",is_correct:false}
+          ]},
+          { id: "2", prompt: "Why is clean water essential for animals?", options: [
+            {id:"a",text:"It prevents dehydration and helps digestion",is_correct:true},
+            {id:"b",text:"It makes them grow wings",is_correct:false},
+            {id:"c",text:"It replaces food",is_correct:false},
+            {id:"d",text:"It is only needed in summer",is_correct:false}
+          ]},
+          { id: "3", prompt: "How often should animal pens be cleaned?", options: [
+            {id:"a",text:"Daily removal of waste; full clean weekly/monthly",is_correct:true},
+            {id:"b",text:"Never—they clean themselves",is_correct:false},
+            {id:"c",text:"Once a year",is_correct:false},
+            {id:"d",text:"Only when visitors come",is_correct:false}
+          ]},
+          { id: "4", prompt: "What is 'vaccination' for animals?", options: [
+            {id:"a",text:"Giving medicine to prevent disease",is_correct:true},
+            {id:"b",text:"Feeding extra grains",is_correct:false},
+            {id:"c",text:"Washing with soap",is_correct:false},
+            {id:"d",text:"Clipping nails",is_correct:false}
+          ]},
+          { id: "5", prompt: "Which animal needs a dry, ventilated coop?", options: [
+            {id:"a",text:"Chicken",is_correct:true},
+            {id:"b",text:"Fish",is_correct:false},
+            {id:"c",text:"Snake",is_correct:false},
+            {id:"d",text:"Lion",is_correct:false}
+          ]},
+          { id: "6", prompt: "What is a sign of poor animal health?", options: [
+            {id:"a",text:"Lethargy, coughing, or loss of appetite",is_correct:true},
+            {id:"b",text:"Running fast",is_correct:false},
+            {id:"c",text:"Eating too much",is_correct:false},
+            {id:"d",text:"Shiny fur always",is_correct:false}
+          ]},
+          { id: "7", prompt: "Why deworm animals regularly?", options: [
+            {id:"a",text:"To remove internal parasites that steal nutrients",is_correct:true},
+            {id:"b",text:"To make them sleep more",is_correct:false},
+            {id:"c",text:"To change their colour",is_correct:false},
+            {id:"d",text:"To increase noise",is_correct:false}
+          ]},
+          { id: "8", prompt: "How does good animal care benefit humans?", options: [
+            {id:"a",text:"Healthier food, less disease, better income",is_correct:true},
+            {id:"b",text:"Animals become pets only",is_correct:false},
+            {id:"c",text:"It wastes time",is_correct:false},
+            {id:"d",text:"No benefit",is_correct:false}
+          ]},
+          { id: "9", prompt: "Which core competency is developed when creating a care schedule?", options: [
+            {id:"a",text:"Organization and Responsibility",is_correct:true},
+            {id:"b",text:"Musical talent",is_correct:false},
+            {id:"c",text:"Athletic ability",is_correct:false},
+            {id:"d",text:"Cooking skill",is_correct:false}
+          ]},
+          { id: "10", prompt: "What should you do after handling animals?", options: [
+            {id:"a",text:"Wash hands thoroughly",is_correct:true},
+            {id:"b",text:"Eat immediately",is_correct:false},
+            {id:"c",text:"Touch your face",is_correct:false},
+            {id:"d",text:"Nothing",is_correct:false}
+          ]},
+          { id: "11", prompt: "What is 'animal welfare'?", options: [
+            {id:"a",text:"Ensuring animals are healthy, comfortable, and well-cared for",is_correct:true},
+            {id:"b",text:"Keeping animals in cages forever",is_correct:false},
+            {id:"c",text:"Feeding once a week",is_correct:false},
+            {id:"d",text:"Ignoring sick animals",is_correct:false}
+          ]},
+          { id: "12", prompt: "Which activity fulfills the curriculum exemplar?", options: [
+            {id:"a",text:"Demonstrating feeding, cleaning, and health checks in a school project",is_correct:true},
+            {id:"b",text:"Memorising definitions only",is_correct:false},
+            {id:"c",text:"Skipping class",is_correct:false},
+            {id:"d",text:"Watching cartoons",is_correct:false}
+          ]},
+          { id: "13", prompt: "Why raise pens off the ground for goats?", options: [
+            {id:"a",text:"To keep them dry and reduce parasite exposure",is_correct:true},
+            {id:"b",text:"To make them fly",is_correct:false},
+            {id:"c",text:"To hide them",is_correct:false},
+            {id:"d",text:"To reduce feeding",is_correct:false}
+          ]},
+          { id: "14", prompt: "What is a zoonotic disease?", options: [
+            {id:"a",text:"A disease that can pass from animals to humans (e.g., rabies)",is_correct:true},
+            {id:"b",text:"A plant disease",is_correct:false},
+            {id:"c",text:"A water-only illness",is_correct:false},
+            {id:"d",text:"A computer virus",is_correct:false}
+          ]},
+          { id: "15", prompt: "How often should chickens have fresh water?", options: [
+            {id:"a",text:"Daily",is_correct:true},
+            {id:"b",text:"Weekly",is_correct:false},
+            {id:"c",text:"Monthly",is_correct:false},
+            {id:"d",text:"Only when raining",is_correct:false}
+          ]},
+          { id: "16", prompt: "What is 'nutrition' in animal care?", options: [
+            {id:"a",text:"Providing balanced, species-appropriate food",is_correct:true},
+            {id:"b",text:"Feeding only leftovers",is_correct:false},
+            {id:"c",text:"Giving sugar water",is_correct:false},
+            {id:"d",text:"No need for feed",is_correct:false}
+          ]},
+          { id: "17", prompt: "Why is ventilation important in animal housing?", options: [
+            {id:"a",text:"It reduces ammonia smell and prevents respiratory disease",is_correct:true},
+            {id:"b",text:"It cools the building for humans only",is_correct:false},
+            {id:"c",text:"It attracts more flies",is_correct:false},
+            {id:"d",text:"It is unnecessary",is_correct:false}
+          ]},
+          { id: "18", prompt: "What should a weekly goat care plan include?", options: [
+            {id:"a",text:"Fresh browse, clean water, hoof check, pen cleaning",is_correct:true},
+            {id:"b",text:"Only feeding",is_correct:false},
+            {id:"c",text:"Bathing daily",is_correct:false},
+            {id:"d",text:"No schedule needed",is_correct:false}
+          ]},
+          { id: "19", prompt: "How does vaccination support community health?", options: [
+            {id:"a",text:"It prevents outbreaks of diseases like rabies or bird flu",is_correct:true},
+            {id:"b",text:"It makes animals larger",is_correct:false},
+            {id:"c",text:"It increases market price only",is_correct:false},
+            {id:"d",text:"It is optional and unimportant",is_correct:false}
+          ]},
+          { id: "20", prompt: "What conclusion can you draw about animal care?", options: [
+            {id:"a",text:"Good care is ethical, practical, and essential for human and animal health",is_correct:true},
+            {id:"b",text:"Care is only for rich farmers",is_correct:false},
+            {id:"c",text:"Animals don’t need attention",is_correct:false},
+            {id:"d",text:"Feeding is the only need",is_correct:false}
+          ]}
+        ]
+      };
+
+      function renderContent() {
+        document.getElementById('chapter-title').textContent = CHAPTER_CONFIG.title;
+        document.getElementById('lo-tags').textContent = CHAPTER_CONFIG.loTags[0];
+
+        document.getElementById('objectives').innerHTML =
+          CHAPTER_CONFIG.objectives.map(obj => `<li>${obj}</li>`).join('');
+
+        document.getElementById('word-list-desc').textContent = CHAPTER_CONFIG.wordListDesc;
+        document.getElementById('word-list').innerHTML =
+          CHAPTER_CONFIG.words.map(w => `<span class="word-item">${w}</span>`).join('');
+
+        document.getElementById('checkpoint-questions').innerHTML = CHAPTER_CONFIG.checkpointQuestions;
+
+        document.getElementById('next-preview').innerHTML = `
+          <h3>🔜 Coming Up</h3>
+          <p>${CHAPTER_CONFIG.nextPreview}</p>
+        `;
+      }
+
+      function renderNavigation() {
+        const nav = document.getElementById('chapter-nav');
+        const buttons = [{ label: "Home", url: "../index.html", active: false }];
+        for (let i = 0; i < 4; i++) {
+          const c = currentChapter + i;
+          const lessonNum = c + 1;
+          if (c > MAX_CHAPTER) break;
+          buttons.push({
+            label: `Lesson ${lessonNum}`,
+            url: `chapter-${c}.html`,
+            active: i === 0
+          });
+        }
+        nav.innerHTML = buttons.map(b =>
+          `<a href="${b.url}" class="chapter-btn ${b.active ? 'active' : ''}">${b.label}</a>`
+        ).join('');
+      }
+
+      function renderQuiz() {
+        const form = document.getElementById('quiz-form');
+        window.quizCorrectMap = {};
+        const baseSeed = currentChapter * 1000000 + (Date.now() % 1000000);
+
+        form.innerHTML = CHAPTER_CONFIG.assessmentItems.map(q => {
+          const seed = baseSeed + parseInt(q.id, 10);
+          const shuffledOpts = shuffleWithSeed([...q.options], seed);
+          const correct = q.options.find(o => o.is_correct);
+          window.quizCorrectMap[q.id] = correct.id;
+
+          const optHtml = shuffledOpts.map((opt, idx) => {
+            const letter = String.fromCharCode(65 + idx);
+            return `<div class="option"><label><input type="radio" name="q${q.id}" value="${opt.id}" required> ${letter}. ${opt.text}</label></div>`;
+          }).join('');
+
+          return `<div class="question"><strong>${q.id}. ${q.prompt}</strong><div class="options">${optHtml}</div></div>`;
+        }).join('');
+      }
+
+      function showFeedback(answers) {
+        const items = CHAPTER_CONFIG.assessmentItems;
+        let correctCount = 0, correctList = [], incorrectList = [];
+
+        items.forEach((item, i) => {
+          const ans = answers[i];
+          const correctId = window.quizCorrectMap[item.id];
+          const correctOpt = item.options.find(o => o.id === correctId);
+          const isCorrect = ans === correctId;
+          if (isCorrect) {
+            correctCount++;
+            correctList.push(`${item.id}. ${item.prompt} → ✅ ${correctOpt.text}`);
+          } else {
+            incorrectList.push(`${item.id}. ${item.prompt} → ❌ Your answer: ${item.options.find(o => o.id === ans)?.text || '—'} | ✅ ${correctOpt.text}`);
+          }
+        });
+
+        const score = correctCount, total = 20, mastery = score >= 15;
+        const timeOnTask = Math.floor((Date.now() - window.startTime) / 1000);
+        const attempts = (parseInt(localStorage.getItem(`quiz_attempts_${currentChapter}`)) || 0) + 1;
+        localStorage.setItem(`quiz_attempts_${currentChapter}`, attempts);
+        localStorage.setItem(`mastery_${currentChapter}`, mastery ? '1' : '0');
+        const studentName = localStorage.getItem('student_name') || '[Name]';
+
+        logEvent('quiz_submitted', { score, time_sec: timeOnTask, mastery, attempts });
+        if (mastery) logEvent('mastery_achieved', {});
+
+        let report = `*Mini OpenStax — ${CHAPTER_CONFIG.title}*\nStudent: ${studentName}\nScore: ${score}/${total} (${Math.round(score/total*100)}%) — ${mastery ? '✅ MASTERED' : '❌ Needs Review'}\nTime: ${timeOnTask}s | Attempts: ${attempts}\n\n`;
+        if (correctList.length) report += `✅ CORRECT (${correctList.length}):\n${correctList.join('\n')}\n\n`;
+        if (incorrectList.length) report += `❌ INCORRECT (${incorrectList.length}):\n${incorrectList.join('\n')}\n\n`;
+        report += `Report generated via Mini OpenStax.`;
+
+        localStorage.setItem(`saved_report_${currentChapter}_${Date.now()}`, report);
+
+        const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(report)}`;
+        document.getElementById('feedback').innerHTML = `
+          <div class="feedback">
+            <h3>📊 Results: ${score}/${total}</h3>
+            <p><strong>${mastery ? '🎉 Excellent!' : score >= 10 ? 'Good!' : 'Keep practicing.'}</strong> ${
+              mastery ? 'You’ve mastered the concept!' :
+              score >= 10 ? 'Review missed items.' : 'Practice this lesson again.'
+            }</p>
+            <p><strong>Time:</strong> ${timeOnTask}s | <strong>Attempts:</strong> ${attempts}</p>
+            <a href="${url}" target="_blank" class="btn" style="background:#25D366;text-decoration:none;">
+              📲 Send Report via WhatsApp
+            </a>
+          </div>
+        `;
+      }
+
+      function setupQuizListeners() {
+        document.getElementById('submit-quiz').addEventListener('click', () => {
+          const form = document.getElementById('quiz-form');
+          const answers = [];
+          for (let i = 1; i <= 20; i++) {
+            const el = form.querySelector(`input[name="q${i}"]:checked`);
+            answers.push(el ? el.value : null);
+          }
+          if (answers.includes(null)) {
+            alert("Please answer all questions.");
+            return;
+          }
+          showFeedback(answers);
+        });
+      }
+
+      function initNamePrompt() {
+        const saved = localStorage.getItem('student_name');
+        const savedRole = localStorage.getItem('user_role') || 'student';
+        const promptDiv = document.getElementById('student-name-prompt');
+        const quizDiv = document.getElementById('quiz-container');
+        const display = document.getElementById('name-display');
+        const input = document.getElementById('student-name');
+        const buttons = document.getElementById('name-buttons');
+        const roleBadge = document.querySelector('.role-badge');
+        roleBadge.textContent = savedRole === 'instructor' ? 'Instructor View' : 'Student View';
+
+        if (saved) {
+          promptDiv.style.display = 'block';
+          quizDiv.style.display = 'none';
+          display.innerHTML = `<p><strong>Current name:</strong> ${saved} (${savedRole})</p>`;
+          buttons.innerHTML = `
+            <button type="button" class="btn" id="keep-btn">✅ Keep This Name</button>
+            <button type="button" class="btn btn-secondary" id="change-btn">✏️ Use a Different Name</button>
+          `;
+          document.getElementById('keep-btn').onclick = () => {
+            promptDiv.style.display = 'none';
+            quizDiv.style.display = 'block';
+            logEvent('lesson_start', {});
+          };
+          document.getElementById('change-btn').onclick = () => {
+            display.style.display = 'none';
+            input.style.display = 'block';
+            buttons.innerHTML = `
+              <button type="button" class="btn" id="save-new">💾 Save and Start Quiz</button>
+              <div style="margin-top:1rem; font-size:0.9rem;">
+                <label>
+                  <input type="checkbox" id="teacher-mode"> 
+                  I'm an instructor (analytics auto-enabled to improve lessons)
+                </label>
+              </div>
+            `;
+            input.value = '';
+            input.focus();
+            document.getElementById('save-new').onclick = () => {
+              const name = input.value.trim();
+              if (name) {
+                localStorage.setItem('student_name', name);
+                const isTeacher = document.getElementById('teacher-mode').checked;
+                localStorage.setItem('user_role', isTeacher ? 'instructor' : 'student');
+                if (isTeacher) enableAnalytics();
+                promptDiv.style.display = 'none';
+                quizDiv.style.display = 'block';
+                roleBadge.textContent = isTeacher ? 'Instructor View' : 'Student View';
+                logEvent('lesson_start', {});
+              } else {
+                alert("Please enter your name.");
+                input.focus();
+              }
+            };
+          };
+        } else {
+          promptDiv.style.display = 'block';
+          quizDiv.style.display = 'none';
+          display.style.display = 'none';
+          input.style.display = 'block';
+          buttons.innerHTML = `
+            <button type="button" class="btn" id="save-first">💾 Save and Start Quiz</button>
+            <div style="margin-top:1rem; font-size:0.9rem;">
+              <label>
+                <input type="checkbox" id="teacher-mode"> 
+                I'm an instructor (analytics auto-enabled to improve lessons)
+              </label>
+            </div>
+          `;
+          document.getElementById('save-first').onclick = () => {
+            const name = input.value.trim();
+            if (name) {
+              localStorage.setItem('student_name', name);
+              const isTeacher = document.getElementById('teacher-mode').checked;
+              localStorage.setItem('user_role', isTeacher ? 'instructor' : 'student');
+              if (isTeacher) enableAnalytics();
+              promptDiv.style.display = 'none';
+              quizDiv.style.display = 'block';
+              roleBadge.textContent = isTeacher ? 'Instructor View' : 'Student View';
+              logEvent('lesson_start', {});
+            } else {
+              alert("Please enter your name.");
+              input.focus();
+            }
+          };
+        }
+      }
+
+      function init() {
+        renderContent();
+        renderNavigation();
+        renderQuiz();
+        setupQuizListeners();
+        initNamePrompt();
+      }
+
+      document.addEventListener('DOMContentLoaded', () => {
+        document.getElementById('send-analytics').onclick = (e) => {
+          e.preventDefault();
+          if (confirm('Send anonymous usage data to help improve Mini OpenStax?')) {
+            sendAnalyticsEvents();
+          }
+        };
+      });
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+      } else {
+        init();
+      }
+    })();
+  </script>
+</body>
+</html>
