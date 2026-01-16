@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Mini OpenStax: Describe the importance of the water cycle in nature">
+  <title>Mini OpenStax — Describe the importance of the water cycle in nature</title>
+  <style>
+    :root {
+      --green: #006b3d;
+      --gold: #cead00;
+      --light: #f9f9f9;
+      --dark: #2d2d2d;
+    }
+    body { 
+      font-family: 'Segoe UI', system-ui, sans-serif; 
+      margin: 0; 
+      padding: 0; 
+      background: #fff; 
+      color: var(--dark); 
+      line-height: 1.6;
+    }
+    .container { 
+      max-width: 800px; 
+      margin: 0 auto; 
+      padding: 1rem; 
+    }
+    .header { 
+      display: flex; 
+      justify-content: space-between; 
+      align-items: center; 
+      margin-bottom: 1rem; 
+      flex-wrap: wrap; 
+      gap: 0.5rem; 
+    }
+    .role-badge { 
+      background: #e9ecef; 
+      padding: 0.25rem 0.5rem; 
+      border-radius: 4px; 
+      font-size: 0.85rem; 
+    }
+    .chapter-nav { 
+      margin: 1.2rem 0; 
+      display: flex; 
+      flex-wrap: wrap; 
+      gap: 0.4rem; 
+      justify-content: center; 
+    }
+    .chapter-btn {
+      padding: 0.4rem 0.8rem; 
+      background: var(--green); 
+      color: white; 
+      text-decoration: none; 
+      border-radius: 4px; 
+      font-size: 0.9rem;
+    }
+    .chapter-btn.active, .chapter-btn:hover { 
+      background: #00502e; 
+    }
+    .section { 
+      margin-bottom: 1.5rem; 
+      padding-bottom: 1rem;
+      border-bottom: 1px solid #eee;
+    }
+    .word-list { 
+      display: flex; 
+      flex-wrap: wrap; 
+      gap: 0.5rem; 
+      margin: 0.5rem 0; 
+    }
+    .word-item { 
+      background: var(--light); 
+      padding: 0.25rem 0.5rem; 
+      border-radius: 4px; 
+      font-family: monospace; 
+      font-size: 0.95rem;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 0.5rem;
+      text-align: left;
+    }
+    th {
+      background-color: #f0f7f4;
+    }
+    .checkpoint, .thought-experiment {
+      background: #f8f9fa;
+      padding: 1rem;
+      border-left: 4px solid var(--gold);
+      margin: 1.5rem 0;
+    }
+    .quiz { 
+      margin-top: 2rem; 
+    }
+    .question { 
+      margin-bottom: 1.2rem; 
+    }
+    .options { 
+      margin-left: 1rem; 
+    }
+    .option { 
+      margin: 0.4rem 0; 
+    }
+    .btn {
+      background: var(--green); 
+      color: white; 
+      border: none; 
+      padding: 0.5rem 1rem;
+      border-radius: 4px; 
+      cursor: pointer; 
+      font-size: 1rem; 
+      margin-right: 0.5rem;
+      display: inline-block;
+    }
+    .btn:hover { 
+      background: #00502e; 
+    }
+    .btn-secondary { 
+      background: #6c757d; 
+    }
+    .btn-secondary:hover { 
+      background: #5a6268; 
+    }
+    .feedback { 
+      margin-top: 1.5rem; 
+      padding: 1rem; 
+      background: var(--light); 
+      border-left: 4px solid var(--green); 
+    }
+    footer { 
+      text-align: center; 
+      margin-top: 2rem; 
+      font-size: 0.9rem; 
+      padding-top: 1.5rem;
+      border-top: 1px solid #eee;
+    }
+    a { 
+      color: var(--green); 
+      text-decoration: none; 
+    }
+    a:hover { 
+      text-decoration: underline; 
+    }
+    blockquote {
+      margin: 1rem 0;
+      padding-left: 1rem;
+      border-left: 3px solid var(--green);
+      color: #555;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div>
+        <h1 id="chapter-title">Describe the importance of the water cycle in nature</h1>
+        <div class="lo-tags" id="lo-tags">B7/JHS1.2.1.1.2</div>
+      </div>
+      <div class="role-badge">Student View</div>
+    </div>
+
+    <nav class="chapter-nav" id="chapter-nav"></nav>
+
+    <main id="main-content">
+      <!-- === REPLACE THIS SECTION PER LESSON === -->
+      <div class="section">
+        <h2>🎯 What You’ll Learn</h2>
+        <ul id="objectives">
+          <li>Explain how the water cycle provides clean water, regulates weather, and supports ecosystems.</li>
+          <li>Describe five key roles of the water cycle: energy transfer, nutrient transport, groundwater recharge, weather regulation, and clean water supply.</li>
+          <li>Illustrate with a diagram how the water cycle benefits your community.</li>
+          <li>Reflect on actions to protect this vital natural process.</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2>🔤 Important Words</h2>
+        <p id="word-list-desc">Key terms for this lesson:</p>
+        <div class="word-list" id="word-list">
+          <span class="word-item">Water cycle</span>
+          <span class="word-item">Groundwater</span>
+          <span class="word-item">Nutrient</span>
+          <span class="word-item">Weather pattern</span>
+          <span class="word-item">Ecosystem</span>
+          <span class="word-item">Recharge</span>
+          <span class="word-item">Evaporation</span>
+          <span class="word-item">Precipitation</span>
+        </div>
+      </div>
+
+      <div class="section" id="lesson-content">
+        <h2>📘 Why the Water Cycle Matters</h2>
+        <p>The water cycle isn’t just about rain—it’s a life-support system for the entire planet. Without it, there would be no clean water, stable climate, or food production.</p>
+
+        <h3>💧 Five Key Roles of the Water Cycle</h3>
+        <ol>
+          <li><strong>Provides clean water</strong>: Rain refills rivers, lakes, and wells used for drinking and farming.</li>
+          <li><strong>Regulates weather patterns</strong>: Evaporation and condensation drive wind, rain, and temperature balance.</li>
+          <li><strong>Recharges groundwater</strong>: Rain soaks into the soil, refilling underground water tables (e.g., boreholes in Ghana).</li>
+          <li><strong>Transports nutrients</strong>: Water carries minerals from soil to plants and oceans, supporting food chains.</li>
+          <li><strong>Releases energy</strong>: When water vapour condenses into clouds, it releases heat—warming the atmosphere and influencing climate.</li>
+        </ol>
+
+        <blockquote>
+          💭 <strong>Thought Experiment</strong>: If deforestation increases in your region, how might this disrupt the water cycle and affect local farmers?
+        </blockquote>
+
+        <h3>🎨 Exemplar Activity: Community Diagram</h3>
+        <p>Draw a simple map of your village or town showing:</p>
+        <ul>
+          <li>Rain falling on farms → crops grow</li>
+          <li>Rain soaking into ground → fills wells/boreholes</li>
+          <li>Rivers flowing to Lake Volta</li>
+          <li>Plants releasing water vapour (transpiration)</li>
+        </ul>
+        <p>Label how the water cycle supports life in each part.</p>
+
+        <h3>🌱 Real-Life Impact in Ghana</h3>
+        <ul>
+          <li><strong>Farming</strong>: Rainy season = planting time; dry season = reliance on groundwater.</li>
+          <li><strong>Water supply</strong>: Communities depend on rain-fed reservoirs and aquifers.</li>
+          <li><strong>Climate stability</strong>: Disrupted cycles lead to floods or droughts—both harmful to livelihoods.</li>
+        </ul>
+
+        <h3>🛡️ Protecting the Water Cycle</h3>
+        <ul>
+          <li>Plant trees to reduce runoff and increase infiltration.</li>
+          <li>Avoid polluting rivers and lakes.</li>
+          <li>Conserve water at home and school.</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2>✅ Check Your Understanding</h2>
+        <div class="checkpoint" id="checkpoint-questions">
+          <ol>
+            <li>Name three ways the water cycle supports human life in Ghana.</li>
+            <li>How does the water cycle help recharge groundwater?</li>
+            <li>Why is transpiration important for weather and farming?</li>
+            <li>Draw a simple diagram showing how rain benefits your community.</li>
+          </ol>
+          <p><em>Confirm your understanding before moving on.</em></p>
+        </div>
+      </div>
+
+      <div class="section" id="next-preview">
+        <h3>🔜 Coming Up</h3>
+        <p>In the next unit, we’ll explore rocks and minerals—how they form, their uses, and why they matter to Ghana’s economy and environment.</p>
+      </div>
+      <!-- === END REPLACE SECTION === -->
+
+      <div id="student-name-prompt" class="section" style="display:none;">
+        <h2>👤 Your Name</h2>
+        <div id="name-display"></div>
+        <input type="text" id="student-name" placeholder="Enter your name" maxlength="30"
+          style="padding:0.5rem;font-size:1rem;width:100%;margin:0.5rem 0;display:none;">
+        <div id="name-buttons"></div>
+      </div>
+
+      <div class="quiz" id="quiz-container" style="display:none;">
+        <h2>📝 Quick Check (20 Questions)</h2>
+        <p>Select the best answer for each question.</p>
+        <form id="quiz-form"></form>
+        <button type="button" class="btn" id="submit-quiz">Check Answers</button>
+      </div>
+
+      <div id="feedback"></div>
+
+      <!-- FOOTER -->
+      <footer>
+        <a href="../premium.html" style="display:block; margin-bottom:0.5rem;">✨ Unlock Premium Features</a>
+        <a href="#" id="send-analytics" style="color:#6c757d;">📤 Send Anonymous Usage Data</a>
+        <br>
+        <a href="../dashboard.html">📊 View Dashboard</a>
+      </footer>
+    </main>
+  </div>
+
+  <script>
+    (function () {
+      'use strict';
+      window.startTime = Date.now();
+
+      function createSeededRNG(seed) {
+        let state = Math.abs((seed * 9301 + 49297) % 233280);
+        return () => {
+          state = (state * 9301 + 49297) % 233280;
+          return state / 233280;
+        };
+      }
+
+      function shuffleWithSeed(array, seed) {
+        const rng = createSeededRNG(seed);
+        const arr = [...array];
+        for (let i = arr.length - 1; i > 0; i--) {
+          const j = Math.floor(rng() * (i + 1));
+          [arr[i], arr[j]] = [arr[j], arr[i]];
+        }
+        return arr;
+      }
+
+      const currentChapter = 7;
+      const MAX_CHAPTER = 300;
+      const WHATSAPP_NUMBER = "233257320201";
+
+      const ANALYTICS_KEY = 'miniopenstax_analytics_consent';
+      const EVENTS_KEY = 'miniopenstax_events';
+
+      function isAnalyticsEnabled() {
+        return localStorage.getItem(ANALYTICS_KEY) === '1';
+      }
+
+      function logEvent(eventType, data = {}) {
+        if (!isAnalyticsEnabled()) return;
+        const event = { type: eventType, timestamp: Date.now(), lesson: currentChapter, data };
+        const events = JSON.parse(localStorage.getItem(EVENTS_KEY) || '[]');
+        events.push(event);
+        localStorage.setItem(EVENTS_KEY, JSON.stringify(events));
+        if (events.length >= 20) sendAnalyticsEvents();
+      }
+
+      function enableAnalytics() {
+        localStorage.setItem(ANALYTICS_KEY, '1');
+      }
+
+      function sendAnalyticsEvents() {
+        const events = JSON.parse(localStorage.getItem(EVENTS_KEY) || '[]');
+        if (events.length === 0) return;
+        const summary = {
+          lessons_attempted: [...new Set(events.map(e => e.lesson))].length,
+          quizzes_submitted: events.filter(e => e.type === 'quiz_submitted').length,
+          mastery_count: events.filter(e => e.type === 'mastery_achieved').length,
+          first_event: new Date(events[0].timestamp).toISOString().split('T')[0],
+          last_event: new Date(events[events.length - 1].timestamp).toISOString().split('T')[0]
+        };
+        const report = `*Mini OpenStax — Anonymous Usage Report*\n` +
+          `Lessons Tried: ${summary.lessons_attempted}\n` +
+          `Quizzes Taken: ${summary.quizzes_submitted}\n` +
+          `Mastery Achieved: ${summary.mastery_count}\n` +
+          `Period: ${summary.first_event} to ${summary.last_event}\n\n` +
+          `Thank you for helping improve literacy tools!`;
+        localStorage.removeItem(EVENTS_KEY);
+        const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(report)}`;
+        window.open(url, '_blank');
+      }
+
+      const CHAPTER_CONFIG = {
+        title: "Describe the importance of the water cycle in nature",
+        loTags: ["B7/JHS1.2.1.1.2"],
+        objectives: [
+          "Explain how the water cycle provides clean water, regulates weather, and supports ecosystems.",
+          "Describe five key roles of the water cycle: energy transfer, nutrient transport, groundwater recharge, weather regulation, and clean water supply.",
+          "Illustrate with a diagram how the water cycle benefits your community.",
+          "Reflect on actions to protect this vital natural process."
+        ],
+        words: [
+          "Water cycle", "Groundwater", "Nutrient", "Weather pattern",
+          "Ecosystem", "Recharge", "Evaporation", "Precipitation"
+        ],
+        wordListDesc: "Key terms for this lesson:",
+        checkpointQuestions: `
+          <ol>
+            <li>Name three ways the water cycle supports human life in Ghana.</li>
+            <li>How does the water cycle help recharge groundwater?</li>
+            <li>Why is transpiration important for weather and farming?</li>
+            <li>Draw a simple diagram showing how rain benefits your community.</li>
+          </ol>
+          <p><em>Confirm your understanding before moving on.</em></p>
+        `,
+        nextPreview: "In the next unit, we’ll explore rocks and minerals—how they form, their uses, and why they matter to Ghana’s economy and environment.",
+        assessmentItems: [
+          { id: "1", prompt: "How does the water cycle provide clean water for communities?", options: [
+            {id:"a",text:"By creating plastic bottles",is_correct:false},
+            {id:"b",text:"By refilling rivers, lakes, and wells through precipitation",is_correct:true},
+            {id:"c",text:"By removing all pollution",is_correct:false},
+            {id:"d",text:"By turning seawater into oil",is_correct:false}
+          ]},
+          { id: "2", prompt: "What happens when rain soaks into the ground?", options: [
+            {id:"a",text:"It recharges groundwater (water table)",is_correct:true},
+            {id:"b",text:"It disappears forever",is_correct:false},
+            {id:"c",text:"It causes earthquakes",is_correct:false},
+            {id:"d",text:"It turns into gas instantly",is_correct:false}
+          ]},
+          { id: "3", prompt: "How does the water cycle regulate weather?", options: [
+            {id:"a",text:"By controlling cloud formation, rain, and temperature",is_correct:true},
+            {id:"b",text:"By stopping all wind",is_correct:false},
+            {id:"c",text:"By making the sun cooler",is_correct:false},
+            {id:"d",text:"By eliminating seasons",is_correct:false}
+          ]},
+          { id: "4", prompt: "Why is nutrient transport important in the water cycle?", options: [
+            {id:"a",text:"It helps plants and animals get essential minerals",is_correct:true},
+            {id:"b",text:"It makes water salty",is_correct:false},
+            {id:"c",text:"It removes oxygen from air",is_correct:false},
+            {id:"d",text:"It creates rocks",is_correct:false}
+          ]},
+          { id: "5", prompt: "What role does evaporation play in energy transfer?", options: [
+            {id:"a",text:"It absorbs heat from the sun",is_correct:true},
+            {id:"b",text:"It cools the ocean permanently",is_correct:false},
+            {id:"c",text:"It stops photosynthesis",is_correct:false},
+            {id:"d",text:"It freezes rivers",is_correct:false}
+          ]},
+          { id: "6", prompt: "How does condensation release energy?", options: [
+            {id:"a",text:"It absorbs cold air",is_correct:false},
+            {id:"b",text:"It releases heat into the atmosphere",is_correct:true},
+            {id:"c",text:"It destroys clouds",is_correct:false},
+            {id:"d",text:"It creates lightning only",is_correct:false}
+          ]},
+          { id: "7", prompt: "Why is the water cycle vital for Ghanaian farmers?", options: [
+            {id:"a",text:"It brings seasonal rain needed for crops",is_correct:true},
+            {id:"b",text:"It replaces tractors",is_correct:false},
+            {id:"c",text:"It removes all pests",is_correct:false},
+            {id:"d",text:"It only matters in cities",is_correct:false}
+          ]},
+          { id: "8", prompt: "What is 'groundwater recharge'?", options: [
+            {id:"a",text:"Polluting underground water",is_correct:false},
+            {id:"b",text:"Refilling underground water stores with rain",is_correct:true},
+            {id:"c",text:"Drilling deeper wells only",is_correct:false},
+            {id:"d",text:"Removing water from aquifers",is_correct:false}
+          ]},
+          { id: "9", prompt: "Which human activity can disrupt the water cycle?", options: [
+            {id:"a",text:"Planting trees",is_correct:false},
+            {id:"b",text:"Deforestation",is_correct:true},
+            {id:"c",text:"Using boreholes responsibly",is_correct:false},
+            {id:"d",text:"Collecting rainwater",is_correct:false}
+          ]},
+          { id: "10", prompt: "How does the water cycle support ecosystems?", options: [
+            {id:"a",text:"By providing water for plants, animals, and habitats",is_correct:true},
+            {id:"b",text:"By eliminating all predators",is_correct:false},
+            {id:"c",text:"By drying up wetlands",is_correct:false},
+            {id:"d",text:"By increasing desert size",is_correct:false}
+          ]},
+          { id: "11", prompt: "What is one way to protect the water cycle?", options: [
+            {id:"a",text:"Dump waste into rivers",is_correct:false},
+            {id:"b",text:"Plant trees to reduce runoff",is_correct:true},
+            {id:"c",text:"Burn plastic openly",is_correct:false},
+            {id:"d",text:"Overuse boreholes",is_correct:false}
+          ]},
+          { id: "12", prompt: "Why is clean water from the water cycle essential?", options: [
+            {id:"a",text:"For drinking, cooking, cleaning, and health",is_correct:true},
+            {id:"b",text:"Only for washing cars",is_correct:false},
+            {id:"c",text:"To fill swimming pools",is_correct:false},
+            {id:"d",text:"To cool electronics",is_correct:false}
+          ]},
+          { id: "13", prompt: "What happens if the water cycle is disrupted by climate change?", options: [
+            {id:"a",text:"More predictable rainfall",is_correct:false},
+            {id:"b",text:"Extreme floods or droughts",is_correct:true},
+            {id:"c",text:"No effect on farming",is_correct:false},
+            {id:"d",text:"Oceans disappear",is_correct:false}
+          ]},
+          { id: "14", prompt: "Which competency is developed when you draw a community water cycle diagram?", options: [
+            {id:"a",text:"Creativity and Innovation",is_correct:true},
+            {id:"b",text:"Musical talent",is_correct:false},
+            {id:"c",text:"Athletic ability",is_correct:false},
+            {id:"d",text:"Cooking skill",is_correct:false}
+          ]},
+          { id: "15", prompt: "How does transpiration contribute to the water cycle?", options: [
+            {id:"a",text:"Plants release water vapour, adding moisture to air",is_correct:true},
+            {id:"b",text:"Plants absorb all rainwater",is_correct:false},
+            {id:"c",text:"Plants block sunlight",is_correct:false},
+            {id:"d",text:"Plants create soil",is_correct:false}
+          ]},
+          { id: "16", prompt: "What is the main source of energy that drives the water cycle?", options: [
+            {id:"a",text:"Wind",is_correct:false},
+            {id:"b",text:"The Sun",is_correct:true},
+            {id:"c",text:"Moon",is_correct:false},
+            {id:"d",text:"Earth's core",is_correct:false}
+          ]},
+          { id: "17", prompt: "Why is groundwater important in rural Ghana?", options: [
+            {id:"a",text:"It provides water during dry seasons via boreholes",is_correct:true},
+            {id:"b",text:"It is only for irrigation",is_correct:false},
+            {id:"c",text:"It cannot be used for drinking",is_correct:false},
+            {id:"d",text:"It is always polluted",is_correct:false}
+          ]},
+          { id: "18", prompt: "Which statement best describes the water cycle’s role in nature?", options: [
+            {id:"a",text:"It is a closed loop that sustains all life on Earth",is_correct:true},
+            {id:"b",text:"It only affects oceans",is_correct:false},
+            {id:"c",text:"It stops during winter",is_correct:false},
+            {id:"d",text:"It is controlled by humans",is_correct:false}
+          ]},
+          { id: "19", prompt: "How can students learn about the water cycle’s importance?", options: [
+            {id:"a",text:"By watching videos, reading, and observing local weather",is_correct:true},
+            {id:"b",text:"By ignoring rain",is_correct:false},
+            {id:"c",text:"By staying indoors always",is_correct:false},
+            {id:"d",text:"By avoiding science",is_correct:false}
+          ]},
+          { id: "20", prompt: "What conclusion can you draw about the water cycle?", options: [
+            {id:"a",text:"It is essential for clean water, food, climate, and life",is_correct:true},
+            {id:"b",text:"It is unimportant in modern times",is_correct:false},
+            {id:"c",text:"It only matters in deserts",is_correct:false},
+            {id:"d",text:"It harms the environment",is_correct:false}
+          ]}
+        ]
+      };
+
+      function renderContent() {
+        document.getElementById('chapter-title').textContent = CHAPTER_CONFIG.title;
+        document.getElementById('lo-tags').textContent = CHAPTER_CONFIG.loTags[0];
+
+        document.getElementById('objectives').innerHTML =
+          CHAPTER_CONFIG.objectives.map(obj => `<li>${obj}</li>`).join('');
+
+        document.getElementById('word-list-desc').textContent = CHAPTER_CONFIG.wordListDesc;
+        document.getElementById('word-list').innerHTML =
+          CHAPTER_CONFIG.words.map(w => `<span class="word-item">${w}</span>`).join('');
+
+        document.getElementById('checkpoint-questions').innerHTML = CHAPTER_CONFIG.checkpointQuestions;
+
+        document.getElementById('next-preview').innerHTML = `
+          <h3>🔜 Coming Up</h3>
+          <p>${CHAPTER_CONFIG.nextPreview}</p>
+        `;
+      }
+
+      function renderNavigation() {
+        const nav = document.getElementById('chapter-nav');
+        const buttons = [{ label: "Home", url: "../index.html", active: false }];
+        for (let i = 0; i < 4; i++) {
+          const c = currentChapter + i;
+          const lessonNum = c + 1;
+          if (c > MAX_CHAPTER) break;
+          buttons.push({
+            label: `Lesson ${lessonNum}`,
+            url: `chapter-${c}.html`,
+            active: i === 0
+          });
+        }
+        nav.innerHTML = buttons.map(b =>
+          `<a href="${b.url}" class="chapter-btn ${b.active ? 'active' : ''}">${b.label}</a>`
+        ).join('');
+      }
+
+      function renderQuiz() {
+        const form = document.getElementById('quiz-form');
+        window.quizCorrectMap = {};
+        const baseSeed = currentChapter * 1000000 + (Date.now() % 1000000);
+
+        form.innerHTML = CHAPTER_CONFIG.assessmentItems.map(q => {
+          const seed = baseSeed + parseInt(q.id, 10);
+          const shuffledOpts = shuffleWithSeed([...q.options], seed);
+          const correct = q.options.find(o => o.is_correct);
+          window.quizCorrectMap[q.id] = correct.id;
+
+          const optHtml = shuffledOpts.map((opt, idx) => {
+            const letter = String.fromCharCode(65 + idx);
+            return `<div class="option"><label><input type="radio" name="q${q.id}" value="${opt.id}" required> ${letter}. ${opt.text}</label></div>`;
+          }).join('');
+
+          return `<div class="question"><strong>${q.id}. ${q.prompt}</strong><div class="options">${optHtml}</div></div>`;
+        }).join('');
+      }
+
+      function showFeedback(answers) {
+        const items = CHAPTER_CONFIG.assessmentItems;
+        let correctCount = 0, correctList = [], incorrectList = [];
+
+        items.forEach((item, i) => {
+          const ans = answers[i];
+          const correctId = window.quizCorrectMap[item.id];
+          const correctOpt = item.options.find(o => o.id === correctId);
+          const isCorrect = ans === correctId;
+          if (isCorrect) {
+            correctCount++;
+            correctList.push(`${item.id}. ${item.prompt} → ✅ ${correctOpt.text}`);
+          } else {
+            incorrectList.push(`${item.id}. ${item.prompt} → ❌ Your answer: ${item.options.find(o => o.id === ans)?.text || '—'} | ✅ ${correctOpt.text}`);
+          }
+        });
+
+        const score = correctCount, total = 20, mastery = score >= 15;
+        const timeOnTask = Math.floor((Date.now() - window.startTime) / 1000);
+        const attempts = (parseInt(localStorage.getItem(`quiz_attempts_${currentChapter}`)) || 0) + 1;
+        localStorage.setItem(`quiz_attempts_${currentChapter}`, attempts);
+        localStorage.setItem(`mastery_${currentChapter}`, mastery ? '1' : '0');
+        const studentName = localStorage.getItem('student_name') || '[Name]';
+
+        logEvent('quiz_submitted', { score, time_sec: timeOnTask, mastery, attempts });
+        if (mastery) logEvent('mastery_achieved', {});
+
+        let report = `*Mini OpenStax — ${CHAPTER_CONFIG.title}*\nStudent: ${studentName}\nScore: ${score}/${total} (${Math.round(score/total*100)}%) — ${mastery ? '✅ MASTERED' : '❌ Needs Review'}\nTime: ${timeOnTask}s | Attempts: ${attempts}\n\n`;
+        if (correctList.length) report += `✅ CORRECT (${correctList.length}):\n${correctList.join('\n')}\n\n`;
+        if (incorrectList.length) report += `❌ INCORRECT (${incorrectList.length}):\n${incorrectList.join('\n')}\n\n`;
+        report += `Report generated via Mini OpenStax.`;
+
+        localStorage.setItem(`saved_report_${currentChapter}_${Date.now()}`, report);
+
+        const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(report)}`;
+        document.getElementById('feedback').innerHTML = `
+          <div class="feedback">
+            <h3>📊 Results: ${score}/${total}</h3>
+            <p><strong>${mastery ? '🎉 Excellent!' : score >= 10 ? 'Good!' : 'Keep practicing.'}</strong> ${
+              mastery ? 'You’ve mastered the concept!' :
+              score >= 10 ? 'Review missed items.' : 'Practice this lesson again.'
+            }</p>
+            <p><strong>Time:</strong> ${timeOnTask}s | <strong>Attempts:</strong> ${attempts}</p>
+            <a href="${url}" target="_blank" class="btn" style="background:#25D366;text-decoration:none;">
+              📲 Send Report via WhatsApp
+            </a>
+          </div>
+        `;
+      }
+
+      function setupQuizListeners() {
+        document.getElementById('submit-quiz').addEventListener('click', () => {
+          const form = document.getElementById('quiz-form');
+          const answers = [];
+          for (let i = 1; i <= 20; i++) {
+            const el = form.querySelector(`input[name="q${i}"]:checked`);
+            answers.push(el ? el.value : null);
+          }
+          if (answers.includes(null)) {
+            alert("Please answer all questions.");
+            return;
+          }
+          showFeedback(answers);
+        });
+      }
+
+      function initNamePrompt() {
+        const saved = localStorage.getItem('student_name');
+        const savedRole = localStorage.getItem('user_role') || 'student';
+        const promptDiv = document.getElementById('student-name-prompt');
+        const quizDiv = document.getElementById('quiz-container');
+        const display = document.getElementById('name-display');
+        const input = document.getElementById('student-name');
+        const buttons = document.getElementById('name-buttons');
+        const roleBadge = document.querySelector('.role-badge');
+        roleBadge.textContent = savedRole === 'instructor' ? 'Instructor View' : 'Student View';
+
+        if (saved) {
+          promptDiv.style.display = 'block';
+          quizDiv.style.display = 'none';
+          display.innerHTML = `<p><strong>Current name:</strong> ${saved} (${savedRole})</p>`;
+          buttons.innerHTML = `
+            <button type="button" class="btn" id="keep-btn">✅ Keep This Name</button>
+            <button type="button" class="btn btn-secondary" id="change-btn">✏️ Use a Different Name</button>
+          `;
+          document.getElementById('keep-btn').onclick = () => {
+            promptDiv.style.display = 'none';
+            quizDiv.style.display = 'block';
+            logEvent('lesson_start', {});
+          };
+          document.getElementById('change-btn').onclick = () => {
+            display.style.display = 'none';
+            input.style.display = 'block';
+            buttons.innerHTML = `
+              <button type="button" class="btn" id="save-new">💾 Save and Start Quiz</button>
+              <div style="margin-top:1rem; font-size:0.9rem;">
+                <label>
+                  <input type="checkbox" id="teacher-mode"> 
+                  I'm an instructor (analytics auto-enabled to improve lessons)
+                </label>
+              </div>
+            `;
+            input.value = '';
+            input.focus();
+            document.getElementById('save-new').onclick = () => {
+              const name = input.value.trim();
+              if (name) {
+                localStorage.setItem('student_name', name);
+                const isTeacher = document.getElementById('teacher-mode').checked;
+                localStorage.setItem('user_role', isTeacher ? 'instructor' : 'student');
+                if (isTeacher) enableAnalytics();
+                promptDiv.style.display = 'none';
+                quizDiv.style.display = 'block';
+                roleBadge.textContent = isTeacher ? 'Instructor View' : 'Student View';
+                logEvent('lesson_start', {});
+              } else {
+                alert("Please enter your name.");
+                input.focus();
+              }
+            };
+          };
+        } else {
+          promptDiv.style.display = 'block';
+          quizDiv.style.display = 'none';
+          display.style.display = 'none';
+          input.style.display = 'block';
+          buttons.innerHTML = `
+            <button type="button" class="btn" id="save-first">💾 Save and Start Quiz</button>
+            <div style="margin-top:1rem; font-size:0.9rem;">
+              <label>
+                <input type="checkbox" id="teacher-mode"> 
+                I'm an instructor (analytics auto-enabled to improve lessons)
+              </label>
+            </div>
+          `;
+          document.getElementById('save-first').onclick = () => {
+            const name = input.value.trim();
+            if (name) {
+              localStorage.setItem('student_name', name);
+              const isTeacher = document.getElementById('teacher-mode').checked;
+              localStorage.setItem('user_role', isTeacher ? 'instructor' : 'student');
+              if (isTeacher) enableAnalytics();
+              promptDiv.style.display = 'none';
+              quizDiv.style.display = 'block';
+              roleBadge.textContent = isTeacher ? 'Instructor View' : 'Student View';
+              logEvent('lesson_start', {});
+            } else {
+              alert("Please enter your name.");
+              input.focus();
+            }
+          };
+        }
+      }
+
+      function init() {
+        renderContent();
+        renderNavigation();
+        renderQuiz();
+        setupQuizListeners();
+        initNamePrompt();
+      }
+
+      document.addEventListener('DOMContentLoaded', () => {
+        document.getElementById('send-analytics').onclick = (e) => {
+          e.preventDefault();
+          if (confirm('Send anonymous usage data to help improve Mini OpenStax?')) {
+            sendAnalyticsEvents();
+          }
+        };
+      });
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+      } else {
+        init();
+      }
+    })();
+  </script>
+</body>
+</html>
