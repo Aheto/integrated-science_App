@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Mini OpenStax: Discuss the domestic and commercial uses of animals">
+  <title>Mini OpenStax — Discuss the domestic and commercial uses of animals</title>
+  <style>
+    :root {
+      --green: #006b3d;
+      --gold: #cead00;
+      --light: #f9f9f9;
+      --dark: #2d2d2d;
+    }
+    body { 
+      font-family: 'Segoe UI', system-ui, sans-serif; 
+      margin: 0; 
+      padding: 0; 
+      background: #fff; 
+      color: var(--dark); 
+      line-height: 1.6;
+    }
+    .container { 
+      max-width: 800px; 
+      margin: 0 auto; 
+      padding: 1rem; 
+    }
+    .header { 
+      display: flex; 
+      justify-content: space-between; 
+      align-items: center; 
+      margin-bottom: 1rem; 
+      flex-wrap: wrap; 
+      gap: 0.5rem; 
+    }
+    .role-badge { 
+      background: #e9ecef; 
+      padding: 0.25rem 0.5rem; 
+      border-radius: 4px; 
+      font-size: 0.85rem; 
+    }
+    .chapter-nav { 
+      margin: 1.2rem 0; 
+      display: flex; 
+      flex-wrap: wrap; 
+      gap: 0.4rem; 
+      justify-content: center; 
+    }
+    .chapter-btn {
+      padding: 0.4rem 0.8rem; 
+      background: var(--green); 
+      color: white; 
+      text-decoration: none; 
+      border-radius: 4px; 
+      font-size: 0.9rem;
+    }
+    .chapter-btn.active, .chapter-btn:hover { 
+      background: #00502e; 
+    }
+    .section { 
+      margin-bottom: 1.5rem; 
+      padding-bottom: 1rem;
+      border-bottom: 1px solid #eee;
+    }
+    .word-list { 
+      display: flex; 
+      flex-wrap: wrap; 
+      gap: 0.5rem; 
+      margin: 0.5rem 0; 
+    }
+    .word-item { 
+      background: var(--light); 
+      padding: 0.25rem 0.5rem; 
+      border-radius: 4px; 
+      font-family: monospace; 
+      font-size: 0.95rem;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 0.5rem;
+      text-align: left;
+    }
+    th {
+      background-color: #f0f7f4;
+    }
+    .checkpoint, .thought-experiment {
+      background: #f8f9fa;
+      padding: 1rem;
+      border-left: 4px solid var(--gold);
+      margin: 1.5rem 0;
+    }
+    .quiz { 
+      margin-top: 2rem; 
+    }
+    .question { 
+      margin-bottom: 1.2rem; 
+    }
+    .options { 
+      margin-left: 1rem; 
+    }
+    .option { 
+      margin: 0.4rem 0; 
+    }
+    .btn {
+      background: var(--green); 
+      color: white; 
+      border: none; 
+      padding: 0.5rem 1rem;
+      border-radius: 4px; 
+      cursor: pointer; 
+      font-size: 1rem; 
+      margin-right: 0.5rem;
+      display: inline-block;
+    }
+    .btn:hover { 
+      background: #00502e; 
+    }
+    .btn-secondary { 
+      background: #6c757d; 
+    }
+    .btn-secondary:hover { 
+      background: #5a6268; 
+    }
+    .feedback { 
+      margin-top: 1.5rem; 
+      padding: 1rem; 
+      background: var(--light); 
+      border-left: 4px solid var(--green); 
+    }
+    footer { 
+      text-align: center; 
+      margin-top: 2rem; 
+      font-size: 0.9rem; 
+      padding-top: 1.5rem;
+      border-top: 1px solid #eee;
+    }
+    a { 
+      color: var(--green); 
+      text-decoration: none; 
+    }
+    a:hover { 
+      text-decoration: underline; 
+    }
+    blockquote {
+      margin: 1rem 0;
+      padding-left: 1rem;
+      border-left: 3px solid var(--green);
+      color: #555;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div>
+        <h1 id="chapter-title">Discuss the domestic and commercial uses of animals</h1>
+        <div class="lo-tags" id="lo-tags">B7/JHS1.2.4.1.3</div>
+      </div>
+      <div class="role-badge">Student View</div>
+    </div>
+
+    <nav class="chapter-nav" id="chapter-nav"></nav>
+
+    <main id="main-content">
+      <!-- === REPLACE THIS SECTION PER LESSON === -->
+      <div class="section">
+        <h2>🎯 What You’ll Learn</h2>
+        <ul id="objectives">
+          <li>Identify domestic uses of animals: food, manure, security, companionship.</li>
+          <li>Explain commercial uses: meat, eggs, milk, skin, and market sales.</li>
+          <li>Research how animal products support local economies in Ghana (e.g., poultry farming, goat rearing).</li>
+          <li>Create a simple business plan for a small-scale animal enterprise.</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2>🔤 Important Words</h2>
+        <p id="word-list-desc">Key terms for this lesson:</p>
+        <div class="word-list" id="word-list">
+          <span class="word-item">Domestic use</span>
+          <span class="word-item">Commercial use</span>
+          <span class="word-item">Livestock</span>
+          <span class="word-item">Manure</span>
+          <span class="word-item">Poultry</span>
+          <span class="word-item">Enterprise</span>
+          <span class="word-item">By-product</span>
+          <span class="word-item">Income generation</span>
+        </div>
+      </div>
+
+      <div class="section" id="lesson-content">
+        <h2>📘 How Animals Support Life and Livelihoods</h2>
+        <p>Animals are not just pets—they are vital to survival and income in Ghanaian homes and markets. Their uses fall into two categories: <strong>domestic</strong> (for home use) and <strong>commercial</strong> (for sale and profit).</p>
+
+        <h3>🏡 Domestic Uses (For the Home)</h3>
+        <ul>
+          <li><strong>Food</strong>: Eggs (chickens), milk (cattle), meat (goats, sheep)</li>
+          <li><strong>Manure</strong>: Fertilizer for crops (from cattle, poultry, goats)</li>
+          <li><strong>Security</strong>: Dogs guard homes and farms</li>
+          <li><strong>Companionship</strong>: Cats and dogs as pets</li>
+          <li><strong>Work</strong>: Donkeys carry loads; oxen plough fields</li>
+        </ul>
+
+        <h3>💰 Commercial Uses (For Income)</h3>
+        <ul>
+          <li><strong>Meat sales</strong>: Goat, sheep, chicken, and pork at markets</li>
+          <li><strong>Egg production</strong>: Layer chickens supply eggs to shops</li>
+          <li><strong>Milk and dairy</strong>: Sold fresh or processed (yogurt, cheese)</li>
+          <li><strong>Skin and hides</strong>: Used for leather goods (bags, shoes)</li>
+          <li><strong>Live animal trade</strong>: Sold during festivals (Eid, Christmas)</li>
+        </ul>
+
+        <blockquote>
+          💭 <strong>Thought Experiment</strong>: A family raises 20 chickens. They eat 5 eggs per day and sell the rest. If each chicken lays 1 egg/day, how many eggs can they sell daily? How does this support their income?
+        </blockquote>
+
+        <h3>📊 Animal Contributions to Ghana’s Economy</h3>
+        <table>
+          <thead>
+            <tr><th>Animal</th><th>Domestic Use</th><th>Commercial Use</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Chicken</strong></td><td>Eggs, meat, pest control</td><td>Sell eggs, live birds, meat</td></tr>
+            <tr><td><strong>Goat</strong></td><td>Meat, manure</td><td>Festival sales, breeding stock</td></tr>
+            <tr><td><strong>Cattle</strong></td><td>Milk, ploughing, manure</td><td>Beef, dairy products, hides</td></tr>
+            <tr><td><strong>Pig</strong></td><td>Meat</td><td>Pork sales, breeding</td></tr>
+          </tbody>
+        </table>
+
+        <h3>✅ Exemplar Activity: Design a Mini Enterprise</h3>
+        <p>In groups, create a simple plan for a school-based animal project:</p>
+        <ul>
+          <li><strong>Animal</strong>: 10 layer chickens</li>
+          <li><strong>Startup needs</strong>: Coop, feed, waterers</li>
+          <li><strong>Daily output</strong>: ~8–10 eggs</li>
+          <li><strong>Income</strong>: Sell eggs at ¢2 each → ¢16–¢20/day</li>
+          <li><strong>Use of income</strong>: School supplies, feed reinvestment</li>
+        </ul>
+        <p>Present your plan as a poster or short talk!</p>
+      </div>
+
+      <div class="section">
+        <h2>✅ Check Your Understanding</h2>
+        <div class="checkpoint" id="checkpoint-questions">
+          <ol>
+            <li>Name three domestic uses of chickens in a Ghanaian home.</li>
+            <li>How do goats contribute to commercial income?</li>
+            <li>Why is animal manure valuable both at home and in business?</li>
+            <li>Design a mini-enterprise using rabbits or guinea fowl—list startup needs and expected income.</li>
+          </ol>
+          <p><em>Confirm your understanding before moving on.</em></p>
+        </div>
+      </div>
+
+      <div class="section" id="next-preview">
+        <h3>🔜 Coming Up</h3>
+        <p>In Lesson 16, we’ll explore how to care for domestic animals—feeding, housing, health, and hygiene—to keep them productive and healthy.</p>
+      </div>
+      <!-- === END REPLACE SECTION === -->
+
+      <div id="student-name-prompt" class="section" style="display:none;">
+        <h2>👤 Your Name</h2>
+        <div id="name-display"></div>
+        <input type="text" id="student-name" placeholder="Enter your name" maxlength="30"
+          style="padding:0.5rem;font-size:1rem;width:100%;margin:0.5rem 0;display:none;">
+        <div id="name-buttons"></div>
+      </div>
+
+      <div class="quiz" id="quiz-container" style="display:none;">
+        <h2>📝 Quick Check (20 Questions)</h2>
+        <p>Select the best answer for each question.</p>
+        <form id="quiz-form"></form>
+        <button type="button" class="btn" id="submit-quiz">Check Answers</button>
+      </div>
+
+      <div id="feedback"></div>
+
+      <!-- FOOTER -->
+      <footer>
+        <a href="../premium.html" style="display:block; margin-bottom:0.5rem;">✨ Unlock Premium Features</a>
+        <a href="#" id="send-analytics" style="color:#6c757d;">📤 Send Anonymous Usage Data</a>
+        <br>
+        <a href="../dashboard.html">📊 View Dashboard</a>
+      </footer>
+    </main>
+  </div>
+
+  <script>
+    (function () {
+      'use strict';
+      window.startTime = Date.now();
+
+      function createSeededRNG(seed) {
+        let state = Math.abs((seed * 9301 + 49297) % 233280);
+        return () => {
+          state = (state * 9301 + 49297) % 233280;
+          return state / 233280;
+        };
+      }
+
+      function shuffleWithSeed(array, seed) {
+        const rng = createSeededRNG(seed);
+        const arr = [...array];
+        for (let i = arr.length - 1; i > 0; i--) {
+          const j = Math.floor(rng() * (i + 1));
+          [arr[i], arr[j]] = [arr[j], arr[i]];
+        }
+        return arr;
+      }
+
+      const currentChapter = 14;
+      const MAX_CHAPTER = 300;
+      const WHATSAPP_NUMBER = "233257320201";
+
+      const ANALYTICS_KEY = 'miniopenstax_analytics_consent';
+      const EVENTS_KEY = 'miniopenstax_events';
+
+      function isAnalyticsEnabled() {
+        return localStorage.getItem(ANALYTICS_KEY) === '1';
+      }
+
+      function logEvent(eventType, data = {}) {
+        if (!isAnalyticsEnabled()) return;
+        const event = { type: eventType, timestamp: Date.now(), lesson: currentChapter, data };
+        const events = JSON.parse(localStorage.getItem(EVENTS_KEY) || '[]');
+        events.push(event);
+        localStorage.setItem(EVENTS_KEY, JSON.stringify(events));
+        if (events.length >= 20) sendAnalyticsEvents();
+      }
+
+      function enableAnalytics() {
+        localStorage.setItem(ANALYTICS_KEY, '1');
+      }
+
+      function sendAnalyticsEvents() {
+        const events = JSON.parse(localStorage.getItem(EVENTS_KEY) || '[]');
+        if (events.length === 0) return;
+        const summary = {
+          lessons_attempted: [...new Set(events.map(e => e.lesson))].length,
+          quizzes_submitted: events.filter(e => e.type === 'quiz_submitted').length,
+          mastery_count: events.filter(e => e.type === 'mastery_achieved').length,
+          first_event: new Date(events[0].timestamp).toISOString().split('T')[0],
+          last_event: new Date(events[events.length - 1].timestamp).toISOString().split('T')[0]
+        };
+        const report = `*Mini OpenStax — Anonymous Usage Report*\n` +
+          `Lessons Tried: ${summary.lessons_attempted}\n` +
+          `Quizzes Taken: ${summary.quizzes_submitted}\n` +
+          `Mastery Achieved: ${summary.mastery_count}\n` +
+          `Period: ${summary.first_event} to ${summary.last_event}\n\n` +
+          `Thank you for helping improve literacy tools!`;
+        localStorage.removeItem(EVENTS_KEY);
+        const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(report)}`;
+        window.open(url, '_blank');
+      }
+
+      const CHAPTER_CONFIG = {
+        title: "Discuss the domestic and commercial uses of animals",
+        loTags: ["B7/JHS1.2.4.1.3"],
+        objectives: [
+          "Identify domestic uses of animals: food, manure, security, companionship.",
+          "Explain commercial uses: meat, eggs, milk, skin, and market sales.",
+          "Research how animal products support local economies in Ghana (e.g., poultry farming, goat rearing).",
+          "Create a simple business plan for a small-scale animal enterprise."
+        ],
+        words: [
+          "Domestic use", "Commercial use", "Livestock", "Manure",
+          "Poultry", "Enterprise", "By-product", "Income generation"
+        ],
+        wordListDesc: "Key terms for this lesson:",
+        checkpointQuestions: `
+          <ol>
+            <li>Name three domestic uses of chickens in a Ghanaian home.</li>
+            <li>How do goats contribute to commercial income?</li>
+            <li>Why is animal manure valuable both at home and in business?</li>
+            <li>Design a mini-enterprise using rabbits or guinea fowl—list startup needs and expected income.</li>
+          </ol>
+          <p><em>Confirm your understanding before moving on.</em></p>
+        `,
+        nextPreview: "In Lesson 16, we’ll explore how to care for domestic animals—feeding, housing, health, and hygiene—to keep them productive and healthy.",
+        assessmentItems: [
+          { id: "1", prompt: "Which of these is a DOMESTIC use of animals?", options: [
+            {id:"a",text:"Selling meat at market",is_correct:false},
+            {id:"b",text:"Using manure to fertilize home garden",is_correct:true},
+            {id:"c",text:"Exporting hides",is_correct:false},
+            {id:"d",text:"Running a large poultry farm",is_correct:false}
+          ]},
+          { id: "2", prompt: "What is a COMMERCIAL use of chickens?", options: [
+            {id:"a",text:"Keeping as pets",is_correct:false},
+            {id:"b",text:"Selling eggs to neighbors",is_correct:true},
+            {id:"c",text:"Using feathers for pillows at home",is_correct:false},
+            {id:"d",text:"Feeding kitchen scraps",is_correct:false}
+          ]},
+          { id: "3", prompt: "How do goats support income during festivals in Ghana?", options: [
+            {id:"a",text:"They are sold for Eid and Christmas celebrations",is_correct:true},
+            {id:"b",text:"They lay eggs",is_correct:false},
+            {id:"c",text:"They produce milk only for home use",is_correct:false},
+            {id:"d",text:"They guard banks",is_correct:false}
+          ]},
+          { id: "4", prompt: "Why is animal manure valuable?", options: [
+            {id:"a",text:"It improves soil fertility for crops",is_correct:true},
+            {id:"b",text:"It is used as drinking water",is_correct:false},
+            {id:"c",text:"It replaces seeds",is_correct:false},
+            {id:"d",text:"It is only for decoration",is_correct:false}
+          ]},
+          { id: "5", prompt: "Which animal provides leather for bags and shoes?", options: [
+            {id:"a",text:"Chicken",is_correct:false},
+            {id:"b",text:"Cattle (hides)",is_correct:true},
+            {id:"c",text:"Duck",is_correct:false},
+            {id:"d",text:"Rabbit",is_correct:false}
+          ]},
+          { id: "6", prompt: "What is an 'enterprise' in animal farming?", options: [
+            {id:"a",text:"A business that raises animals for profit",is_correct:true},
+            {id:"b",text:"A wild animal reserve",is_correct:false},
+            {id:"c",text:"A cooking recipe",is_correct:false},
+            {id:"d",text:"A type of disease",is_correct:false}
+          ]},
+          { id: "7", prompt: "How do dogs contribute domestically?", options: [
+            {id:"a",text:"Guarding property and alerting to danger",is_correct:true},
+            {id:"b",text:"Laying eggs",is_correct:false},
+            {id:"c",text:"Producing milk",is_correct:false},
+            {id:"d",text:"Flying messages",is_correct:false}
+          ]},
+          { id: "8", prompt: "Which core competency is developed when designing a mini-enterprise?", options: [
+            {id:"a",text:"Creativity, Innovation, and Entrepreneurship",is_correct:true},
+            {id:"b",text:"Musical talent",is_correct:false},
+            {id:"c",text:"Athletic ability",is_correct:false},
+            {id:"d",text:"Cooking skill",is_correct:false}
+          ]},
+          { id: "9", prompt: "What is a 'by-product' of poultry farming?", options: [
+            {id:"a",text:"Feathers (used for pillows or crafts)",is_correct:true},
+            {id:"b",text:"Milk",is_correct:false},
+            {id:"c",text:"Wool",is_correct:false},
+            {id:"d",text:"Honey",is_correct:false}
+          ]},
+          { id: "10", prompt: "Why is small-scale animal farming important in rural Ghana?", options: [
+            {id:"a",text:"It provides food security and extra income for families",is_correct:true},
+            {id:"b",text:"It replaces schools",is_correct:false},
+            {id:"c",text:"It eliminates all poverty instantly",is_correct:false},
+            {id:"d",text:"It is only for entertainment",is_correct:false}
+          ]},
+          { id: "11", prompt: "Which animal is commonly raised for egg production?", options: [
+            {id:"a",text:"Layer chickens",is_correct:true},
+            {id:"b",text:"Goats",is_correct:false},
+            {id:"c",text:"Sheep",is_correct:false},
+            {id:"d",text:"Cattle",is_correct:false}
+          ]},
+          { id: "12", prompt: "How can students apply this knowledge practically?", options: [
+            {id:"a",text:"By starting a school poultry or rabbit project",is_correct:true},
+            {id:"b",text:"By memorising definitions only",is_correct:false},
+            {id:"c",text:"By ignoring farming",is_correct:false},
+            {id:"d",text:"By watching TV",is_correct:false}
+          ]},
+          { id: "13", prompt: "What role does livestock play in Ghana’s economy?", options: [
+            {id:"a",text:"Source of protein, income, and employment",is_correct:true},
+            {id:"b",text:"Only for cultural festivals",is_correct:false},
+            {id:"c",text:"No significant role",is_correct:false},
+            {id:"d",text:"Replaces manufacturing",is_correct:false}
+          ]},
+          { id: "14", prompt: "Which statement about commercial use is TRUE?", options: [
+            {id:"a",text:"It involves selling animal products for profit",is_correct:true},
+            {id:"b",text:"It means keeping animals only as pets",is_correct:false},
+            {id:"c",text:"It is illegal in Ghana",is_correct:false},
+            {id:"d",text:"It requires no care",is_correct:false}
+          ]},
+          { id: "15", prompt: "What is 'income generation'?", options: [
+            {id:"a",text:"Creating money through work or sales",is_correct:true},
+            {id:"b",text:"Spending all savings",is_correct:false},
+            {id:"c",text:"Borrowing from banks only",is_correct:false},
+            {id:"d",text:"Giving away free products",is_correct:false}
+          ]},
+          { id: "16", prompt: "Which activity fulfills the curriculum exemplar?", options: [
+            {id:"a",text:"Designing a simple animal-based business plan",is_correct:true},
+            {id:"b",text:"Memorising song lyrics",is_correct:false},
+            {id:"c",text:"Skipping class",is_correct:false},
+            {id:"d",text:"Watching cartoons only",is_correct:false}
+          ]},
+          { id: "17", prompt: "How do pigs contribute commercially?", options: [
+            {id:"a",text:"Pork sales and breeding stock",is_correct:true},
+            {id:"b",text:"Milk production",is_correct:false},
+            {id:"c",text:"Egg laying",is_correct:false},
+            {id:"d",text:"Wool harvesting",is_correct:false}
+          ]},
+          { id: "18", prompt: "Why is manure considered a by-product with value?", options: [
+            {id:"a",text:"It reduces need for chemical fertilizers and improves crop yields",is_correct:true},
+            {id:"b",text:"It is toxic to plants",is_correct:false},
+            {id:"c",text:"It cannot be stored",is_correct:false},
+            {id:"d",text:"It is only for burning",is_correct:false}
+          ]},
+          { id: "19", prompt: "What is a domestic use of cattle in rural Ghana?", options: [
+            {id:"a",text:"Ploughing fields and providing milk",is_correct:true},
+            {id:"b",text:"Flying to market",is_correct:false},
+            {id:"c",text:"Laying eggs",is_correct:false},
+            {id:"d",text:"Producing silk",is_correct:false}
+          ]},
+          { id: "20", prompt: "What conclusion can you draw about animal uses?", options: [
+            {id:"a",text:"Animals support both household needs and economic growth through diverse uses",is_correct:true},
+            {id:"b",text:"Only commercial use matters",is_correct:false},
+            {id:"c",text:"Domestic use is outdated",is_correct:false},
+            {id:"d",text:"Animals are not useful",is_correct:false}
+          ]}
+        ]
+      };
+
+      function renderContent() {
+        document.getElementById('chapter-title').textContent = CHAPTER_CONFIG.title;
+        document.getElementById('lo-tags').textContent = CHAPTER_CONFIG.loTags[0];
+
+        document.getElementById('objectives').innerHTML =
+          CHAPTER_CONFIG.objectives.map(obj => `<li>${obj}</li>`).join('');
+
+        document.getElementById('word-list-desc').textContent = CHAPTER_CONFIG.wordListDesc;
+        document.getElementById('word-list').innerHTML =
+          CHAPTER_CONFIG.words.map(w => `<span class="word-item">${w}</span>`).join('');
+
+        document.getElementById('checkpoint-questions').innerHTML = CHAPTER_CONFIG.checkpointQuestions;
+
+        document.getElementById('next-preview').innerHTML = `
+          <h3>🔜 Coming Up</h3>
+          <p>${CHAPTER_CONFIG.nextPreview}</p>
+        `;
+      }
+
+      function renderNavigation() {
+        const nav = document.getElementById('chapter-nav');
+        const buttons = [{ label: "Home", url: "../index.html", active: false }];
+        for (let i = 0; i < 4; i++) {
+          const c = currentChapter + i;
+          const lessonNum = c + 1;
+          if (c > MAX_CHAPTER) break;
+          buttons.push({
+            label: `Lesson ${lessonNum}`,
+            url: `chapter-${c}.html`,
+            active: i === 0
+          });
+        }
+        nav.innerHTML = buttons.map(b =>
+          `<a href="${b.url}" class="chapter-btn ${b.active ? 'active' : ''}">${b.label}</a>`
+        ).join('');
+      }
+
+      function renderQuiz() {
+        const form = document.getElementById('quiz-form');
+        window.quizCorrectMap = {};
+        const baseSeed = currentChapter * 1000000 + (Date.now() % 1000000);
+
+        form.innerHTML = CHAPTER_CONFIG.assessmentItems.map(q => {
+          const seed = baseSeed + parseInt(q.id, 10);
+          const shuffledOpts = shuffleWithSeed([...q.options], seed);
+          const correct = q.options.find(o => o.is_correct);
+          window.quizCorrectMap[q.id] = correct.id;
+
+          const optHtml = shuffledOpts.map((opt, idx) => {
+            const letter = String.fromCharCode(65 + idx);
+            return `<div class="option"><label><input type="radio" name="q${q.id}" value="${opt.id}" required> ${letter}. ${opt.text}</label></div>`;
+          }).join('');
+
+          return `<div class="question"><strong>${q.id}. ${q.prompt}</strong><div class="options">${optHtml}</div></div>`;
+        }).join('');
+      }
+
+      function showFeedback(answers) {
+        const items = CHAPTER_CONFIG.assessmentItems;
+        let correctCount = 0, correctList = [], incorrectList = [];
+
+        items.forEach((item, i) => {
+          const ans = answers[i];
+          const correctId = window.quizCorrectMap[item.id];
+          const correctOpt = item.options.find(o => o.id === correctId);
+          const isCorrect = ans === correctId;
+          if (isCorrect) {
+            correctCount++;
+            correctList.push(`${item.id}. ${item.prompt} → ✅ ${correctOpt.text}`);
+          } else {
+            incorrectList.push(`${item.id}. ${item.prompt} → ❌ Your answer: ${item.options.find(o => o.id === ans)?.text || '—'} | ✅ ${correctOpt.text}`);
+          }
+        });
+
+        const score = correctCount, total = 20, mastery = score >= 15;
+        const timeOnTask = Math.floor((Date.now() - window.startTime) / 1000);
+        const attempts = (parseInt(localStorage.getItem(`quiz_attempts_${currentChapter}`)) || 0) + 1;
+        localStorage.setItem(`quiz_attempts_${currentChapter}`, attempts);
+        localStorage.setItem(`mastery_${currentChapter}`, mastery ? '1' : '0');
+        const studentName = localStorage.getItem('student_name') || '[Name]';
+
+        logEvent('quiz_submitted', { score, time_sec: timeOnTask, mastery, attempts });
+        if (mastery) logEvent('mastery_achieved', {});
+
+        let report = `*Mini OpenStax — ${CHAPTER_CONFIG.title}*\nStudent: ${studentName}\nScore: ${score}/${total} (${Math.round(score/total*100)}%) — ${mastery ? '✅ MASTERED' : '❌ Needs Review'}\nTime: ${timeOnTask}s | Attempts: ${attempts}\n\n`;
+        if (correctList.length) report += `✅ CORRECT (${correctList.length}):\n${correctList.join('\n')}\n\n`;
+        if (incorrectList.length) report += `❌ INCORRECT (${incorrectList.length}):\n${incorrectList.join('\n')}\n\n`;
+        report += `Report generated via Mini OpenStax.`;
+
+        localStorage.setItem(`saved_report_${currentChapter}_${Date.now()}`, report);
+
+        const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(report)}`;
+        document.getElementById('feedback').innerHTML = `
+          <div class="feedback">
+            <h3>📊 Results: ${score}/${total}</h3>
+            <p><strong>${mastery ? '🎉 Excellent!' : score >= 10 ? 'Good!' : 'Keep practicing.'}</strong> ${
+              mastery ? 'You’ve mastered the concept!' :
+              score >= 10 ? 'Review missed items.' : 'Practice this lesson again.'
+            }</p>
+            <p><strong>Time:</strong> ${timeOnTask}s | <strong>Attempts:</strong> ${attempts}</p>
+            <a href="${url}" target="_blank" class="btn" style="background:#25D366;text-decoration:none;">
+              📲 Send Report via WhatsApp
+            </a>
+          </div>
+        `;
+      }
+
+      function setupQuizListeners() {
+        document.getElementById('submit-quiz').addEventListener('click', () => {
+          const form = document.getElementById('quiz-form');
+          const answers = [];
+          for (let i = 1; i <= 20; i++) {
+            const el = form.querySelector(`input[name="q${i}"]:checked`);
+            answers.push(el ? el.value : null);
+          }
+          if (answers.includes(null)) {
+            alert("Please answer all questions.");
+            return;
+          }
+          showFeedback(answers);
+        });
+      }
+
+      function initNamePrompt() {
+        const saved = localStorage.getItem('student_name');
+        const savedRole = localStorage.getItem('user_role') || 'student';
+        const promptDiv = document.getElementById('student-name-prompt');
+        const quizDiv = document.getElementById('quiz-container');
+        const display = document.getElementById('name-display');
+        const input = document.getElementById('student-name');
+        const buttons = document.getElementById('name-buttons');
+        const roleBadge = document.querySelector('.role-badge');
+        roleBadge.textContent = savedRole === 'instructor' ? 'Instructor View' : 'Student View';
+
+        if (saved) {
+          promptDiv.style.display = 'block';
+          quizDiv.style.display = 'none';
+          display.innerHTML = `<p><strong>Current name:</strong> ${saved} (${savedRole})</p>`;
+          buttons.innerHTML = `
+            <button type="button" class="btn" id="keep-btn">✅ Keep This Name</button>
+            <button type="button" class="btn btn-secondary" id="change-btn">✏️ Use a Different Name</button>
+          `;
+          document.getElementById('keep-btn').onclick = () => {
+            promptDiv.style.display = 'none';
+            quizDiv.style.display = 'block';
+            logEvent('lesson_start', {});
+          };
+          document.getElementById('change-btn').onclick = () => {
+            display.style.display = 'none';
+            input.style.display = 'block';
+            buttons.innerHTML = `
+              <button type="button" class="btn" id="save-new">💾 Save and Start Quiz</button>
+              <div style="margin-top:1rem; font-size:0.9rem;">
+                <label>
+                  <input type="checkbox" id="teacher-mode"> 
+                  I'm an instructor (analytics auto-enabled to improve lessons)
+                </label>
+              </div>
+            `;
+            input.value = '';
+            input.focus();
+            document.getElementById('save-new').onclick = () => {
+              const name = input.value.trim();
+              if (name) {
+                localStorage.setItem('student_name', name);
+                const isTeacher = document.getElementById('teacher-mode').checked;
+                localStorage.setItem('user_role', isTeacher ? 'instructor' : 'student');
+                if (isTeacher) enableAnalytics();
+                promptDiv.style.display = 'none';
+                quizDiv.style.display = 'block';
+                roleBadge.textContent = isTeacher ? 'Instructor View' : 'Student View';
+                logEvent('lesson_start', {});
+              } else {
+                alert("Please enter your name.");
+                input.focus();
+              }
+            };
+          };
+        } else {
+          promptDiv.style.display = 'block';
+          quizDiv.style.display = 'none';
+          display.style.display = 'none';
+          input.style.display = 'block';
+          buttons.innerHTML = `
+            <button type="button" class="btn" id="save-first">💾 Save and Start Quiz</button>
+            <div style="margin-top:1rem; font-size:0.9rem;">
+              <label>
+                <input type="checkbox" id="teacher-mode"> 
+                I'm an instructor (analytics auto-enabled to improve lessons)
+              </label>
+            </div>
+          `;
+          document.getElementById('save-first').onclick = () => {
+            const name = input.value.trim();
+            if (name) {
+              localStorage.setItem('student_name', name);
+              const isTeacher = document.getElementById('teacher-mode').checked;
+              localStorage.setItem('user_role', isTeacher ? 'instructor' : 'student');
+              if (isTeacher) enableAnalytics();
+              promptDiv.style.display = 'none';
+              quizDiv.style.display = 'block';
+              roleBadge.textContent = isTeacher ? 'Instructor View' : 'Student View';
+              logEvent('lesson_start', {});
+            } else {
+              alert("Please enter your name.");
+              input.focus();
+            }
+          };
+        }
+      }
+
+      function init() {
+        renderContent();
+        renderNavigation();
+        renderQuiz();
+        setupQuizListeners();
+        initNamePrompt();
+      }
+
+      document.addEventListener('DOMContentLoaded', () => {
+        document.getElementById('send-analytics').onclick = (e) => {
+          e.preventDefault();
+          if (confirm('Send anonymous usage data to help improve Mini OpenStax?')) {
+            sendAnalyticsEvents();
+          }
+        };
+      });
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+      } else {
+        init();
+      }
+    })();
+  </script>
+</body>
+</html>
