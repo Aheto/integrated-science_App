@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Mini OpenStax: Examine what happens to food at the stages of digestion in humans">
+  <title>Mini OpenStax — Examine what happens to food at the stages of digestion in humans</title>
+  <style>
+    :root {
+      --green: #006b3d;
+      --gold: #cead00;
+      --light: #f9f9f9;
+      --dark: #2d2d2d;
+    }
+    body { 
+      font-family: 'Segoe UI', system-ui, sans-serif; 
+      margin: 0; 
+      padding: 0; 
+      background: #fff; 
+      color: var(--dark); 
+      line-height: 1.6;
+    }
+    .container { 
+      max-width: 800px; 
+      margin: 0 auto; 
+      padding: 1rem; 
+    }
+    .header { 
+      display: flex; 
+      justify-content: space-between; 
+      align-items: center; 
+      margin-bottom: 1rem; 
+      flex-wrap: wrap; 
+      gap: 0.5rem; 
+    }
+    .role-badge { 
+      background: #e9ecef; 
+      padding: 0.25rem 0.5rem; 
+      border-radius: 4px; 
+      font-size: 0.85rem; 
+    }
+    .chapter-nav { 
+      margin: 1.2rem 0; 
+      display: flex; 
+      flex-wrap: wrap; 
+      gap: 0.4rem; 
+      justify-content: center; 
+    }
+    .chapter-btn {
+      padding: 0.4rem 0.8rem; 
+      background: var(--green); 
+      color: white; 
+      text-decoration: none; 
+      border-radius: 4px; 
+      font-size: 0.9rem;
+    }
+    .chapter-btn.active, .chapter-btn:hover { 
+      background: #00502e; 
+    }
+    .section { 
+      margin-bottom: 1.5rem; 
+      padding-bottom: 1rem;
+      border-bottom: 1px solid #eee;
+    }
+    .word-list { 
+      display: flex; 
+      flex-wrap: wrap; 
+      gap: 0.5rem; 
+      margin: 0.5rem 0; 
+    }
+    .word-item { 
+      background: var(--light); 
+      padding: 0.25rem 0.5rem; 
+      border-radius: 4px; 
+      font-family: monospace; 
+      font-size: 0.95rem;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 0.5rem;
+      text-align: left;
+    }
+    th {
+      background-color: #f0f7f4;
+    }
+    .checkpoint, .thought-experiment {
+      background: #f8f9fa;
+      padding: 1rem;
+      border-left: 4px solid var(--gold);
+      margin: 1.5rem 0;
+    }
+    .quiz { 
+      margin-top: 2rem; 
+    }
+    .question { 
+      margin-bottom: 1.2rem; 
+    }
+    .options { 
+      margin-left: 1rem; 
+    }
+    .option { 
+      margin: 0.4rem 0; 
+    }
+    .btn {
+      background: var(--green); 
+      color: white; 
+      border: none; 
+      padding: 0.5rem 1rem;
+      border-radius: 4px; 
+      cursor: pointer; 
+      font-size: 1rem; 
+      margin-right: 0.5rem;
+      display: inline-block;
+    }
+    .btn:hover { 
+      background: #00502e; 
+    }
+    .btn-secondary { 
+      background: #6c757d; 
+    }
+    .btn-secondary:hover { 
+      background: #5a6268; 
+    }
+    .feedback { 
+      margin-top: 1.5rem; 
+      padding: 1rem; 
+      background: var(--light); 
+      border-left: 4px solid var(--green); 
+    }
+    footer { 
+      text-align: center; 
+      margin-top: 2rem; 
+      font-size: 0.9rem; 
+      padding-top: 1.5rem;
+      border-top: 1px solid #eee;
+    }
+    a { 
+      color: var(--green); 
+      text-decoration: none; 
+    }
+    a:hover { 
+      text-decoration: underline; 
+    }
+    blockquote {
+      margin: 1rem 0;
+      padding-left: 1rem;
+      border-left: 3px solid var(--green);
+      color: #555;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div>
+        <h1 id="chapter-title">Examine what happens to food at the stages of digestion in humans</h1>
+        <div class="lo-tags" id="lo-tags">B7/JHS1.3.1.1.2</div>
+      </div>
+      <div class="role-badge">Student View</div>
+    </div>
+
+    <nav class="chapter-nav" id="chapter-nav"></nav>
+
+    <main id="main-content">
+      <!-- === REPLACE THIS SECTION PER LESSON === -->
+      <div class="section">
+        <h2>🎯 What You’ll Learn</h2>
+        <ul id="objectives">
+          <li>Identify the parts of the human digestive system: mouth, stomach, small intestine, large intestine.</li>
+          <li>Describe what happens to common Ghanaian foods (e.g., banku, yam, palm oil) at each stage of digestion.</li>
+          <li>Draw and label a simple diagram of the human digestive system.</li>
+          <li>Explain how digestion turns food into nutrients the body can use.</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2>🔤 Important Words</h2>
+        <p id="word-list-desc">Key terms for this lesson:</p>
+        <div class="word-list" id="word-list">
+          <span class="word-item">Digestion</span>
+          <span class="word-item">Alimentary canal</span>
+          <span class="word-item">Enzyme</span>
+          <span class="word-item">Mouth</span>
+          <span class="word-item">Stomach</span>
+          <span class="word-item">Small intestine</span>
+          <span class="word-item">Large intestine</span>
+          <span class="word-item">Nutrient absorption</span>
+        </div>
+      </div>
+
+      <div class="section" id="lesson-content">
+        <h2>📘 The Journey of Food Through Your Body</h2>
+        <p>Digestion is the process that breaks down food into tiny nutrients your body can absorb and use. It starts in your mouth and ends in your intestines.</p>
+
+        <h3>🗺️ The Digestive System: Key Parts</h3>
+        <ol>
+          <li><strong>Mouth</strong>: Teeth chew food; saliva softens it and begins starch digestion.</li>
+          <li><strong>Stomach</strong>: Muscles churn food; acid and enzymes break proteins into smaller pieces.</li>
+          <li><strong>Small Intestine</strong>: Nutrients (sugars, amino acids, fatty acids) are absorbed into the blood.</li>
+          <li><strong>Large Intestine</strong>: Water is absorbed; waste becomes solid and is stored for removal.</li>
+        </ol>
+
+        <h3>🍛 What Happens to Ghanaian Foods?</h3>
+        <table>
+          <thead>
+            <tr><th>Food</th><th>In the Mouth</th><th>In the Stomach</th><th>In the Small Intestine</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Banku (starchy)</strong></td><td>Saliva breaks starch into maltose</td><td>Mixed with acid</td><td>Starch → glucose → absorbed</td></tr>
+            <tr><td><strong>Fish/meat (protein)</strong></td><td>Chewed into small pieces</td><td>Protein broken into peptides</td><td>Peptides → amino acids → absorbed</td></tr>
+            <tr><td><strong>Palm oil (fat)</strong></td><td>Mixed with food</td><td>Emulsified by bile (from liver)</td><td>Fat → fatty acids → absorbed</td></tr>
+          </tbody>
+        </table>
+
+        <blockquote>
+          💭 <strong>Thought Experiment</strong>: If someone has no teeth, how might their digestion be affected? Why is chewing important?
+        </blockquote>
+
+        <h3>✅ Exemplar Activity: Draw & Label</h3>
+        <p>Using a textbook or video, draw the digestive system and label:</p>
+        <ul>
+          <li>Mouth → Esophagus → Stomach → Small Intestine → Large Intestine → Anus</li>
+        </ul>
+        <p>Add arrows to show the direction food travels!</p>
+
+        <h3>🔬 Why Digestion Matters</h3>
+        <ul>
+          <li>Without digestion, your body couldn’t get energy from food.</li>
+          <li>Nutrients build muscles, repair cells, and keep your brain working.</li>
+          <li>Poor digestion leads to malnutrition—even if you eat enough!</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2>✅ Check Your Understanding</h2>
+        <div class="checkpoint" id="checkpoint-questions">
+          <ol>
+            <li>Name the four main parts of the digestive system in order.</li>
+            <li>What happens to banku in the small intestine?</li>
+            <li>Why is stomach acid important for digesting meat?</li>
+            <li>Draw and label a simple digestive system diagram.</li>
+          </ol>
+          <p><em>Confirm your understanding before moving on.</em></p>
+        </div>
+      </div>
+
+      <div class="section" id="next-preview">
+        <h3>🔜 Coming Up</h3>
+        <p>In Lesson 19, we’ll explore the end products of digestion—how starch becomes sugar, protein becomes amino acids, and fats become fatty acids—and how these nutrients enter your bloodstream.</p>
+      </div>
+      <!-- === END REPLACE SECTION === -->
+
+      <div id="student-name-prompt" class="section" style="display:none;">
+        <h2>👤 Your Name</h2>
+        <div id="name-display"></div>
+        <input type="text" id="student-name" placeholder="Enter your name" maxlength="30"
+          style="padding:0.5rem;font-size:1rem;width:100%;margin:0.5rem 0;display:none;">
+        <div id="name-buttons"></div>
+      </div>
+
+      <div class="quiz" id="quiz-container" style="display:none;">
+        <h2>📝 Quick Check (20 Questions)</h2>
+        <p>Select the best answer for each question.</p>
+        <form id="quiz-form"></form>
+        <button type="button" class="btn" id="submit-quiz">Check Answers</button>
+      </div>
+
+      <div id="feedback"></div>
+
+      <!-- FOOTER -->
+      <footer>
+        <a href="../premium.html" style="display:block; margin-bottom:0.5rem;">✨ Unlock Premium Features</a>
+        <a href="#" id="send-analytics" style="color:#6c757d;">📤 Send Anonymous Usage Data</a>
+        <br>
+        <a href="../dashboard.html">📊 View Dashboard</a>
+      </footer>
+    </main>
+  </div>
+
+  <script>
+    (function () {
+      'use strict';
+      window.startTime = Date.now();
+
+      function createSeededRNG(seed) {
+        let state = Math.abs((seed * 9301 + 49297) % 233280);
+        return () => {
+          state = (state * 9301 + 49297) % 233280;
+          return state / 233280;
+        };
+      }
+
+      function shuffleWithSeed(array, seed) {
+        const rng = createSeededRNG(seed);
+        const arr = [...array];
+        for (let i = arr.length - 1; i > 0; i--) {
+          const j = Math.floor(rng() * (i + 1));
+          [arr[i], arr[j]] = [arr[j], arr[i]];
+        }
+        return arr;
+      }
+
+      const currentChapter = 17;
+      const MAX_CHAPTER = 300;
+      const WHATSAPP_NUMBER = "233257320201";
+
+      const ANALYTICS_KEY = 'miniopenstax_analytics_consent';
+      const EVENTS_KEY = 'miniopenstax_events';
+
+      function isAnalyticsEnabled() {
+        return localStorage.getItem(ANALYTICS_KEY) === '1';
+      }
+
+      function logEvent(eventType, data = {}) {
+        if (!isAnalyticsEnabled()) return;
+        const event = { type: eventType, timestamp: Date.now(), lesson: currentChapter, data };
+        const events = JSON.parse(localStorage.getItem(EVENTS_KEY) || '[]');
+        events.push(event);
+        localStorage.setItem(EVENTS_KEY, JSON.stringify(events));
+        if (events.length >= 20) sendAnalyticsEvents();
+      }
+
+      function enableAnalytics() {
+        localStorage.setItem(ANALYTICS_KEY, '1');
+      }
+
+      function sendAnalyticsEvents() {
+        const events = JSON.parse(localStorage.getItem(EVENTS_KEY) || '[]');
+        if (events.length === 0) return;
+        const summary = {
+          lessons_attempted: [...new Set(events.map(e => e.lesson))].length,
+          quizzes_submitted: events.filter(e => e.type === 'quiz_submitted').length,
+          mastery_count: events.filter(e => e.type === 'mastery_achieved').length,
+          first_event: new Date(events[0].timestamp).toISOString().split('T')[0],
+          last_event: new Date(events[events.length - 1].timestamp).toISOString().split('T')[0]
+        };
+        const report = `*Mini OpenStax — Anonymous Usage Report*\n` +
+          `Lessons Tried: ${summary.lessons_attempted}\n` +
+          `Quizzes Taken: ${summary.quizzes_submitted}\n` +
+          `Mastery Achieved: ${summary.mastery_count}\n` +
+          `Period: ${summary.first_event} to ${summary.last_event}\n\n` +
+          `Thank you for helping improve literacy tools!`;
+        localStorage.removeItem(EVENTS_KEY);
+        const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(report)}`;
+        window.open(url, '_blank');
+      }
+
+      const CHAPTER_CONFIG = {
+        title: "Examine what happens to food at the stages of digestion in humans",
+        loTags: ["B7/JHS1.3.1.1.2"],
+        objectives: [
+          "Identify the parts of the human digestive system: mouth, stomach, small intestine, large intestine.",
+          "Describe what happens to common Ghanaian foods (e.g., banku, yam, palm oil) at each stage of digestion.",
+          "Draw and label a simple diagram of the human digestive system.",
+          "Explain how digestion turns food into nutrients the body can use."
+        ],
+        words: [
+          "Digestion", "Alimentary canal", "Enzyme", "Mouth",
+          "Stomach", "Small intestine", "Large intestine", "Nutrient absorption"
+        ],
+        wordListDesc: "Key terms for this lesson:",
+        checkpointQuestions: `
+          <ol>
+            <li>Name the four main parts of the digestive system in order.</li>
+            <li>What happens to banku in the small intestine?</li>
+            <li>Why is stomach acid important for digesting meat?</li>
+            <li>Draw and label a simple digestive system diagram.</li>
+          </ol>
+          <p><em>Confirm your understanding before moving on.</em></p>
+        `,
+        nextPreview: "In Lesson 19, we’ll explore the end products of digestion—how starch becomes sugar, protein becomes amino acids, and fats become fatty acids—and how these nutrients enter your bloodstream.",
+        assessmentItems: [
+          { id: "1", prompt: "Where does digestion begin?", options: [
+            {id:"a",text:"Stomach",is_correct:false},
+            {id:"b",text:"Mouth",is_correct:true},
+            {id:"c",text:"Small intestine",is_correct:false},
+            {id:"d",text:"Large intestine",is_correct:false}
+          ]},
+          { id: "2", prompt: "What breaks down starch in the mouth?", options: [
+            {id:"a",text:"Stomach acid",is_correct:false},
+            {id:"b",text:"Saliva (amylase enzyme)",is_correct:true},
+            {id:"c",text:"Bile",is_correct:false},
+            {id:"d",text:"Teeth only",is_correct:false}
+          ]},
+          { id: "3", prompt: "What happens to protein in the stomach?", options: [
+            {id:"a",text:"It is turned into fat",is_correct:false},
+            {id:"b",text:"It is broken into smaller peptides by acid and enzymes",is_correct:true},
+            {id:"c",text:"It is absorbed immediately",is_correct:false},
+            {id:"d",text:"It passes unchanged",is_correct:false}
+          ]},
+          { id: "4", prompt: "Where are most nutrients absorbed?", options: [
+            {id:"a",text:"Mouth",is_correct:false},
+            {id:"b",text:"Stomach",is_correct:false},
+            {id:"c",text:"Small intestine",is_correct:true},
+            {id:"d",text:"Large intestine",is_correct:false}
+          ]},
+          { id: "5", prompt: "What is the role of the large intestine?", options: [
+            {id:"a",text:"Absorb water and form solid waste",is_correct:true},
+            {id:"b",text:"Digest all food",is_correct:false},
+            {id:"c",text:"Produce saliva",is_correct:false},
+            {id:"d",text:"Chew food",is_correct:false}
+          ]},
+          { id: "6", prompt: "Which Ghanaian food is high in starch?", options: [
+            {id:"a",text:"Banku",is_correct:true},
+            {id:"b",text:"Palm oil",is_correct:false},
+            {id:"c",text:"Fish",is_correct:false},
+            {id:"d",text:"Egg",is_correct:false}
+          ]},
+          { id: "7", prompt: "What helps break down fats in the small intestine?", options: [
+            {id:"a",text:"Bile from the liver",is_correct:true},
+            {id:"b",text:"Saliva",is_correct:false},
+            {id:"c",text:"Stomach acid only",is_correct:false},
+            {id:"d",text:"Teeth",is_correct:false}
+          ]},
+          { id: "8", prompt: "Why is chewing important?", options: [
+            {id:"a",text:"It increases surface area for enzymes to work",is_correct:true},
+            {id:"b",text:"It adds flavor",is_correct:false},
+            {id:"c",text:"It replaces stomach acid",is_correct:false},
+            {id:"d",text:"It is optional",is_correct:false}
+          ]},
+          { id: "9", prompt: "Which core competency is developed when drawing the digestive system?", options: [
+            {id:"a",text:"Creativity and Communication",is_correct:true},
+            {id:"b",text:"Musical talent",is_correct:false},
+            {id:"c",text:"Athletic ability",is_correct:false},
+            {id:"d",text:"Cooking skill",is_correct:false}
+          ]},
+          { id: "10", prompt: "What is the 'alimentary canal'?", options: [
+            {id:"a",text:"The entire tube from mouth to anus",is_correct:true},
+            {id:"b",text:"Only the stomach",is_correct:false},
+            {id:"c",text:"A type of enzyme",is_correct:false},
+            {id:"d",text:"A bone",is_correct:false}
+          ]},
+          { id: "11", prompt: "What happens to palm oil during digestion?", options: [
+            {id:"a",text:"It is emulsified by bile and broken into fatty acids",is_correct:true},
+            {id:"b",text:"It turns into protein",is_correct:false},
+            {id:"c",text:"It is not digested",is_correct:false},
+            {id:"d",text:"It becomes starch",is_correct:false}
+          ]},
+          { id: "12", prompt: "How can students learn about digestion without a lab?", options: [
+            {id:"a",text:"By watching videos, using diagrams, and researching",is_correct:true},
+            {id:"b",text:"By skipping meals",is_correct:false},
+            {id:"c",text:"By eating only snacks",is_correct:false},
+            {id:"d",text:"By ignoring science",is_correct:false}
+          ]},
+          { id: "13", prompt: "Which statement about digestion is TRUE?", options: [
+            {id:"a",text:"It converts food into absorbable nutrients",is_correct:true},
+            {id:"b",text:"It only happens in the stomach",is_correct:false},
+            {id:"c",text:"Teeth digest food chemically",is_correct:false},
+            {id:"d",text:"Water is not involved",is_correct:false}
+          ]},
+          { id: "14", prompt: "What is an 'enzyme'?", options: [
+            {id:"a",text:"A biological catalyst that speeds up digestion",is_correct:true},
+            {id:"b",text:"A type of fat",is_correct:false},
+            {id:"c",text:"A mineral",is_correct:false},
+            {id:"d",text:"A vitamin",is_correct:false}
+          ]},
+          { id: "15", prompt: "Which activity fulfills the curriculum exemplar?", options: [
+            {id:"a",text:"Drawing and labeling the digestive system",is_correct:true},
+            {id:"b",text:"Memorising song lyrics",is_correct:false},
+            {id:"c",text:"Skipping class",is_correct:false},
+            {id:"d",text:"Eating during the lesson only",is_correct:false}
+          ]},
+          { id: "16", prompt: "Why is the small intestine long and coiled?", options: [
+            {id:"a",text:"To increase surface area for nutrient absorption",is_correct:true},
+            {id:"b",text:"To store extra food",is_correct:false},
+            {id:"c",text:"To slow down digestion",is_correct:false},
+            {id:"d",text:"To produce acid",is_correct:false}
+          ]},
+          { id: "17", prompt: "What happens to yam (starchy food) in the mouth?", options: [
+            {id:"a",text:"Saliva begins breaking starch into sugars",is_correct:true},
+            {id:"b",text:"It turns into protein",is_correct:false},
+            {id:"c",text:"Nothing happens",is_correct:false},
+            {id:"d",text:"It is fully digested",is_correct:false}
+          ]},
+          { id: "18", prompt: "How does digestion support learning in school?", options: [
+            {id:"a",text:"It provides glucose to the brain for focus and memory",is_correct:true},
+            {id:"b",text:"It distracts students",is_correct:false},
+            {id:"c",text:"It only matters after exams",is_correct:false},
+            {id:"d",text:"Learning happens without digestion",is_correct:false}
+          ]},
+          { id: "19", prompt: "What is the correct order of digestion?", options: [
+            {id:"a",text:"Mouth → Stomach → Small intestine → Large intestine",is_correct:true},
+            {id:"b",text:"Stomach → Mouth → Large intestine → Small intestine",is_correct:false},
+            {id:"c",text:"Small intestine → Mouth → Stomach → Large intestine",is_correct:false},
+            {id:"d",text:"Large intestine → Stomach → Mouth → Small intestine",is_correct:false}
+          ]},
+          { id: "20", prompt: "What conclusion can you draw about digestion?", options: [
+            {id:"a",text:"It is a vital process that transforms food into usable energy and building blocks for the body",is_correct:true},
+            {id:"b",text:"Only the stomach matters",is_correct:false},
+            {id:"c",text:"Digestion is unimportant",is_correct:false},
+            {id:"d",text:"All food is digested the same way",is_correct:false}
+          ]}
+        ]
+      };
+
+      function renderContent() {
+        document.getElementById('chapter-title').textContent = CHAPTER_CONFIG.title;
+        document.getElementById('lo-tags').textContent = CHAPTER_CONFIG.loTags[0];
+
+        document.getElementById('objectives').innerHTML =
+          CHAPTER_CONFIG.objectives.map(obj => `<li>${obj}</li>`).join('');
+
+        document.getElementById('word-list-desc').textContent = CHAPTER_CONFIG.wordListDesc;
+        document.getElementById('word-list').innerHTML =
+          CHAPTER_CONFIG.words.map(w => `<span class="word-item">${w}</span>`).join('');
+
+        document.getElementById('checkpoint-questions').innerHTML = CHAPTER_CONFIG.checkpointQuestions;
+
+        document.getElementById('next-preview').innerHTML = `
+          <h3>🔜 Coming Up</h3>
+          <p>${CHAPTER_CONFIG.nextPreview}</p>
+        `;
+      }
+
+      function renderNavigation() {
+        const nav = document.getElementById('chapter-nav');
+        const buttons = [{ label: "Home", url: "../index.html", active: false }];
+        for (let i = 0; i < 4; i++) {
+          const c = currentChapter + i;
+          const lessonNum = c + 1;
+          if (c > MAX_CHAPTER) break;
+          buttons.push({
+            label: `Lesson ${lessonNum}`,
+            url: `chapter-${c}.html`,
+            active: i === 0
+          });
+        }
+        nav.innerHTML = buttons.map(b =>
+          `<a href="${b.url}" class="chapter-btn ${b.active ? 'active' : ''}">${b.label}</a>`
+        ).join('');
+      }
+
+      function renderQuiz() {
+        const form = document.getElementById('quiz-form');
+        window.quizCorrectMap = {};
+        const baseSeed = currentChapter * 1000000 + (Date.now() % 1000000);
+
+        form.innerHTML = CHAPTER_CONFIG.assessmentItems.map(q => {
+          const seed = baseSeed + parseInt(q.id, 10);
+          const shuffledOpts = shuffleWithSeed([...q.options], seed);
+          const correct = q.options.find(o => o.is_correct);
+          window.quizCorrectMap[q.id] = correct.id;
+
+          const optHtml = shuffledOpts.map((opt, idx) => {
+            const letter = String.fromCharCode(65 + idx);
+            return `<div class="option"><label><input type="radio" name="q${q.id}" value="${opt.id}" required> ${letter}. ${opt.text}</label></div>`;
+          }).join('');
+
+          return `<div class="question"><strong>${q.id}. ${q.prompt}</strong><div class="options">${optHtml}</div></div>`;
+        }).join('');
+      }
+
+      function showFeedback(answers) {
+        const items = CHAPTER_CONFIG.assessmentItems;
+        let correctCount = 0, correctList = [], incorrectList = [];
+
+        items.forEach((item, i) => {
+          const ans = answers[i];
+          const correctId = window.quizCorrectMap[item.id];
+          const correctOpt = item.options.find(o => o.id === correctId);
+          const isCorrect = ans === correctId;
+          if (isCorrect) {
+            correctCount++;
+            correctList.push(`${item.id}. ${item.prompt} → ✅ ${correctOpt.text}`);
+          } else {
+            incorrectList.push(`${item.id}. ${item.prompt} → ❌ Your answer: ${item.options.find(o => o.id === ans)?.text || '—'} | ✅ ${correctOpt.text}`);
+          }
+        });
+
+        const score = correctCount, total = 20, mastery = score >= 15;
+        const timeOnTask = Math.floor((Date.now() - window.startTime) / 1000);
+        const attempts = (parseInt(localStorage.getItem(`quiz_attempts_${currentChapter}`)) || 0) + 1;
+        localStorage.setItem(`quiz_attempts_${currentChapter}`, attempts);
+        localStorage.setItem(`mastery_${currentChapter}`, mastery ? '1' : '0');
+        const studentName = localStorage.getItem('student_name') || '[Name]';
+
+        logEvent('quiz_submitted', { score, time_sec: timeOnTask, mastery, attempts });
+        if (mastery) logEvent('mastery_achieved', {});
+
+        let report = `*Mini OpenStax — ${CHAPTER_CONFIG.title}*\nStudent: ${studentName}\nScore: ${score}/${total} (${Math.round(score/total*100)}%) — ${mastery ? '✅ MASTERED' : '❌ Needs Review'}\nTime: ${timeOnTask}s | Attempts: ${attempts}\n\n`;
+        if (correctList.length) report += `✅ CORRECT (${correctList.length}):\n${correctList.join('\n')}\n\n`;
+        if (incorrectList.length) report += `❌ INCORRECT (${incorrectList.length}):\n${incorrectList.join('\n')}\n\n`;
+        report += `Report generated via Mini OpenStax.`;
+
+        localStorage.setItem(`saved_report_${currentChapter}_${Date.now()}`, report);
+
+        const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(report)}`;
+        document.getElementById('feedback').innerHTML = `
+          <div class="feedback">
+            <h3>📊 Results: ${score}/${total}</h3>
+            <p><strong>${mastery ? '🎉 Excellent!' : score >= 10 ? 'Good!' : 'Keep practicing.'}</strong> ${
+              mastery ? 'You’ve mastered the concept!' :
+              score >= 10 ? 'Review missed items.' : 'Practice this lesson again.'
+            }</p>
+            <p><strong>Time:</strong> ${timeOnTask}s | <strong>Attempts:</strong> ${attempts}</p>
+            <a href="${url}" target="_blank" class="btn" style="background:#25D366;text-decoration:none;">
+              📲 Send Report via WhatsApp
+            </a>
+          </div>
+        `;
+      }
+
+      function setupQuizListeners() {
+        document.getElementById('submit-quiz').addEventListener('click', () => {
+          const form = document.getElementById('quiz-form');
+          const answers = [];
+          for (let i = 1; i <= 20; i++) {
+            const el = form.querySelector(`input[name="q${i}"]:checked`);
+            answers.push(el ? el.value : null);
+          }
+          if (answers.includes(null)) {
+            alert("Please answer all questions.");
+            return;
+          }
+          showFeedback(answers);
+        });
+      }
+
+      function initNamePrompt() {
+        const saved = localStorage.getItem('student_name');
+        const savedRole = localStorage.getItem('user_role') || 'student';
+        const promptDiv = document.getElementById('student-name-prompt');
+        const quizDiv = document.getElementById('quiz-container');
+        const display = document.getElementById('name-display');
+        const input = document.getElementById('student-name');
+        const buttons = document.getElementById('name-buttons');
+        const roleBadge = document.querySelector('.role-badge');
+        roleBadge.textContent = savedRole === 'instructor' ? 'Instructor View' : 'Student View';
+
+        if (saved) {
+          promptDiv.style.display = 'block';
+          quizDiv.style.display = 'none';
+          display.innerHTML = `<p><strong>Current name:</strong> ${saved} (${savedRole})</p>`;
+          buttons.innerHTML = `
+            <button type="button" class="btn" id="keep-btn">✅ Keep This Name</button>
+            <button type="button" class="btn btn-secondary" id="change-btn">✏️ Use a Different Name</button>
+          `;
+          document.getElementById('keep-btn').onclick = () => {
+            promptDiv.style.display = 'none';
+            quizDiv.style.display = 'block';
+            logEvent('lesson_start', {});
+          };
+          document.getElementById('change-btn').onclick = () => {
+            display.style.display = 'none';
+            input.style.display = 'block';
+            buttons.innerHTML = `
+              <button type="button" class="btn" id="save-new">💾 Save and Start Quiz</button>
+              <div style="margin-top:1rem; font-size:0.9rem;">
+                <label>
+                  <input type="checkbox" id="teacher-mode"> 
+                  I'm an instructor (analytics auto-enabled to improve lessons)
+                </label>
+              </div>
+            `;
+            input.value = '';
+            input.focus();
+            document.getElementById('save-new').onclick = () => {
+              const name = input.value.trim();
+              if (name) {
+                localStorage.setItem('student_name', name);
+                const isTeacher = document.getElementById('teacher-mode').checked;
+                localStorage.setItem('user_role', isTeacher ? 'instructor' : 'student');
+                if (isTeacher) enableAnalytics();
+                promptDiv.style.display = 'none';
+                quizDiv.style.display = 'block';
+                roleBadge.textContent = isTeacher ? 'Instructor View' : 'Student View';
+                logEvent('lesson_start', {});
+              } else {
+                alert("Please enter your name.");
+                input.focus();
+              }
+            };
+          };
+        } else {
+          promptDiv.style.display = 'block';
+          quizDiv.style.display = 'none';
+          display.style.display = 'none';
+          input.style.display = 'block';
+          buttons.innerHTML = `
+            <button type="button" class="btn" id="save-first">💾 Save and Start Quiz</button>
+            <div style="margin-top:1rem; font-size:0.9rem;">
+              <label>
+                <input type="checkbox" id="teacher-mode"> 
+                I'm an instructor (analytics auto-enabled to improve lessons)
+              </label>
+            </div>
+          `;
+          document.getElementById('save-first').onclick = () => {
+            const name = input.value.trim();
+            if (name) {
+              localStorage.setItem('student_name', name);
+              const isTeacher = document.getElementById('teacher-mode').checked;
+              localStorage.setItem('user_role', isTeacher ? 'instructor' : 'student');
+              if (isTeacher) enableAnalytics();
+              promptDiv.style.display = 'none';
+              quizDiv.style.display = 'block';
+              roleBadge.textContent = isTeacher ? 'Instructor View' : 'Student View';
+              logEvent('lesson_start', {});
+            } else {
+              alert("Please enter your name.");
+              input.focus();
+            }
+          };
+        }
+      }
+
+      function init() {
+        renderContent();
+        renderNavigation();
+        renderQuiz();
+        setupQuizListeners();
+        initNamePrompt();
+      }
+
+      document.addEventListener('DOMContentLoaded', () => {
+        document.getElementById('send-analytics').onclick = (e) => {
+          e.preventDefault();
+          if (confirm('Send anonymous usage data to help improve Mini OpenStax?')) {
+            sendAnalyticsEvents();
+          }
+        };
+      });
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+      } else {
+        init();
+      }
+    })();
+  </script>
+</body>
+</html>
