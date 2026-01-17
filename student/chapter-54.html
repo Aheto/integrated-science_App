@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Mini OpenStax: From Clean Communities to Healthy Lives — The Science of Well-being">
-  <title>Mini OpenStax — From Clean Communities to Healthy Lives</title>
+  <meta name="description" content="Mini OpenStax: Food Nutrients and Their Functions">
+  <title>Mini OpenStax — Food Nutrients and Their Functions</title>
   <style>
     :root {
       --green: #006b3d;
@@ -153,197 +153,7 @@
       color: #555;
       font-style: italic;
     }
-    .activity-card, .review-card {
-      background: #f8f9fa;
-      padding: 1rem;
-      margin: 1rem 0;
-      border-radius: 6px;
-      border-left: 4px solid var(--green);
-    }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <divBased on the **NaCCA Science Curriculum** and your uploaded files:
-
-- **Strand 5: Humans and the Environment**  
-  - **Sub-strand 1**: *Waste Management* (Lessons 52–53)  
-  - **Sub-strand 2**: *Human Health* (Lessons 55–56, per `lesson 55 -56.pdf`)
-
-There is **no explicit Lesson 54** in the curriculum. However, following your established pattern—just as **Chapter 31** bridged *Energy → Electricity*, **Chapter 37** bridged *Electricity → Conservation*, **Chapter 41** bridged *Conservation → Force and Motion*, **Chapter 49** bridged *Force and Motion → Agricultural Tools*, and **Chapter 52** bridged *Agricultural Tools → Waste Management*—**Chapter 54** logically serves as a **transition lesson** between *Waste Management* (Lessons 52–53) and *Human Health* (Lessons 55–56).
-
-This bridge should:
-- Connect **environmental cleanliness** to **human health**
-- Introduce the idea that **poor waste management leads to disease**
-- Preview **deficiency and viral diseases** as public health challenges
-- Set up the core question: *“How do our environment and diet affect our health—and how can science help us stay well?”*
-
-Thus, **Chapter 54** is titled:  
-> **“From Clean Communities to Healthy Lives: The Science of Well-being”**
-
-Below is a complete, standards-aligned, Vanilla JS/HTML file that fulfills this role—consistent with your Mini OpenStax style, NaCCA exemplars, and your learning preferences.
-
----
-
-### ✅ `chapter-54.html`
-
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Mini OpenStax: From Clean Communities to Healthy Lives — The Science of Well-being">
-  <title>Mini OpenStax — From Clean Communities to Healthy Lives</title>
-  <style>
-    :root {
-      --green: #006b3d;
-      --gold: #cead00;
-      --light: #f9f9f9;
-      --dark: #2d2d2d;
-    }
-    body { 
-      font-family: 'Segoe UI', system-ui, sans-serif; 
-      margin: 0; 
-      padding: 0; 
-      background: #fff; 
-      color: var(--dark); 
-      line-height: 1.6;
-    }
-    .container { 
-      max-width: 800px; 
-      margin: 0 auto; 
-      padding: 1rem; 
-    }
-    .header { 
-      display: flex; 
-      justify-content: space-between; 
-      align-items: center; 
-      margin-bottom: 1rem; 
-      flex-wrap: wrap; 
-      gap: 0.5rem; 
-    }
-    .role-badge { 
-      background: #e9ecef; 
-      padding: 0.25rem 0.5rem; 
-      border-radius: 4px; 
-      font-size: 0.85rem; 
-    }
-    .chapter-nav { 
-      margin: 1.2rem 0; 
-      display: flex; 
-      flex-wrap: wrap; 
-      gap: 0.4rem; 
-      justify-content: center; 
-    }
-    .chapter-btn {
-      padding: 0.4rem 0.8rem; 
-      background: var(--green); 
-      color: white; 
-      text-decoration: none; 
-      border-radius: 4px; 
-      font-size: 0.9rem;
-    }
-    .chapter-btn.active, .chapter-btn:hover { 
-      background: #00502e; 
-    }
-    .section { 
-      margin-bottom: 1.5rem; 
-      padding-bottom: 1rem;
-      border-bottom: 1px solid #eee;
-    }
-    .word-list { 
-      display: flex; 
-      flex-wrap: wrap; 
-      gap: 0.5rem; 
-      margin: 0.5rem 0; 
-    }
-    .word-item { 
-      background: var(--light); 
-      padding: 0.25rem 0.5rem; 
-      border-radius: 4px; 
-      font-family: monospace; 
-      font-size: 0.95rem;
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 1rem 0;
-    }
-    th, td {
-      border: 1px solid #ccc;
-      padding: 0.5rem;
-      text-align: left;
-    }
-    th {
-      background-color: #f0f7f4;
-    }
-    .checkpoint, .thought-experiment {
-      background: #f8f9fa;
-      padding: 1rem;
-      border-left: 4px solid var(--gold);
-      margin: 1.5rem 0;
-    }
-    .quiz { 
-      margin-top: 2rem; 
-    }
-    .question { 
-      margin-bottom: 1.2rem; 
-    }
-    .options { 
-      margin-left: 1rem; 
-    }
-    .option { 
-      margin: 0.4rem 0; 
-    }
-    .btn {
-      background: var(--green); 
-      color: white; 
-      border: none; 
-      padding: 0.5rem 1rem;
-      border-radius: 4px; 
-      cursor: pointer; 
-      font-size: 1rem; 
-      margin-right: 0.5rem;
-      display: inline-block;
-    }
-    .btn:hover { 
-      background: #00502e; 
-    }
-    .btn-secondary { 
-      background: #6c757d; 
-    }
-    .btn-secondary:hover { 
-      background: #5a6268; 
-    }
-    .feedback { 
-      margin-top: 1.5rem; 
-      padding: 1rem; 
-      background: var(--light); 
-      border-left: 4px solid var(--green); 
-    }
-    footer { 
-      text-align: center; 
-      margin-top: 2rem; 
-      font-size: 0.9rem; 
-      padding-top: 1.5rem;
-      border-top: 1px solid #eee;
-    }
-    a { 
-      color: var(--green); 
-      text-decoration: none; 
-    }
-    a:hover { 
-      text-decoration: underline; 
-    }
-    blockquote {
-      margin: 1rem 0;
-      padding-left: 1rem;
-      border-left: 3px solid var(--green);
-      color: #555;
-      font-style: italic;
-    }
-    .activity-card, .review-card {
+    .activity-card, .review-card, .nutrient-box, .waste-box, .tool-box, .friction-box, .machine-box, .concept-box, .law-box, .energy-box, .component-box {
       background: #f8f9fa;
       padding: 1rem;
       margin: 1rem 0;
@@ -356,8 +166,8 @@ Below is a complete, standards-aligned, Vanilla JS/HTML file that fulfills this 
   <div class="container">
     <div class="header">
       <div>
-        <h1 id="chapter-title">From Clean Communities to Healthy Lives</h1>
-        <div class="lo-tags" id="lo-tags">B7/JHS1.5.1 → B7/JHS1.5.2</div>
+        <h1 id="chapter-title">Food Nutrients and Their Functions</h1>
+        <div class="lo-tags" id="lo-tags">B7/JHS1.5.1.1</div>
       </div>
       <div class="role-badge">Student View</div>
     </div>
@@ -368,7 +178,7 @@ Below is a complete, standards-aligned, Vanilla JS/HTML file that fulfills this 
       <div class="section">
         <h2>🎯 What You’ll Learn</h2>
         <ul id="objectives">
-          <!-- Filled by JS -->
+          <!-- Auto-filled -->
         </ul>
       </div>
 
@@ -376,65 +186,52 @@ Below is a complete, standards-aligned, Vanilla JS/HTML file that fulfills this 
         <h2>🔤 Important Words</h2>
         <p id="word-list-desc">Key terms for this lesson:</p>
         <div class="word-list" id="word-list">
-          <!-- Filled by JS -->
+          <!-- Auto-filled -->
         </div>
       </div>
 
       <div class="section" id="lesson-content">
-        <h2>📘 Clean Environment = Healthy People</h2>
-        <p>You’ve learned to manage waste scientifically. But why does it matter for **your health**?</p>
-        <p>The answer is clear: **unclean environments breed disease**, while **good nutrition and hygiene prevent illness**. Science connects clean streets to strong bodies!</p>
+        <h2>📘 Why Your Body Needs Different Foods</h2>
+        <p>Your body is like a high-performance machine—it needs the right fuel to grow, move, think, and stay healthy. The foods you eat provide <strong>nutrients</strong>, which are substances your body uses for energy, repair, and protection.</p>
 
         <table>
           <thead>
-            <tr><th>Environmental Condition</th><th>Health Risk</th><th>Scientific Prevention</th></tr>
+            <tr>
+              <th>Nutrient</th>
+              <th>Main Function</th>
+              <th>Local Food Sources (Ghana)</th>
+            </tr>
           </thead>
           <tbody>
-            <tr><td>Stagnant water + plastic waste</td><td>Mosquitoes → Malaria</td><td>Drain standing water, cover containers</td></tr>
-            <tr><td>Open defecation / poor sanitation</td><td>Cholera, dysentery</td><td>Use toilets, wash hands with soap</td></tr>
-            <tr><td>Food waste attracting flies</td><td>Diarrhea, typhoid</td><td>Cover food, compost organics</td></tr>
-            <tr><td>Poor diet (no vegetables, meat)</td><td>Kwashiorkor, anemia, scurvy</td><td>Eat balanced meals with local foods</td></tr>
+            <tr><td><strong>Carbohydrates</strong></td><td>Provide quick energy</td><td>Rice, yam, cassava, plantain, maize</td></tr>
+            <tr><td><strong>Proteins</strong></td><td>Build and repair muscles, skin, blood</td><td>Beans, groundnuts, fish, eggs, meat, milk</td></tr>
+            <tr><td><strong>Fats & Oils</strong></td><td>Store energy, protect organs</td><td>Palm oil, groundnut oil, avocado, coconut</td></tr>
+            <tr><td><strong>Vitamins</strong></td><td>Support immunity, vision, healing</td><td>Kontomire, oranges, mangoes, tomatoes</td></tr>
+            <tr><td><strong>Minerals</strong></td><td>Build strong bones, carry oxygen</td><td>Leafy greens (iron), dairy/fish (calcium)</td></tr>
+            <tr><td><strong>Water</strong></td><td>Carry nutrients, regulate temperature</td><td>Water, soups, fruits like watermelon</td></tr>
           </tbody>
         </table>
 
         <blockquote>
-          💭 <strong>Thought Experiment</strong>: If a community cleans its drains, covers food, and eats yam, groundnuts, and leafy greens daily, how would child sickness rates change? What role does science play in this transformation?
+          💭 <strong>Thought Experiment</strong>: Imagine your body is a smartphone. Carbs are like the battery (energy), proteins are the software updates (repair), and vitamins are the antivirus (protection). What happens if you only charge it but never update or scan for viruses?
         </blockquote>
 
-        <div class="review-card">
-          <h3>✅ Strand 5 Review: Quick Recall</h3>
-          <ul>
-            <li>Waste must be sorted: organic → compost, recyclable → reuse, hazardous → safe disposal.</li>
-            <li>The 5 R’s: Refuse, Reduce, Reuse, Recycle, Rot.</li>
-            <li>Clean environments prevent disease and honor cultural values.</li>
-            <li>Now, we extend care from the environment to the human body.</li>
-          </ul>
-        </div>
-
         <div class="activity-card">
-          <h3>✅ Bridge Activity</h3>
-          <p><strong>“Health & Environment Connection Map”</strong><br>
-          In groups:<br>
-          1. Draw two circles: “Clean Environment” and “Healthy Body.”<br>
-          2. Use arrows to connect:<br>
-             – Waste practices → disease risks<br>
-             – Food choices → nutrient benefits<br>
-          3. Add real examples from your community.<br>
-          4. Present your map with explanations.<br>
-          Example: “No composting → flies on food → stomach pain.”
+          <h3>✅ Exemplar Activity</h3>
+          <p><strong>“My Plate Audit”</strong>: For one day, write down everything you eat. Then, using the table above, color-code each food by its main nutrient (e.g., red for protein, yellow for carbs). Did your plate include all six nutrients? If not, what local foods could you add tomorrow?</p>
         </div>
       </div>
 
       <div class="section">
         <h2>✅ Check Your Understanding</h2>
         <div class="checkpoint" id="checkpoint-questions">
-          <!-- Filled by JS -->
+          <!-- Auto-filled -->
         </div>
       </div>
 
       <div class="section" id="next-preview">
         <h3>🔜 Coming Up</h3>
-        <p>In Lesson 55, you’ll explore deficiency diseases like kwashiorkor and scurvy—and learn how eating local, balanced meals keeps you strong!</p>
+        <p>In Lesson 55, you’ll discover what happens when your body lacks key nutrients—and how diseases like kwashiorkor, anemia, and scurvy develop. You’ll also learn how Ghanaian foods can prevent these conditions!</p>
       </div>
 
       <div id="student-name-prompt" class="section" style="display:none;">
@@ -531,153 +328,54 @@ Below is a complete, standards-aligned, Vanilla JS/HTML file that fulfills this 
         window.open(url, '_blank');
       }
 
-      const CHAPTER_CONFIG = {
-        title: "From Clean Communities to Healthy Lives",
-        loTags: ["B7/JHS1.5.1 → B7/JHS1.5.2"],
-        objectives: [
-          "Explain how poor waste management leads to disease.",
-          "Connect environmental cleanliness to nutritional health.",
-          "Identify common health risks linked to sanitation and diet.",
-          "Prepare for studying deficiency and viral diseases in Lessons 55–56."
-        ],
-        words: [
-          "Sanitation", "Nutrition", "Deficiency", "Disease", "Hygiene",
-          "Malaria", "Cholera", "Kwashiorkor", "Prevention", "Well-being"
-        ],
-        wordListDesc: "Key terms for this lesson:",
-        checkpointQuestions: `
-          <ol>
-            <li>How does stagnant water near plastic waste cause malaria?</li>
-            <li>Why does open defecation lead to cholera?</li>
-            <li>Name three local Ghanaian foods that prevent deficiency diseases.</li>
-            <li>How does scientific waste management support public health?</li>
-          </ol>
-          <p><em>Reflect before exploring deficiency diseases!</em></p>
-        `,
-        nextPreview: "In Lesson 55, you’ll explore deficiency diseases like kwashiorkor and scurvy—and learn how eating local, balanced meals keeps you strong!",
-        assessmentItems: [
-          { id: "1", prompt: "Poor sanitation can cause:", options: [
-            {id:"a",text:"Better crops",is_correct:false},
-            {id:"b",text:"Cholera and dysentery",is_correct:true},
-            {id:"c",text:"Clean air",is_correct:false},
-            {id:"d",text:"More rain",is_correct:false}
-          ]},
-          { id: "2", prompt: "Stagnant water breeds:", options: [
-            {id:"a",text:"Fish",is_correct:false},
-            {id:"b",text:"Mosquitoes",is_correct:true},
-            {id:"c",text:"Plants",is_correct:false},
-            {id:"d",text:"Birds",is_correct:false}
-          ]},
-          { id: "3", prompt: "Kwashiorkor is caused by lack of:", options: [
-            {id:"a",text:"Carbohydrates",is_correct:false},
-            {id:"b",text:"Protein",is_correct:true},
-            {id:"c",text:"Fat",is_correct:false},
-            {id:"d",text:"Water",is_correct:false}
-          ]},
-          { id: "4", prompt: "Anemia is often due to lack of:", options: [
-            {id:"a",text:"Vitamin C",is_correct:false},
-            {id:"b",text:"Iron",is_correct:true},
-            {id:"c",text:"Sugar",is_correct:false},
-            {id:"d",text:"Salt",is_correct:false}
-          ]},
-          { id: "5", prompt: "Scurvy results from lack of:", options: [
-            {id:"a",text:"Vitamin A",is_correct:false},
-            {id:"b",text:"Vitamin C",is_correct:true},
-            {id:"c",text:"Calcium",is_correct:false},
-            {id:"d",text:"Protein",is_correct:false}
-          ]},
-          { id: "6", prompt: "Covering food prevents:", options: [
-            {id:"a",text:"Flies and contamination",is_correct:true},
-            {id:"b",text:"Growth",is_correct:false},
-            {id:"c",text:"Cooking",is_correct:false},
-            {id:"d",text:"Taste",is_correct:false}
-          ]},
-          { id: "7", prompt: "Handwashing with soap reduces:", options: [
-            {id:"a",text:"Diarrhea and typhoid",is_correct:true},
-            {id:"b",text:"Rainfall",is_correct:false},
-            {id:"c",text:"Crop yield",is_correct:false},
-            {id:"d",text:"Tool rust",is_correct:false}
-          ]},
-          { id: "8", prompt: "Groundnuts are rich in:", options: [
-            {id:"a",text:"Only fat",is_correct:false},
-            {id:"b",text:"Protein and healthy fats",is_correct:true},
-            {id:"c",text:"Sugar",is_correct:false},
-            {id:"d",text:"Water",is_correct:false}
-          ]},
-          { id: "9", prompt: "Leafy greens like kontomire provide:", options: [
-            {id:"a",text:"Iron and vitamins",is_correct:true},
-            {id:"b",text:"Only water",is_correct:false},
-            {id:"c",text:"Plastic",is_correct:false},
-            {id:"d",text:"Metal",is_correct:false}
-          ]},
-          { id: "10", prompt: "Science links environment and health by:", options: [
-            {id:"a",text:"Showing cause-effect relationships",is_correct:true},
-            {id:"b",text:"Ignoring connections",is_correct:false},
-            {id:"c",text:"Promoting littering",is_correct:false},
-            {id:"d",text:"Avoiding action",is_correct:false}
-          ]},
-          { id: "11", prompt: "Rickets is caused by lack of:", options: [
-            {id:"a",text:"Vitamin D and calcium",is_correct:true},
-            {id:"b",text:"Sugar",is_correct:false},
-            {id:"c",text:"Fat",is_correct:false},
-            {id:"d",text:"Salt",is_correct:false}
-          ]},
-          { id: "12", prompt: "Night blindness is due to lack of:", options: [
-            {id:"a",text:"Vitamin A",is_correct:true},
-            {id:"b",text:"Vitamin B",is_correct:false},
-            {id:"c",text:"Iron",is_correct:false},
-            {id:"d",text:"Protein",is_correct:false}
-          ]},
-          { id: "13", prompt: "Balanced diet includes:", options: [
-            {id:"a",text:"Only rice",is_correct:false},
-            {id:"b",text:"Carbs, protein, fats, vitamins, minerals",is_correct:true},
-            {id:"c",text:"Only sweets",is_correct:false},
-            {id:"d",text:"Only water",is_correct:false}
-          ]},
-          { id: "14", prompt: "Clean drains help prevent:", options: [
-            {id:"a",text:"Malaria",is_correct:true},
-            {id:"b",text:"Earthquakes",is_correct:false},
-            {id:"c",text:"Tool rust",is_correct:false},
-            {id:"d",text:"Noise",is_correct:false}
-          ]},
-          { id: "15", prompt: "Public health means:", options: [
-            {id:"a",text:"Only hospital care",is_correct:false},
-            {id:"b",text:"Community-wide prevention and wellness",is_correct:true},
-            {id:"c",text:"Ignoring environment",is_correct:false},
-            {id:"d",text:"Only rich people",is_correct:false}
-          ]},
-          { id: "16", prompt: "Local foods support health because they:", options: [
-            {id:"a",text:"Are fresh, affordable, and nutrient-rich",is_correct:true},
-            {id:"b",text:"Are always processed",is_correct:false},
-            {id:"c",text:"Cost more",is_correct:false},
-            {id:"d",text:"Have no nutrients",is_correct:false}
-          ]},
-          { id: "17", prompt: "Cultural identity includes:", options: [
-            {id:"a",text:"Eating traditional, healthy meals",is_correct:true},
-            {id:"b",text:"Discarding all customs",is_correct:false},
-            {id:"c",text:"Only imported foods",is_correct:false},
-            {id:"d",text:"Ignoring elders",is_correct:false}
-          ]},
-          { id: "18", prompt: "Students can promote health by:", options: [
-            {id:"a",text:"Teaching peers about nutrition and hygiene",is_correct:true},
-            {id:"b",text:"Littering secretly",is_correct:false},
-            {id:"c",text:"Avoiding science",is_correct:false},
-            {id:"d",text:"Waiting for adults only",is_correct:false}
-          ]},
-          { id: "19", prompt: "The next lesson focuses on:", options: [
-            {id:"a",text:"Deficiency diseases and nutrition",is_correct:true},
-            {id:"b",text:"Only electricity",is_correct:false},
-            {id:"c",text:"Avoiding science",is_correct:false},
-            {id:"d",text:"Nuclear weapons",is_correct:false}
-          ]},
-          { id: "20", prompt: "This lesson shows that:", options: [
-            {id:"a",text:"Clean environment and good food are foundations of health",is_correct:true},
-            {id:"b",text:"Health is unrelated to waste",is_correct:false},
-            {id:"c",text:"Science stops at the classroom",is_correct:false},
-            {id:"d",text:"Disease is unavoidable",is_correct:false}
-          ]}
-        ]
+      const LESSON_DATABASE = {
+        54: {
+          title: "Food Nutrients and Their Functions",
+          loTags: ["B7/JHS1.5.1.1"],
+          objectives: [
+            "Identify the six major types of nutrients in food.",
+            "Explain the primary function of each nutrient in the human body.",
+            "Match common Ghanaian foods to their dominant nutrient groups.",
+            "Begin evaluating personal diets for balance and variety."
+          ],
+          words: ["Nutrient", "Carbohydrate", "Protein", "Fat", "Vitamin", "Mineral", "Water", "Function", "Source", "Balanced diet"],
+          wordListDesc: "Key terms for this lesson:",
+          checkpointQuestions: `
+            <ol>
+              <li>Name the nutrient that gives you immediate energy. Give two local examples.</li>
+              <li>Why does your body need protein every day?</li>
+              <li>Is palm oil a source of fat or carbohydrate? Why is it useful?</li>
+              <li>If you only ate kenkey and fish every day, which nutrients might you be missing?</li>
+            </ol>
+            <p><em>Confirm your understanding before exploring deficiency diseases!</em></p>
+          `,
+          nextPreview: "In Lesson 55, you’ll discover what happens when your body lacks key nutrients—and how diseases like kwashiorkor, anemia, and scurvy develop. You’ll also learn how Ghanaian foods can prevent these conditions!",
+          assessmentItems: [
+            { id: "1", prompt: "Which nutrient provides the body’s main source of energy?", options: [{id:"a",text:"Protein",is_correct:false},{id:"b",text:"Carbohydrate",is_correct:true},{id:"c",text:"Vitamin",is_correct:false},{id:"d",text:"Mineral",is_correct:false}]},
+            { id: "2", prompt: "What is the main function of protein?", options: [{id:"a",text:"Quick energy",is_correct:false},{id:"b",text:"Build and repair tissues",is_correct:true},{id:"c",text:"Store fat",is_correct:false},{id:"d",text:"Carry oxygen",is_correct:false}]},
+            { id: "3", prompt: "Which food is rich in vitamin C?", options: [{id:"a",text:"Rice",is_correct:false},{id:"b",text:"Oranges",is_correct:true},{id:"c",text:"Palm oil",is_correct:false},{id:"d",text:"Yam",is_correct:false}]},
+            { id: "4", prompt: "Kontomire is a good source of:", options: [{id:"a",text:"Iron and vitamins",is_correct:true},{id:"b",text:"Only carbohydrates",is_correct:false},{id:"c",text:"Sugar",is_correct:false},{id:"d",text:"Salt",is_correct:false}]},
+            { id: "5", prompt: "Water is important because it:", options: [{id:"a",text:"Builds muscle",is_correct:false},{id:"b",text:"Transports nutrients and regulates temperature",is_correct:true},{id:"c",text:"Stores fat",is_correct:false},{id:"d",text:"Makes hair grow fast",is_correct:false}]},
+            { id: "6", prompt: "Groundnuts provide mainly:", options: [{id:"a",text:"Carbs and sugar",is_correct:false},{id:"b",text:"Protein and healthy fats",is_correct:true},{id:"c",text:"Only water",is_correct:false},{id:"d",text:"Vitamin D",is_correct:false}]},
+            { id: "7", prompt: "A balanced diet includes:", options: [{id:"a",text:"All six nutrient groups daily",is_correct:true},{id:"b",text:"Only rice and stew",is_correct:false},{id:"c",text:"Only snacks",is_correct:false},{id:"d",text:"Only drinks",is_correct:false}]},
+            { id: "8", prompt: "Calcium is important for:", options: [{id:"a",text:"Energy",is_correct:false},{id:"b",text:"Strong bones and teeth",is_correct:true},{id:"c",text:"Hair color",is_correct:false},{id:"d",text:"Fast running",is_correct:false}]},
+            { id: "9", prompt: "Fish is a good source of:", options: [{id:"a",text:"Protein and minerals",is_correct:true},{id:"b",text:"Only fat",is_correct:false},{id:"c",text:"Carbs",is_correct:false},{id:"d",text:"Sugar",is_correct:false}]},
+            { id: "10", prompt: "Vitamins help with:", options: [{id:"a",text:"Immunity and healing",is_correct:true},{id:"b",text:"Making money",is_correct:false},{id:"c",text:"Sleeping longer",is_correct:false},{id:"d",text:"Growing taller instantly",is_correct:false}]},
+            { id: "11", prompt: "Which is NOT a nutrient?", options: [{id:"a",text:"Fiber",is_correct:false},{id:"b",text:"Plastic",is_correct:true},{id:"c",text:"Minerals",is_correct:false},{id:"d",text:"Water",is_correct:false}]},
+            { id: "12", prompt: "Palm oil contains:", options: [{id:"a",text:"Vitamin A and healthy fats",is_correct:true},{id:"b",text:"Only salt",is_correct:false},{id:"c",text:"Protein",is_correct:false},{id:"d",text:"Carbs",is_correct:false}]},
+            { id: "13", prompt: "Eggs are rich in:", options: [{id:"a",text:"Protein and vitamins",is_correct:true},{id:"b",text:"Only water",is_correct:false},{id:"c",text:"Sugar",is_correct:false},{id:"d",text:"Fiber",is_correct:false}]},
+            { id: "14", prompt: "Maize provides mainly:", options: [{id:"a",text:"Carbohydrates",is_correct:true},{id:"b",text:"Iron",is_correct:false},{id:"c",text:"Vitamin C",is_correct:false},{id:"d",text:"Calcium",is_correct:false}]},
+            { id: "15", prompt: "Science shows that:", options: [{id:"a",text:"Local foods can meet all nutrient needs",is_correct:true},{id:"b",text:"Only imported foods are nutritious",is_correct:false},{id:"c",text:"Nutrition doesn’t affect health",is_correct:false},{id:"d",text:"Drinking soda replaces water",is_correct:false}]},
+            { id: "16", prompt: "A student who eats only banku may lack:", options: [{id:"a",text:"Vitamins and protein",is_correct:true},{id:"b",text:"Too much fat",is_correct:false},{id:"c",text:"Excess sugar",is_correct:false},{id:"d",text:"Nothing—they’re fine",is_correct:false}]},
+            { id: "17", prompt: "The next lesson will cover:", options: [{id:"a",text:"Deficiency diseases like kwashiorkor and anemia",is_correct:true},{id:"b",text:"Electric circuits",is_correct:false},{id:"c",text:"Plant photosynthesis only",is_correct:false},{id:"d",text:"History of Ghana",is_correct:false}]},
+            { id: "18", prompt: "Critical thinking in nutrition means:", options: [{id:"a",text:"Evaluating what you eat using science",is_correct:true},{id:"b",text:"Believing all ads",is_correct:false},{id:"c",text:"Never eating traditional food",is_correct:false},{id:"d",text:"Copying friends’ diets",is_correct:false}]},
+            { id: "19", prompt: "Digital literacy helps you:", options: [{id:"a",text:"Find reliable info about healthy eating",is_correct:true},{id:"b",text:"Play more games",is_correct:false},{id:"c",text:"Avoid school",is_correct:false},{id:"d",text:"Ignore science",is_correct:false}]},
+            { id: "20", prompt: "This lesson shows that:", options: [{id:"a",text:"Nutrition is rooted in both science and culture",is_correct:true},{id:"b",text:"Food doesn’t matter",is_correct:false},{id:"c",text:"Only pills provide nutrients",is_correct:false},{id:"d",text:"Ghanaian foods are unhealthy",is_correct:false}]}
+          ]
+        }
       };
+
+      const CHAPTER_CONFIG = LESSON_DATABASE[54];
 
       function renderContent() {
         document.getElementById('chapter-title').textContent = CHAPTER_CONFIG.title;
