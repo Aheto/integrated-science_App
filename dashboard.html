@@ -4,210 +4,413 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Mini OpenStax Dashboard</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     :root {
-      --green: #006b3d;   /* Ghana green */
-      --gold: #cead00;    /* Ghana gold */
-      --red: #ce1126;     /* Ghana red */
+      --green: #006b3d;       /* Ghana green */
+      --green-light: #008a4d;
+      --gold: #cead00;        /* Ghana gold */
+      --gold-light: #e6c300;
+      --red: #ce1126;         /* Ghana red */
       --light: #f9f9f9;
       --dark: #2d2d2d;
       --card-bg: #ffffff;
-      --shadow: 0 4px 12px rgba(0,0,0,0.08);
+      --border: #eaeaea;
+      --text: #333333;
+      --text-light: #666666;
+    }
+
+    * {
+      box-sizing: border-box;
     }
 
     body {
-      font-family: 'Segoe UI', system-ui, sans-serif;
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
       margin: 0;
       padding: 0;
-      background: var(--light);
-      color: var(--dark);
+      background: linear-gradient(135deg, #f5f7fa 0%, #e8f0e6 100%);
+      color: var(--text);
+      line-height: 1.6;
     }
+
     .container {
-      max-width: 800px;
+      max-width: 840px;
       margin: 0 auto;
       padding: 1.5rem;
     }
+
     header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 1.5rem;
+      margin-bottom: 2rem;
       flex-wrap: wrap;
-      gap: 0.5rem;
+      gap: 1rem;
+      background: white;
+      padding: 1.2rem;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
     }
-    .role-badge {
-      background: #e9ecef;
-      padding: 0.25rem 0.75rem;
-      border-radius: 20px;
-      font-size: 0.85rem;
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
     }
-    h1 { color: var(--green); margin: 0; }
-    .card {
-      background: var(--card-bg);
-      padding: 1.5rem;
-      border-radius: 12px;
-      margin-bottom: 1.5rem;
-      box-shadow: var(--shadow);
-    }
-    .progress-bar {
-      height: 24px;
-      background: #e9ecef;
-      border-radius: 12px;
-      overflow: hidden;
-      margin: 1rem 0;
-    }
-    .progress-fill {
-      height: 100%;
+
+    .logo-icon {
       background: var(--green);
+      color: white;
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: white;
       font-weight: bold;
-      font-size: 0.9rem;
+      font-size: 18px;
     }
-    .lesson-item {
+
+    h1 {
+      color: var(--green);
+      margin: 0;
+      font-weight: 700;
+      font-size: 1.5rem;
+    }
+
+    .role-badge {
+      background: var(--gold);
+      color: white;
+      padding: 0.35rem 1rem;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      box-shadow: 0 2px 6px rgba(206, 173, 0, 0.3);
+    }
+
+    .header-actions a,
+    .header-actions button {
+      font-size: 0.9rem;
+      text-decoration: none;
+      padding: 0.4rem 0.8rem;
+      border-radius: 8px;
+      transition: all 0.2s ease;
+    }
+
+    .header-actions a {
+      color: var(--green);
+      border: 1px solid var(--green);
+    }
+
+    .header-actions a:hover {
+      background: var(--green);
+      color: white;
+    }
+
+    .header-actions button {
+      background: white;
+      border: 1px solid var(--border);
+      color: var(--text);
+    }
+
+    .header-actions button:hover {
+      background: #f0f0f0;
+      border-color: #ccc;
+    }
+
+    .card {
+      background: var(--card-bg);
+      padding: 1.8rem;
+      border-radius: 16px;
+      margin-bottom: 1.8rem;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+    }
+
+    .card h2 {
+      margin-top: 0;
+      color: var(--green);
+      font-size: 1.4rem;
+      font-weight: 700;
+    }
+
+    .stats {
       display: flex;
       justify-content: space-between;
-      padding: 0.6rem 0;
-      border-bottom: 1px solid #eee;
+      align-items: center;
+      margin: 1.2rem 0;
+      flex-wrap: wrap;
+      gap: 1rem;
     }
-    .lesson-item:last-child { border-bottom: none; }
-    .mastery-indicator {
-      display: inline-block;
-      width: 12px;
+
+    .stat-item {
+      text-align: center;
+    }
+
+    .stat-value {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--green);
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 0.9rem;
+      color: var(--text-light);
+      margin-top: 0.25rem;
+    }
+
+    .progress-container {
+      margin: 1.5rem 0;
+    }
+
+    .progress-label {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 0.5rem;
+      font-size: 0.95rem;
+      color: var(--text-light);
+    }
+
+    .progress-bar {
       height: 12px;
-      border-radius: 50%;
-      margin-right: 0.5rem;
+      background: #e9ecef;
+      border-radius: 6px;
+      overflow: hidden;
+      position: relative;
     }
-    .mastery-yes { background: var(--green); }
-    .mastery-no { background: var(--red); }
-    .mastery-partial { background: #ffc107; }
-    .note {
-      font-size: 0.85rem;
-      color: #6c757d;
-      margin-top: 1.5rem;
-      line-height: 1.5;
+
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--green), var(--green-light));
+      border-radius: 6px;
+      width: 0;
+      transition: width 1s ease;
     }
+
     .btn {
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
       background: var(--green);
       color: white;
       text-decoration: none;
-      padding: 0.6rem 1.2rem;
-      border-radius: 6px;
-      margin-top: 1rem;
+      padding: 0.75rem 1.5rem;
+      border-radius: 10px;
       font-weight: 600;
+      font-size: 1rem;
+      transition: all 0.25s ease;
+      box-shadow: 0 4px 12px rgba(0, 107, 61, 0.3);
     }
-    .btn:hover { background: #00502e; }
+
+    .btn:hover {
+      background: var(--green-light);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0, 107, 61, 0.4);
+    }
+
     .btn-outline {
       background: transparent;
       border: 2px solid var(--green);
       color: var(--green);
+      box-shadow: none;
     }
+
+    .btn-outline:hover {
+      background: var(--green);
+      color: white;
+    }
+
     .btn-whatsapp {
       background: #25D366;
       color: white;
+      box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
     }
-    .loading { text-align: center; color: #6c757d; }
-    .error { 
-      background: #f8d7da; 
-      color: #721c24; 
-      padding: 1rem; 
-      border-radius: 6px; 
-      margin: 1rem 0; 
+
+    .btn-whatsapp:hover {
+      background: #1ebc58;
+      box-shadow: 0 6px 16px rgba(37, 211, 102, 0.4);
+    }
+
+    .lesson-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.8rem 0;
+      border-bottom: 1px solid var(--border);
+      align-items: center;
+    }
+
+    .lesson-item:last-child {
+      border-bottom: none;
+    }
+
+    .lesson-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 600;
+    }
+
+    .mastery-indicator {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+
+    .mastery-yes { background: var(--green); }
+    .mastery-no { background: var(--red); }
+    .mastery-partial { background: #ffc107; }
+
+    .note {
+      font-size: 0.85rem;
+      color: var(--text-light);
+      margin-top: 1.5rem;
+      line-height: 1.6;
+      padding: 1rem;
+      background: #f8f9fa;
+      border-radius: 10px;
+      border-left: 3px solid var(--gold);
+    }
+
+    .loading {
+      text-align: center;
+      color: var(--text-light);
+      padding: 2rem;
+      font-size: 1.1rem;
     }
 
     /* === REPORTS PANEL === */
     #reports-panel {
       display: none;
       margin-top: 2rem;
-      padding: 1.5rem;
+      padding: 1.8rem;
       background: var(--card-bg);
-      border-radius: 12px;
-      box-shadow: var(--shadow);
+      border-radius: 16px;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.08);
     }
+
     .panel-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
       margin-bottom: 1.5rem;
       flex-wrap: wrap;
-      gap: 10px;
+      gap: 12px;
     }
+
+    .panel-header h2 {
+      color: var(--green);
+      margin: 0;
+      font-size: 1.4rem;
+    }
+
     .search-box {
-      margin: 1rem 0;
+      margin: 1.2rem 0;
       text-align: center;
     }
+
     #student-search {
-      padding: 8px 12px;
-      width: 250px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
+      padding: 10px 16px;
+      width: 280px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
       font-size: 16px;
+      transition: border-color 0.2s;
     }
+
+    #student-search:focus {
+      outline: none;
+      border-color: var(--green);
+      box-shadow: 0 0 0 3px rgba(0, 107, 61, 0.15);
+    }
+
     #search-btn {
-      padding: 8px 16px;
+      padding: 10px 20px;
       background: var(--green);
       color: white;
       border: none;
-      border-radius: 4px;
-      margin-left: 10px;
+      border-radius: 10px;
+      margin-left: 12px;
       cursor: pointer;
+      font-weight: 600;
+      transition: background 0.2s;
     }
+
+    #search-btn:hover {
+      background: var(--green-light);
+    }
+
     .report-card {
-      background: white;
-      border: 1px solid #dee2e6;
-      border-radius: 6px;
-      padding: 16px;
-      margin-bottom: 16px;
+      background: #f9fbf8;
+      border: 1px solid #e0e8dc;
+      border-radius: 10px;
+      padding: 18px;
+      margin-bottom: 18px;
       white-space: pre-wrap;
-      font-family: monospace;
+      font-family: 'Consolas', 'Courier New', monospace;
       font-size: 13px;
-      line-height: 1.4;
+      line-height: 1.5;
       overflow-x: auto;
+      position: relative;
     }
+
+    .report-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background: var(--green);
+      border-radius: 10px 0 0 10px;
+    }
+
     .report-date {
-      margin-top: 8px;
+      margin-top: 12px;
       font-style: italic;
-      color: #6c757d;
+      color: var(--text-light);
       font-size: 12px;
+      display: block;
     }
-    .report-actions {
-      margin-top: 8px;
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
+
+    footer.note {
+      text-align: center;
+      margin-top: 2.5rem;
+      padding: 1.5rem;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.04);
     }
-    .action-btn {
-      padding: 4px 8px;
-      font-size: 12px;
-      background: #6c757d;
-      color: white;
-      border: none;
-      border-radius: 3px;
-      cursor: pointer;
-    }
-    .action-btn:hover {
-      background: #5a6268;
-    }
+
     @media (max-width: 600px) {
+      .container { padding: 1rem; }
+      header { flex-direction: column; text-align: center; }
+      .logo { justify-content: center; }
+      .panel-header { flex-direction: column; }
       .panel-header > * { width: 100%; text-align: center; }
-      #student-search { width: 100%; margin-bottom: 10px; }
-      #search-btn, #whatsapp-all { margin-left: 0; width: 100%; }
+      #student-search { width: 100%; margin-bottom: 12px; }
+      #search-btn, .btn { width: 100%; justify-content: center; }
+      .stats { flex-direction: column; gap: 0.5rem; }
     }
   </style>
 </head>
 <body>
   <div class="container">
     <header>
-      <div>
+      <div class="logo">
+        <div class="logo-icon">MO</div>
         <h1>Mini OpenStax Dashboard</h1>
-        <div class="role-badge" id="role-badge">Loading...</div>
       </div>
-      <div style="display:flex;gap:0.5rem;flex-wrap:wrap;">
-        <a href="setup.html" style="font-size:0.9rem;">✏️ Change Role</a>
-        <button id="toggle-reports" class="btn btn-outline" style="padding:0.4rem 0.8rem;font-size:0.9rem;">📊 Reports</button>
+      <div class="role-badge" id="role-badge">Loading...</div>
+      <div class="header-actions">
+        <a href="setup.html"><i class="fas fa-user-edit"></i> Change Role</a>
+        <button id="toggle-reports" class="btn btn-outline"><i class="fas fa-chart-line"></i> Reports</button>
       </div>
     </header>
 
@@ -218,23 +421,25 @@
     <!-- REPORTS PANEL -->
     <div id="reports-panel">
       <div class="panel-header">
-        <h2>All Quiz Reports</h2>
-        <div style="display:flex;gap:0.5rem;flex-wrap:wrap;">
-          <button id="whatsapp-all" class="btn btn-whatsapp" style="padding:0.4rem 0.8rem;font-size:0.9rem;">📤 Send All</button>
-          <button id="close-reports" class="btn btn-outline" style="padding:0.4rem 0.8rem;font-size:0.9rem;">✕ Close</button>
+        <h2><i class="fas fa-file-alt"></i> All Quiz Reports</h2>
+        <div style="display:flex;gap:0.75rem;flex-wrap:wrap;">
+          <button id="whatsapp-all" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Send All</button>
+          <button id="close-reports" class="btn btn-outline"><i class="fas fa-times"></i> Close</button>
         </div>
       </div>
       <div class="search-box">
         <input type="text" id="student-search" placeholder="Enter student name or leave blank for all" />
-        <button id="search-btn">Search Reports</button>
+        <button id="search-btn"><i class="fas fa-search"></i> Search</button>
       </div>
-      <div class="note">Reports are saved only in this browser.</div>
+      <div class="note">
+        Reports are saved only in this browser. No data is sent to external servers.
+      </div>
       <div id="results"></div>
     </div>
 
     <footer class="note">
-      <p>Data is stored locally. No personal information is sent to servers.</p>
-      <p>Powered by open educational principles • Ghana-made</p>
+      <p>Data is stored locally in your browser. No personal information is sent to servers.</p>
+      <p>Powered by open educational principles • Ghana-made 🇬🇭</p>
     </footer>
   </div>
 
@@ -247,6 +452,22 @@
       const WHATSAPP_NUMBER = "233257320201";
       const REGISTRATION_LINE = "\n\nCALL OR WHATSAPP TO REGISTER FOR A CLASS @ +233257320201 / +233205626264";
 
+      // === DYNAMIC LESSON DETECTION ===
+      function getTotalLessons() {
+        let maxIndex = -1;
+        for (let i = 0; i <= 300; i++) {
+          if (
+            localStorage.getItem(`mastery_${i}`) !== null ||
+            localStorage.getItem(`quiz_attempts_${i}`) !== null
+          ) {
+            maxIndex = i;
+          } else if (i > maxIndex + 5) {
+            break;
+          }
+        }
+        return maxIndex + 1;
+      }
+
       function renderHeader() {
         document.getElementById('role-badge').textContent = 
           ROLE === 'instructor' ? 'Instructor View' : 'Student View';
@@ -254,47 +475,75 @@
 
       // ===== STUDENT VIEW =====
       function renderStudentDashboard() {
-        const totalLessons = 262;
+        const totalLessons = Math.max(1, getTotalLessons());
         let mastered = 0;
-        for (let i = 0; i <= 261; i++) {
+        for (let i = 0; i < totalLessons; i++) {
           if (localStorage.getItem(`mastery_${i}`) === '1') mastered++;
         }
-        const masteryPercent = Math.round((mastered / totalLessons) * 100);
+        const masteryPercent = totalLessons > 0 ? Math.round((mastered / totalLessons) * 100) : 0;
 
-        // Find next lesson to continue
         let nextLesson = 0;
-        for (let i = 0; i <= 261; i++) {
+        for (let i = 0; i < totalLessons; i++) {
           if (localStorage.getItem(`mastery_${i}`) !== '1') {
             nextLesson = i;
             break;
           }
         }
+        if (mastered === totalLessons) {
+          nextLesson = totalLessons;
+        }
 
         const html = `
           <div class="card">
             <h2>Hello, ${STUDENT_NAME}!</h2>
-            <p>You've mastered <strong>${mastered} of ${totalLessons}</strong> phonics lessons.</p>
-            <div class="progress-bar">
-              <div class="progress-fill" style="width:${masteryPercent}%">
-                ${masteryPercent}%
+            <div class="stats">
+              <div class="stat-item">
+                <div class="stat-value">${mastered}</div>
+                <div class="stat-label">Mastered</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-value">${totalLessons}</div>
+                <div class="stat-label">Total Lessons</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-value">${masteryPercent}%</div>
+                <div class="stat-label">Progress</div>
               </div>
             </div>
-            <a href="student/chapter-${nextLesson}.html" class="btn">Continue Learning</a>
+
+            <div class="progress-container">
+              <div class="progress-label">
+                <span>Your Progress</span>
+                <span>${masteryPercent}%</span>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-fill" id="progress-fill" style="width:0%"></div>
+              </div>
+            </div>
+
+            <a href="student/chapter-${nextLesson}.html" class="btn">
+              <i class="fas fa-play-circle"></i> Continue Learning
+            </a>
           </div>
 
           <div class="card">
-            <h3>Your Recent Activity</h3>
+            <h2><i class="fas fa-history"></i> Recent Activity</h2>
             <div id="recent-lessons">
-              ${getRecentLessons()}
+              ${getRecentLessons(totalLessons)}
             </div>
           </div>
         `;
         document.getElementById('dashboard-content').innerHTML = html;
+
+        // Animate progress bar
+        setTimeout(() => {
+          document.getElementById('progress-fill').style.width = `${masteryPercent}%`;
+        }, 100);
       }
 
-      function getRecentLessons() {
+      function getRecentLessons(totalLessons) {
         const lessons = [];
-        for (let i = 261; i >= 0 && lessons.length < 5; i--) {
+        for (let i = totalLessons - 1; i >= 0 && lessons.length < 5; i--) {
           const mastered = localStorage.getItem(`mastery_${i}`) === '1';
           if (mastered || localStorage.getItem(`quiz_attempts_${i}`)) {
             const lessonNum = i + 1;
@@ -302,25 +551,28 @@
             const masteryText = mastered ? 'Mastered' : 'In Progress';
             lessons.push(`
               <div class="lesson-item">
-                <span><span class="mastery-indicator ${masteryClass}"></span> Lesson ${lessonNum}</span>
+                <div class="lesson-title">
+                  <span class="mastery-indicator ${masteryClass}"></span>
+                  Lesson ${lessonNum}
+                </div>
                 <span>${masteryText}</span>
               </div>
             `);
           }
         }
-        return lessons.length ? lessons.join('') : '<p>No recent activity.</p>';
+        return lessons.length ? lessons.join('') : '<p style="text-align:center;color:#888;">No recent activity.</p>';
       }
 
       // ===== INSTRUCTOR VIEW =====
       function renderInstructorDashboard() {
         document.getElementById('dashboard-content').innerHTML = `
           <div class="card">
-            <h2>Instructor Dashboard</h2>
+            <h2><i class="fas fa-chalkboard-teacher"></i> Instructor Dashboard</h2>
             <p>Welcome! As an instructor, you can:</p>
-            <ul style="margin: 1rem 0 1.5rem; padding-left: 1.2rem;">
-              <li>Review anonymized class reports via WhatsApp</li>
-              <li>Guide students using their mastery data</li>
-              <li>Encourage consistent practice</li>
+            <ul style="margin: 1.2rem 0 1.5rem; padding-left: 1.4rem; line-height: 1.7;">
+              <li>Review anonymized student reports via WhatsApp</li>
+              <li>Guide learners using their mastery data</li>
+              <li>Encourage consistent practice in science</li>
             </ul>
             <div class="note">
               <p><strong>Note:</strong> This demo does not include real-time class analytics.<br>
@@ -338,7 +590,7 @@
             const lessonMatch = value.match(/Lesson (\d+)/);
             if (lessonMatch) {
               const lessonNum = parseInt(lessonMatch[1], 10);
-              if (lessonNum >= 2 && lessonNum <= 262) {
+              if (lessonNum >= 1) {
                 const chapter = lessonNum - 1;
                 const reportKey = `saved_report_${chapter}_${Date.now()}`;
                 originalSetItem.call(localStorage, reportKey, value);
@@ -397,7 +649,7 @@
         const container = document.getElementById('results');
 
         if (reports.length === 0) {
-          container.innerHTML = `<div style="text-align:center;color:#dc3545;padding:20px;">
+          container.innerHTML = `<div style="text-align:center;color:#ce1126;padding:24px;font-size:1.1rem;">
             No quiz reports found${searchTerm ? ` for "${searchTerm}"` : ''}.
           </div>`;
           return;
@@ -432,7 +684,6 @@
           renderStudentDashboard();
         }
 
-        // Reports panel listeners
         document.getElementById('toggle-reports').onclick = () => {
           document.getElementById('reports-panel').style.display = 'block';
           showReports();
