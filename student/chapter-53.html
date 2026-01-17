@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Mini OpenStax: Scientific Waste Management — Clean Up Our World!">
+  <title>Mini OpenStax — Scientific Waste Management</title>
+  <style>
+    :root {
+      --green: #006b3d;
+      --gold: #cead00;
+      --light: #f9f9f9;
+      --dark: #2d2d2d;
+    }
+    body { 
+      font-family: 'Segoe UI', system-ui, sans-serif; 
+      margin: 0; 
+      padding: 0; 
+      background: #fff; 
+      color: var(--dark); 
+      line-height: 1.6;
+    }
+    .container { 
+      max-width: 800px; 
+      margin: 0 auto; 
+      padding: 1rem; 
+    }
+    .header { 
+      display: flex; 
+      justify-content: space-between; 
+      align-items: center; 
+      margin-bottom: 1rem; 
+      flex-wrap: wrap; 
+      gap: 0.5rem; 
+    }
+    .role-badge { 
+      background: #e9ecef; 
+      padding: 0.25rem 0.5rem; 
+      border-radius: 4px; 
+      font-size: 0.85rem; 
+    }
+    .chapter-nav { 
+      margin: 1.2rem 0; 
+      display: flex; 
+      flex-wrap: wrap; 
+      gap: 0.4rem; 
+      justify-content: center; 
+    }
+    .chapter-btn {
+      padding: 0.4rem 0.8rem; 
+      background: var(--green); 
+      color: white; 
+      text-decoration: none; 
+      border-radius: 4px; 
+      font-size: 0.9rem;
+    }
+    .chapter-btn.active, .chapter-btn:hover { 
+      background: #00502e; 
+    }
+    .section { 
+      margin-bottom: 1.5rem; 
+      padding-bottom: 1rem;
+      border-bottom: 1px solid #eee;
+    }
+    .word-list { 
+      display: flex; 
+      flex-wrap: wrap; 
+      gap: 0.5rem; 
+      margin: 0.5rem 0; 
+    }
+    .word-item { 
+      background: var(--light); 
+      padding: 0.25rem 0.5rem; 
+      border-radius: 4px; 
+      font-family: monospace; 
+      font-size: 0.95rem;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 0.5rem;
+      text-align: left;
+    }
+    th {
+      background-color: #f0f7f4;
+    }
+    .checkpoint, .thought-experiment {
+      background: #f8f9fa;
+      padding: 1rem;
+      border-left: 4px solid var(--gold);
+      margin: 1.5rem 0;
+    }
+    .quiz { 
+      margin-top: 2rem; 
+    }
+    .question { 
+      margin-bottom: 1.2rem; 
+    }
+    .options { 
+      margin-left: 1rem; 
+    }
+    .option { 
+      margin: 0.4rem 0; 
+    }
+    .btn {
+      background: var(--green); 
+      color: white; 
+      border: none; 
+      padding: 0.5rem 1rem;
+      border-radius: 4px; 
+      cursor: pointer; 
+      font-size: 1rem; 
+      margin-right: 0.5rem;
+      display: inline-block;
+    }
+    .btn:hover { 
+      background: #00502e; 
+    }
+    .btn-secondary { 
+      background: #6c757d; 
+    }
+    .btn-secondary:hover { 
+      background: #5a6268; 
+    }
+    .feedback { 
+      margin-top: 1.5rem; 
+      padding: 1rem; 
+      background: var(--light); 
+      border-left: 4px solid var(--green); 
+    }
+    footer { 
+      text-align: center; 
+      margin-top: 2rem; 
+      font-size: 0.9rem; 
+      padding-top: 1.5rem;
+      border-top: 1px solid #eee;
+    }
+    a { 
+      color: var(--green); 
+      text-decoration: none; 
+    }
+    a:hover { 
+      text-decoration: underline; 
+    }
+    blockquote {
+      margin: 1rem 0;
+      padding-left: 1rem;
+      border-left: 3px solid var(--green);
+      color: #555;
+      font-style: italic;
+    }
+    .activity-card {
+      background: #f8f9fa;
+      padding: 1rem;
+      margin: 1rem 0;
+      border-radius: 6px;
+      border-left: 4px solid var(--green);
+    }
+    .waste-box {
+      background: #f0f7f4;
+      padding: 0.75rem;
+      margin: 0.75rem 0;
+      border-radius: 6px;
+      border-left: 3px solid var(--green);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div>
+        <h1 id="chapter-title">Scientific Waste Management</h1>
+        <div class="lo-tags" id="lo-tags">B7/JHS1.5.1.1.1</div>
+      </div>
+      <div class="role-badge">Student View</div>
+    </div>
+
+    <nav class="chapter-nav" id="chapter-nav"></nav>
+
+    <main id="main-content">
+      <div class="section">
+        <h2>🎯 What You’ll Learn</h2>
+        <ul id="objectives">
+          <!-- Filled by JS -->
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2>🔤 Important Words</h2>
+        <p id="word-list-desc">Key terms for this lesson:</p>
+        <div class="word-list" id="word-list">
+          <!-- Filled by JS -->
+        </div>
+      </div>
+
+      <div class="section" id="lesson-content">
+        <h2>📘 Be a Waste Warrior—Use Science to Clean Your Community!</h2>
+        <p>Waste isn’t just “trash”—it’s a **scientific, health, and civic challenge**. But with knowledge and action, you can turn waste into opportunity!</p>
+
+        <div class="waste-box">
+          <strong>Types of Waste & Scientific Management</strong><br>
+          • <strong>Organic (biodegradable)</strong>: Food scraps, leaves → compost<br>
+          • <strong>Recyclable</strong>: Paper, plastic, metal → sort and reuse<br>
+          • <strong>Hazardous</strong>: Batteries, chemicals, pesticide bottles → special disposal<br>
+          • <strong>Non-recyclable</strong>: Dirty plastics, mixed materials → reduce at source!
+        </div>
+
+        <h3>The 5 R’s of Waste Management</h3>
+        <ol>
+          <li><strong>Refuse</strong> what you don’t need (e.g., single-use plastics)</li>
+          <li><strong>Reduce</strong> what you use (e.g., bring reusable bags)</li>
+          <li><strong>Reuse</strong> items (e.g., jars for storage)</li>
+          <li><strong>Recycle</strong> paper, metal, clean plastic</li>
+          <li><strong>Rot</strong> (compost) organic waste</li>
+        </ol>
+
+        <table>
+          <thead>
+            <tr><th>Waste Type</th><th>Scientific Practice</th><th>Community Benefit</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Food scraps</td><td>Composting</td><td>Free fertilizer for school garden</td></tr>
+            <tr><td>Plastic bottles</td><td>Recycling or upcycling</td><td>Less litter, creative projects</td></tr>
+            <tr><td>Pesticide containers</td><td>Rinse + return to agro-dealer</td><td>Prevents soil/water poisoning</td></tr>
+            <tr><td>Old electronics</td><td>Donate or e-waste collection</td><td>Recovers metals, reduces toxins</td></tr>
+          </tbody>
+        </table>
+
+        <blockquote>
+          💭 <strong>Thought Experiment</strong>: If every student in Ghana practiced the 5 R’s, how would our rivers, farms, and cities change in 5 years? What role does science play in making waste management effective?
+        </blockquote>
+
+        <div class="activity-card">
+          <h3>✅ NaCCA-Aligned Final Project</h3>
+          <p><strong>“Clean-Up & Report Challenge”</strong><br>
+          In groups:<br>
+          1. <strong>Research</strong>: Study local waste types and safe disposal methods.<br>
+          2. <strong>Plan</strong>: Choose a site (school compound, farm, market, stream).<br>
+          3. <strong>Act</strong>: Organize a clean-up day—sort waste using the 5 R’s.<br>
+          4. <strong>Report</strong>: Write or record a 1-page summary:<br>
+             – Types of waste collected<br>
+             – How each was managed scientifically<br>
+             – Photos or drawings (if possible)<br>
+             – One policy suggestion for your community<br>
+          5. <strong>Presentation</strong>: Share your report with class, headteacher, or assembly!
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>✅ Check Your Understanding</h2>
+        <div class="checkpoint" id="checkpoint-questions">
+          <!-- Filled by JS -->
+        </div>
+      </div>
+
+      <div class="section" id="next-preview">
+        <h3>🎓 Congratulations! You’ve Completed Strand 5!</h3>
+        <p>You now understand how to manage waste scientifically—protecting health, environment, and future generations. These are the actions of informed citizens and environmental stewards. Keep leading the change!</p>
+      </div>
+
+      <div id="student-name-prompt" class="section" style="display:none;">
+        <h2>👤 Your Name</h2>
+        <div id="name-display"></div>
+        <input type="text" id="student-name" placeholder="Enter your name" maxlength="30"
+          style="padding:0.5rem;font-size:1rem;width:100%;margin:0.5rem 0;display:none;">
+        <div id="name-buttons"></div>
+      </div>
+
+      <div class="quiz" id="quiz-container" style="display:none;">
+        <h2>📝 Final Strand Quiz (20 Questions)</h2>
+        <p>Select the best answer for each question.</p>
+        <form id="quiz-form"></form>
+        <button type="button" class="btn" id="submit-quiz">Check Answers</button>
+      </div>
+
+      <div id="feedback"></div>
+
+      <footer>
+        <a href="../premium.html" style="display:block; margin-bottom:0.5rem;">✨ Unlock Premium Features</a>
+        <a href="#" id="send-analytics" style="color:#6c757d;">📤 Send Anonymous Usage Data</a>
+        <br>
+        <a href="../dashboard.html">📊 View Dashboard</a>
+      </footer>
+    </main>
+  </div>
+
+  <script>
+    (function () {
+      'use strict';
+      window.startTime = Date.now();
+
+      const currentChapter = 53;
+      const MAX_CHAPTER = 300;
+      const WHATSAPP_NUMBER = "233257320201";
+
+      function createSeededRNG(seed) {
+        let state = Math.abs((seed * 9301 + 49297) % 233280);
+        return () => {
+          state = (state * 9301 + 49297) % 233280;
+          return state / 233280;
+        };
+      }
+
+      function shuffleWithSeed(array, seed) {
+        const rng = createSeededRNG(seed);
+        const arr = [...array];
+        for (let i = arr.length - 1; i > 0; i--) {
+          const j = Math.floor(rng() * (i + 1));
+          [arr[i], arr[j]] = [arr[j], arr[i]];
+        }
+        return arr;
+      }
+
+      const ANALYTICS_KEY = 'miniopenstax_analytics_consent';
+      const EVENTS_KEY = 'miniopenstax_events';
+
+      function isAnalyticsEnabled() {
+        return localStorage.getItem(ANALYTICS_KEY) === '1';
+      }
+
+      function logEvent(eventType, data = {}) {
+        if (!isAnalyticsEnabled()) return;
+        const event = { type: eventType, timestamp: Date.now(), lesson: currentChapter, data };
+        const events = JSON.parse(localStorage.getItem(EVENTS_KEY) || '[]');
+        events.push(event);
+        localStorage.setItem(EVENTS_KEY, JSON.stringify(events));
+        if (events.length >= 20) sendAnalyticsEvents();
+      }
+
+      function enableAnalytics() {
+        localStorage.setItem(ANALYTICS_KEY, '1');
+      }
+
+      function sendAnalyticsEvents() {
+        const events = JSON.parse(localStorage.getItem(EVENTS_KEY) || '[]');
+        if (events.length === 0) return;
+        const summary = {
+          lessons_attempted: [...new Set(events.map(e => e.lesson))].length,
+          quizzes_submitted: events.filter(e => e.type === 'quiz_submitted').length,
+          mastery_count: events.filter(e => e.type === 'mastery_achieved').length,
+          first_event: new Date(events[0].timestamp).toISOString().split('T')[0],
+          last_event: new Date(events[events.length - 1].timestamp).toISOString().split('T')[0]
+        };
+        const report = `*Mini OpenStax — Anonymous Usage Report*\n` +
+          `Lessons Tried: ${summary.lessons_attempted}\n` +
+          `Quizzes Taken: ${summary.quizzes_submitted}\n` +
+          `Mastery Achieved: ${summary.mastery_count}\n` +
+          `Period: ${summary.first_event} to ${summary.last_event}\n\n` +
+          `Thank you for helping improve literacy tools!`;
+        localStorage.removeItem(EVENTS_KEY);
+        const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(report)}`;
+        window.open(url, '_blank');
+      }
+
+      const CHAPTER_CONFIG = {
+        title: "Scientific Waste Management",
+        loTags: ["B7/JHS1.5.1.1.1"],
+        objectives: [
+          "Classify waste types and match them to scientific management practices.",
+          "Apply the 5 R’s (Refuse, Reduce, Reuse, Recycle, Rot) in real contexts.",
+          "Carry out a community clean-up project with proper sorting and disposal.",
+          "Communicate findings through reports and presentations."
+        ],
+        words: [
+          "Biodegradable", "Recycling", "Compost", "Hazardous waste", "5 R’s",
+          "E-waste", "Policy", "Stewardship", "Cleanup", "Report"
+        ],
+        wordListDesc: "Key terms for this lesson:",
+        checkpointQuestions: `
+          <ol>
+            <li>Name the 5 R’s of waste management.</li>
+            <li>How should you dispose of an empty pesticide bottle?</li>
+            <li>What can you do with food scraps instead of throwing them away?</li>
+            <li>Why is scientific waste management important for public health?</li>
+          </ol>
+          <p><em>Reflect deeply before your final presentation!</em></p>
+        `,
+        nextPreview: "You now understand how to manage waste scientifically—protecting health, environment, and future generations. These are the actions of informed citizens and environmental stewards. Keep leading the change!",
+        assessmentItems: [
+          { id: "1", prompt: "The 5 R’s include:", options: [
+            {id:"a",text:"Run, Read, Rest, Relax, Repeat",is_correct:false},
+            {id:"b",text:"Refuse, Reduce, Reuse, Recycle, Rot",is_correct:true},
+            {id:"c",text:"Rinse, Return, Rebuy, Repair, Replace",is_correct:false},
+            {id:"d",text:"Only Recycle",is_correct:false}
+          ]},
+          { id: "2", prompt: "Food scraps should be:", options: [
+            {id:"a",text:"Burned",is_correct:false},
+            {id:"b",text:"Composted",is_correct:true},
+            {id:"c",text:"Thrown in river",is_correct:false},
+            {id:"d",text:"Buried with plastic",is_correct:false}
+          ]},
+          { id: "3", prompt: "Empty pesticide bottles should be:", options: [
+            {id:"a",text:"Reused for water",is_correct:false},
+            {id:"b",text:"Rinsed and returned to agro-dealer",is_correct:true},
+            {id:"c",text:"Left in field",is_correct:false},
+            {id:"d",text:"Burned openly",is_correct:false}
+          ]},
+          { id: "4", prompt: "Plastic bottles can be:", options: [
+            {id:"a",text:"Only landfilled",is_correct:false},
+            {id:"b",text:"Recycled or upcycled",is_correct:true},
+            {id:"c",text:"Ignored",is_correct:false},
+            {id:"d",text:"Mixed with organic waste",is_correct:false}
+          ]},
+          { id: "5", prompt: "Hazardous waste includes:", options: [
+            {id:"a",text:"Banana peels",is_correct:false},
+            {id:"b",text:"Used batteries and chemicals",is_correct:true},
+            {id:"c",text:"Paper",is_correct:false},
+            {id:"d",text:"Wood",is_correct:false}
+          ]},
+          { id: "6", prompt: "Composting turns organic waste into:", options: [
+            {id:"a",text:"Toxic sludge",is_correct:false},
+            {id:"b",text:"Nutrient-rich fertilizer",is_correct:true},
+            {id:"c",text:"Plastic",is_correct:false},
+            {id:"d",text:"Metal",is_correct:false}
+          ]},
+          { id: "7", prompt: "Scientific waste management protects:", options: [
+            {id:"a",text:"Only animals",is_correct:false},
+            {id:"b",text:"Human health, soil, water, and air",is_correct:true},
+            {id:"c",text:"Only cities",is_correct:false},
+            {id:"d",text:"No one",is_correct:false}
+          ]},
+          { id: "8", prompt: "Students can lead by:", options: [
+            {id:"a",text:"Starting clean-up clubs",is_correct:true},
+            {id:"b",text:"Littering secretly",is_correct:false},
+            {id:"c",text:"Ignoring waste",is_correct:false},
+            {id:"d",text:"Waiting for adults only",is_correct:false}
+          ]},
+          { id: "9", prompt: "E-waste includes:", options: [
+            {id:"a",text:"Old phones, radios, batteries",is_correct:true},
+            {id:"b",text:"Yam peels",is_correct:false},
+            {id:"c",text:"Wood ash",is_correct:false},
+            {id:"d",text:"Cotton cloth",is_correct:false}
+          ]},
+          { id: "10", prompt: "Reducing waste means:", options: [
+            {id:"a",text:"Using more plastic",is_correct:false},
+            {id:"b",text:"Choosing reusable items",is_correct:true},
+            {id:"c",text:"Buying single-use products",is_correct:false},
+            {id:"d",text:"Ignoring packaging",is_correct:false}
+          ]},
+          { id: "11", prompt: "Which is biodegradable?", options: [
+            {id:"a",text:"Aluminum can",is_correct:false},
+            {id:"b",text:"Plastic bag",is_correct:false},
+            {id:"c",text:"Orange peel",is_correct:true},
+            {id:"d",text:"Glass bottle",is_correct:false}
+          ]},
+          { id: "12", prompt: "Which is non-biodegradable?", options: [
+            {id:"a",text:"Eggshell",is_correct:false},
+            {id:"b",text:"Newspaper",is_correct:false},
+            {id:"c",text:"Styrofoam cup",is_correct:true},
+            {id:"d",text:"Grass clippings",is_correct:false}
+          ]},
+          { id: "13", prompt: "Open burning of waste causes:", options: [
+            {id:"a",text:"Clean air",is_correct:false},
+            {id:"b",text:"Toxic fumes and pollution",is_correct:true},
+            {id:"c",text:"Better crops",is_correct:false},
+            {id:"d",text:"More rain",is_correct:false}
+          ]},
+          { id: "14", prompt: "A community report should include:", options: [
+            {id:"a",text:"Only complaints",is_correct:false},
+            {id:"b",text:"Waste types, actions taken, and suggestions",is_correct:true},
+            {id:"c",text:"Blame only",is_correct:false},
+            {id:"d",text:"No data",is_correct:false}
+          ]},
+          { id: "15", prompt: "Environmental stewardship means:", options: [
+            {id:"a",text:"Ignoring nature",is_correct:false},
+            {id:"b",text:"Protecting and caring for the environment",is_correct:true},
+            {id:"c",text:"Using more resources",is_correct:false},
+            {id:"d",text:"Waiting for government only",is_correct:false}
+          ]},
+          { id: "16", prompt: "Science helps waste management by:", options: [
+            {id:"a",text:"Providing evidence-based solutions",is_correct:true},
+            {id:"b",text:"Guessing randomly",is_correct:false},
+            {id:"c",text:"Promoting littering",is_correct:false},
+            {id:"d",text:"Avoiding action",is_correct:false}
+          ]},
+          { id: "17", prompt: "Cultural responsibility includes:", options: [
+            {id:"a",text:"Keeping ancestral land clean",is_correct:true},
+            {id:"b",text:"Discarding traditions",is_correct:false},
+            {id:"c",text:"Using more plastic",is_correct:false},
+            {id:"d",text:"Ignoring elders",is_correct:false}
+          ]},
+          { id: "18", prompt: "Your clean-up project shows:", options: [
+            {id:"a",text:"Learning stays in classroom",is_correct:false},
+            {id:"b",text:"Science serves people and planet",is_correct:true},
+            {id:"c",text:"Waste is unsolvable",is_correct:false},
+            {id:"d",text:"Only teachers care",is_correct:false}
+          ]},
+          { id: "19", prompt: "The next strand is:", options: [
+            {id:"a",text:"Not specified—review all!",is_correct:true},
+            {id:"b",text:"Only electricity",is_correct:false},
+            {id:"c",text:"Avoiding science",is_correct:false},
+            {id:"d",text:"Nuclear weapons",is_correct:false}
+          ]},
+          { id: "20", prompt: "Completing this strand means you can:", options: [
+            {id:"a",text:"Lead scientific waste action in your community",is_correct:true},
+            {id:"b",text:"Only list waste types",is_correct:false},
+            {id:"c",text:"Forget everything",is_correct:false},
+            {id:"d",text:"Avoid responsibility",is_correct:false}
+          ]}
+        ]
+      };
+
+      function renderContent() {
+        document.getElementById('chapter-title').textContent = CHAPTER_CONFIG.title;
+        document.getElementById('lo-tags').textContent = CHAPTER_CONFIG.loTags[0];
+
+        document.getElementById('objectives').innerHTML =
+          CHAPTER_CONFIG.objectives.map(obj => `<li>${obj}</li>`).join('');
+
+        document.getElementById('word-list-desc').textContent = CHAPTER_CONFIG.wordListDesc;
+        document.getElementById('word-list').innerHTML =
+          CHAPTER_CONFIG.words.map(w => `<span class="word-item">${w}</span>`).join('');
+
+        document.getElementById('checkpoint-questions').innerHTML = CHAPTER_CONFIG.checkpointQuestions;
+
+        document.getElementById('next-preview').innerHTML = `
+          <h3>🎓 Congratulations! You’ve Completed Strand 5!</h3>
+          <p>${CHAPTER_CONFIG.nextPreview}</p>
+        `;
+      }
+
+      function renderNavigation() {
+        const nav = document.getElementById('chapter-nav');
+        const buttons = [{ label: "Home", url: "../index.html", active: false }];
+        for (let i = 0; i < 4; i++) {
+          const c = currentChapter + i;
+          const lessonNum = c + 1;
+          if (c > MAX_CHAPTER) break;
+          buttons.push({
+            label: `Lesson ${lessonNum}`,
+            url: `chapter-${c}.html`,
+            active: i === 0
+          });
+        }
+        nav.innerHTML = buttons.map(b =>
+          `<a href="${b.url}" class="chapter-btn ${b.active ? 'active' : ''}">${b.label}</a>`
+        ).join('');
+      }
+
+      function renderQuiz() {
+        const form = document.getElementById('quiz-form');
+        window.quizCorrectMap = {};
+        const baseSeed = currentChapter * 1000000 + (Date.now() % 1000000);
+
+        form.innerHTML = CHAPTER_CONFIG.assessmentItems.map(q => {
+          const seed = baseSeed + parseInt(q.id, 10);
+          const shuffledOpts = shuffleWithSeed([...q.options], seed);
+          const correct = q.options.find(o => o.is_correct);
+          window.quizCorrectMap[q.id] = correct.id;
+
+          const optHtml = shuffledOpts.map((opt, idx) => {
+            const letter = String.fromCharCode(65 + idx);
+            return `<div class="option"><label><input type="radio" name="q${q.id}" value="${opt.id}" required> ${letter}. ${opt.text}</label></div>`;
+          }).join('');
+
+          return `<div class="question"><strong>${q.id}. ${q.prompt}</strong><div class="options">${optHtml}</div></div>`;
+        }).join('');
+      }
+
+      function showFeedback(answers) {
+        const items = CHAPTER_CONFIG.assessmentItems;
+        let correctCount = 0, correctList = [], incorrectList = [];
+
+        items.forEach((item, i) => {
+          const ans = answers[i];
+          const correctId = window.quizCorrectMap[item.id];
+          const correctOpt = item.options.find(o => o.id === correctId);
+          const isCorrect = ans === correctId;
+          if (isCorrect) {
+            correctCount++;
+            correctList.push(`${item.id}. ${item.prompt} → ✅ ${correctOpt.text}`);
+          } else {
+            incorrectList.push(`${item.id}. ${item.prompt} → ❌ Your answer: ${item.options.find(o => o.id === ans)?.text || '—'} | ✅ ${correctOpt.text}`);
+          }
+        });
+
+        const score = correctCount, total = 20, mastery = score >= 15;
+        const timeOnTask = Math.floor((Date.now() - window.startTime) / 1000);
+        const attempts = (parseInt(localStorage.getItem(`quiz_attempts_${currentChapter}`)) || 0) + 1;
+        localStorage.setItem(`quiz_attempts_${currentChapter}`, attempts);
+        localStorage.setItem(`mastery_${currentChapter}`, mastery ? '1' : '0');
+        const studentName = localStorage.getItem('student_name') || '[Name]';
+
+        logEvent('quiz_submitted', { score, time_sec: timeOnTask, mastery, attempts });
+        if (mastery) logEvent('mastery_achieved', {});
+
+        let report = `*Mini OpenStax — ${CHAPTER_CONFIG.title}*\nStudent: ${studentName}\nScore: ${score}/${total} (${Math.round(score/total*100)}%) — ${mastery ? '✅ MASTERED' : '❌ Needs Review'}\nTime: ${timeOnTask}s | Attempts: ${attempts}\n\n`;
+        if (correctList.length) report += `✅ CORRECT (${correctList.length}):\n${correctList.join('\n')}\n\n`;
+        if (incorrectList.length) report += `❌ INCORRECT (${incorrectList.length}):\n${incorrectList.join('\n')}\n\n`;
+        report += `Report generated via Mini OpenStax.`;
+
+        localStorage.setItem(`saved_report_${currentChapter}_${Date.now()}`, report);
+
+        const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(report)}`;
+        document.getElementById('feedback').innerHTML = `
+          <div class="feedback">
+            <h3>📊 Results: ${score}/${total}</h3>
+            <p><strong>${mastery ? '🎉 Excellent!' : score >= 10 ? 'Good!' : 'Keep practicing.'}</strong> ${
+              mastery ? 'You’ve mastered the concept!' :
+              score >= 10 ? 'Review missed items.' : 'Practice this lesson again.'
+            }</p>
+            <p><strong>Time:</strong> ${timeOnTask}s | <strong>Attempts:</strong> ${attempts}</p>
+            <a href="${url}" target="_blank" class="btn" style="background:#25D366;text-decoration:none;">
+              📲 Send Report via WhatsApp
+            </a>
+          </div>
+        `;
+      }
+
+      function setupQuizListeners() {
+        document.getElementById('submit-quiz').addEventListener('click', () => {
+          const form = document.getElementById('quiz-form');
+          const answers = [];
+          for (let i = 1; i <= 20; i++) {
+            const el = form.querySelector(`input[name="q${i}"]:checked`);
+            answers.push(el ? el.value : null);
+          }
+          if (answers.includes(null)) {
+            alert("Please answer all questions.");
+            return;
+          }
+          showFeedback(answers);
+        });
+      }
+
+      function initNamePrompt() {
+        const saved = localStorage.getItem('student_name');
+        const savedRole = localStorage.getItem('user_role') || 'student';
+        const promptDiv = document.getElementById('student-name-prompt');
+        const quizDiv = document.getElementById('quiz-container');
+        const display = document.getElementById('name-display');
+        const input = document.getElementById('student-name');
+        const buttons = document.getElementById('name-buttons');
+        const roleBadge = document.querySelector('.role-badge');
+        roleBadge.textContent = savedRole === 'instructor' ? 'Instructor View' : 'Student View';
+
+        if (saved) {
+          promptDiv.style.display = 'block';
+          quizDiv.style.display = 'none';
+          display.innerHTML = `<p><strong>Current name:</strong> ${saved} (${savedRole})</p>`;
+          buttons.innerHTML = `
+            <button type="button" class="btn" id="keep-btn">✅ Keep This Name</button>
+            <button type="button" class="btn btn-secondary" id="change-btn">✏️ Use a Different Name</button>
+          `;
+          document.getElementById('keep-btn').onclick = () => {
+            promptDiv.style.display = 'none';
+            quizDiv.style.display = 'block';
+            logEvent('lesson_start', {});
+          };
+          document.getElementById('change-btn').onclick = () => {
+            display.style.display = 'none';
+            input.style.display = 'block';
+            buttons.innerHTML = `
+              <button type="button" class="btn" id="save-new">💾 Save and Start Quiz</button>
+              <div style="margin-top:1rem; font-size:0.9rem;">
+                <label>
+                  <input type="checkbox" id="teacher-mode"> 
+                  I'm an instructor (analytics auto-enabled to improve lessons)
+                </label>
+              </div>
+            `;
+            input.value = '';
+            input.focus();
+            document.getElementById('save-new').onclick = () => {
+              const name = input.value.trim();
+              if (name) {
+                localStorage.setItem('student_name', name);
+                const isTeacher = document.getElementById('teacher-mode').checked;
+                localStorage.setItem('user_role', isTeacher ? 'instructor' : 'student');
+                if (isTeacher) enableAnalytics();
+                promptDiv.style.display = 'none';
+                quizDiv.style.display = 'block';
+                roleBadge.textContent = isTeacher ? 'Instructor View' : 'Student View';
+                logEvent('lesson_start', {});
+              } else {
+                alert("Please enter your name.");
+                input.focus();
+              }
+            };
+          };
+        } else {
+          promptDiv.style.display = 'block';
+          quizDiv.style.display = 'none';
+          display.style.display = 'none';
+          input.style.display = 'block';
+          buttons.innerHTML = `
+            <button type="button" class="btn" id="save-first">💾 Save and Start Quiz</button>
+            <div style="margin-top:1rem; font-size:0.9rem;">
+              <label>
+                <input type="checkbox" id="teacher-mode"> 
+                I'm an instructor (analytics auto-enabled to improve lessons)
+              </label>
+            </div>
+          `;
+          document.getElementById('save-first').onclick = () => {
+            const name = input.value.trim();
+            if (name) {
+              localStorage.setItem('student_name', name);
+              const isTeacher = document.getElementById('teacher-mode').checked;
+              localStorage.setItem('user_role', isTeacher ? 'instructor' : 'student');
+              if (isTeacher) enableAnalytics();
+              promptDiv.style.display = 'none';
+              quizDiv.style.display = 'block';
+              roleBadge.textContent = isTeacher ? 'Instructor View' : 'Student View';
+              logEvent('lesson_start', {});
+            } else {
+              alert("Please enter your name.");
+              input.focus();
+            }
+          };
+        }
+      }
+
+      function init() {
+        renderContent();
+        renderNavigation();
+        renderQuiz();
+        setupQuizListeners();
+        initNamePrompt();
+      }
+
+      document.addEventListener('DOMContentLoaded', () => {
+        document.getElementById('send-analytics').onclick = (e) => {
+          e.preventDefault();
+          if (confirm('Send anonymous usage data to help improve Mini OpenStax?')) {
+            sendAnalyticsEvents();
+          }
+        };
+      });
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+      } else {
+        init();
+      }
+    })();
+  </script>
+</body>
+</html>
