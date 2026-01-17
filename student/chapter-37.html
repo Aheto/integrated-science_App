@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Mini OpenStax: From Circuits to Conservation — Tracing Energy’s Journey">
+  <title>Mini OpenStax — From Circuits to Conservation</title>
+  <style>
+    :root {
+      --green: #006b3d;
+      --gold: #cead00;
+      --light: #f9f9f9;
+      --dark: #2d2d2d;
+    }
+    body { 
+      font-family: 'Segoe UI', system-ui, sans-serif; 
+      margin: 0; 
+      padding: 0; 
+      background: #fff; 
+      color: var(--dark); 
+      line-height: 1.6;
+    }
+    .container { 
+      max-width: 800px; 
+      margin: 0 auto; 
+      padding: 1rem; 
+    }
+    .header { 
+      display: flex; 
+      justify-content: space-between; 
+      align-items: center; 
+      margin-bottom: 1rem; 
+      flex-wrap: wrap; 
+      gap: 0.5rem; 
+    }
+    .role-badge { 
+      background: #e9ecef; 
+      padding: 0.25rem 0.5rem; 
+      border-radius: 4px; 
+      font-size: 0.85rem; 
+    }
+    .chapter-nav { 
+      margin: 1.2rem 0; 
+      display: flex; 
+      flex-wrap: wrap; 
+      gap: 0.4rem; 
+      justify-content: center; 
+    }
+    .chapter-btn {
+      padding: 0.4rem 0.8rem; 
+      background: var(--green); 
+      color: white; 
+      text-decoration: none; 
+      border-radius: 4px; 
+      font-size: 0.9rem;
+    }
+    .chapter-btn.active, .chapter-btn:hover { 
+      background: #00502e; 
+    }
+    .section { 
+      margin-bottom: 1.5rem; 
+      padding-bottom: 1rem;
+      border-bottom: 1px solid #eee;
+    }
+    .word-list { 
+      display: flex; 
+      flex-wrap: wrap; 
+      gap: 0.5rem; 
+      margin: 0.5rem 0; 
+    }
+    .word-item { 
+      background: var(--light); 
+      padding: 0.25rem 0.5rem; 
+      border-radius: 4px; 
+      font-family: monospace; 
+      font-size: 0.95rem;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 0.5rem;
+      text-align: left;
+    }
+    th {
+      background-color: #f0f7f4;
+    }
+    .checkpoint, .thought-experiment {
+      background: #f8f9fa;
+      padding: 1rem;
+      border-left: 4px solid var(--gold);
+      margin: 1.5rem 0;
+    }
+    .quiz { 
+      margin-top: 2rem; 
+    }
+    .question { 
+      margin-bottom: 1.2rem; 
+    }
+    .options { 
+      margin-left: 1rem; 
+    }
+    .option { 
+      margin: 0.4rem 0; 
+    }
+    .btn {
+      background: var(--green); 
+      color: white; 
+      border: none; 
+      padding: 0.5rem 1rem;
+      border-radius: 4px; 
+      cursor: pointer; 
+      font-size: 1rem; 
+      margin-right: 0.5rem;
+      display: inline-block;
+    }
+    .btn:hover { 
+      background: #00502e; 
+    }
+    .btn-secondary { 
+      background: #6c757d; 
+    }
+    .btn-secondary:hover { 
+      background: #5a6268; 
+    }
+    .feedback { 
+      margin-top: 1.5rem; 
+      padding: 1rem; 
+      background: var(--light); 
+      border-left: 4px solid var(--green); 
+    }
+    footer { 
+      text-align: center; 
+      margin-top: 2rem; 
+      font-size: 0.9rem; 
+      padding-top: 1.5rem;
+      border-top: 1px solid #eee;
+    }
+    a { 
+      color: var(--green); 
+      text-decoration: none; 
+    }
+    a:hover { 
+      text-decoration: underline; 
+    }
+    blockquote {
+      margin: 1rem 0;
+      padding-left: 1rem;
+      border-left: 3px solid var(--green);
+      color: #555;
+      font-style: italic;
+    }
+    .activity-card, .review-card {
+      background: #f8f9fa;
+      padding: 1rem;
+      margin: 1rem 0;
+      border-radius: 6px;
+      border-left: 4px solid var(--green);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div>
+        <h1 id="chapter-title">From Circuits to Conservation</h1>
+        <div class="lo-tags" id="lo-tags">B7/JHS1.4.2 → B7/JHS1.4.3</div>
+      </div>
+      <div class="role-badge">Student View</div>
+    </div>
+
+    <nav class="chapter-nav" id="chapter-nav"></nav>
+
+    <main id="main-content">
+      <div class="section">
+        <h2>🎯 What You’ll Learn</h2>
+        <ul id="objectives">
+          <!-- Filled by JS -->
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2>🔤 Important Words</h2>
+        <p id="word-list-desc">Key terms for this lesson:</p>
+        <div class="word-list" id="word-list">
+          <!-- Filled by JS -->
+        </div>
+      </div>
+
+      <div class="section" id="lesson-content">
+        <h2>📘 Where Does the Energy Go?</h2>
+        <p>You’ve built circuits with LEDs, resistors, and capacitors. But have you wondered: <em>“When my battery dies, where did the energy go?”</em></p>
+        <p>The answer lies in the **Law of Conservation of Energy**:  
+        → <strong>Energy cannot be created or destroyed—only converted from one form to another.</strong></p>
+
+        <h3>Energy Conversion in Your LED Circuit</h3>
+        <table>
+          <thead>
+            <tr><th>Stage</th><th>Energy Transformation</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Battery (chemical)</td><td>→ Electrical energy</td></tr>
+            <tr><td>LED</td><td>→ Light + Heat (waste)</td></tr>
+            <tr><td>Resistor</td><td>→ Heat (intentional loss)</td></tr>
+            <tr><td>Total</td><td>Chemical = Light + Heat (100% conserved!)</td></tr>
+          </tbody>
+        </table>
+
+        <blockquote>
+          💭 <strong>Thought Experiment</strong>: If energy is never lost, why do we say “save energy”? Is it really about saving *energy*—or saving *useful forms* like electricity or fuel?
+        </blockquote>
+
+        <div class="review-card">
+          <h3>✅ Strand 2 Review: Quick Recall</h3>
+          <ul>
+            <li>LEDs convert electrical → light (with heat waste).</li>
+            <li>Resistors limit current and produce heat.</li>
+            <li>Capacitors store and release charge over time.</li>
+            <li>All circuits need a complete loop and safe voltage (≤3V).</li>
+          </ul>
+        </div>
+
+        <div class="activity-card">
+          <h3>✅ Bridge Activity</h3>
+          <p><strong>“Energy Audit of a Gadget”</strong><br>
+          Pick one device you built (e.g., slow-fade LED).<br>
+          1. List all energy inputs (e.g., chemical in battery).<br>
+          2. List all outputs (e.g., light, heat from resistor, sound if any).<br>
+          3. Draw an energy flow diagram.<br>
+          4. Identify “waste” energy—could it be reduced?<br>
+          Share your audit with a partner!
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>✅ Check Your Understanding</h2>
+        <div class="checkpoint" id="checkpoint-questions">
+          <!-- Filled by JS -->
+        </div>
+      </div>
+
+      <div class="section" id="next-preview">
+        <h3>🔜 Coming Up</h3>
+        <p>In Lesson 38, you’ll explore the Law of Conservation of Energy in depth—and learn how to design systems that minimize waste and maximize useful output!</p>
+      </div>
+
+      <div id="student-name-prompt" class="section" style="display:none;">
+        <h2>👤 Your Name</h2>
+        <div id="name-display"></div>
+        <input type="text" id="student-name" placeholder="Enter your name" maxlength="30"
+          style="padding:0.5rem;font-size:1rem;width:100%;margin:0.5rem 0;display:none;">
+        <div id="name-buttons"></div>
+      </div>
+
+      <div class="quiz" id="quiz-container" style="display:none;">
+        <h2>📝 Quick Check (20 Questions)</h2>
+        <p>Select the best answer for each question.</p>
+        <form id="quiz-form"></form>
+        <button type="button" class="btn" id="submit-quiz">Check Answers</button>
+      </div>
+
+      <div id="feedback"></div>
+
+      <footer>
+        <a href="../premium.html" style="display:block; margin-bottom:0.5rem;">✨ Unlock Premium Features</a>
+        <a href="#" id="send-analytics" style="color:#6c757d;">📤 Send Anonymous Usage Data</a>
+        <br>
+        <a href="../dashboard.html">📊 View Dashboard</a>
+      </footer>
+    </main>
+  </div>
+
+  <script>
+    (function () {
+      'use strict';
+      window.startTime = Date.now();
+
+      const currentChapter = 37;
+      const MAX_CHAPTER = 300;
+      const WHATSAPP_NUMBER = "233257320201";
+
+      function createSeededRNG(seed) {
+        let state = Math.abs((seed * 9301 + 49297) % 233280);
+        return () => {
+          state = (state * 9301 + 49297) % 233280;
+          return state / 233280;
+        };
+      }
+
+      function shuffleWithSeed(array, seed) {
+        const rng = createSeededRNG(seed);
+        const arr = [...array];
+        for (let i = arr.length - 1; i > 0; i--) {
+          const j = Math.floor(rng() * (i + 1));
+          [arr[i], arr[j]] = [arr[j], arr[i]];
+        }
+        return arr;
+      }
+
+      const ANALYTICS_KEY = 'miniopenstax_analytics_consent';
+      const EVENTS_KEY = 'miniopenstax_events';
+
+      function isAnalyticsEnabled() {
+        return localStorage.getItem(ANALYTICS_KEY) === '1';
+      }
+
+      function logEvent(eventType, data = {}) {
+        if (!isAnalyticsEnabled()) return;
+        const event = { type: eventType, timestamp: Date.now(), lesson: currentChapter, data };
+        const events = JSON.parse(localStorage.getItem(EVENTS_KEY) || '[]');
+        events.push(event);
+        localStorage.setItem(EVENTS_KEY, JSON.stringify(events));
+        if (events.length >= 20) sendAnalyticsEvents();
+      }
+
+      function enableAnalytics() {
+        localStorage.setItem(ANALYTICS_KEY, '1');
+      }
+
+      function sendAnalyticsEvents() {
+        const events = JSON.parse(localStorage.getItem(EVENTS_KEY) || '[]');
+        if (events.length === 0) return;
+        const summary = {
+          lessons_attempted: [...new Set(events.map(e => e.lesson))].length,
+          quizzes_submitted: events.filter(e => e.type === 'quiz_submitted').length,
+          mastery_count: events.filter(e => e.type === 'mastery_achieved').length,
+          first_event: new Date(events[0].timestamp).toISOString().split('T')[0],
+          last_event: new Date(events[events.length - 1].timestamp).toISOString().split('T')[0]
+        };
+        const report = `*Mini OpenStax — Anonymous Usage Report*\n` +
+          `Lessons Tried: ${summary.lessons_attempted}\n` +
+          `Quizzes Taken: ${summary.quizzes_submitted}\n` +
+          `Mastery Achieved: ${summary.mastery_count}\n` +
+          `Period: ${summary.first_event} to ${summary.last_event}\n\n` +
+          `Thank you for helping improve literacy tools!`;
+        localStorage.removeItem(EVENTS_KEY);
+        const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(report)}`;
+        window.open(url, '_blank');
+      }
+
+      const CHAPTER_CONFIG = {
+        title: "From Circuits to Conservation",
+        loTags: ["B7/JHS1.4.2 → B7/JHS1.4.3"],
+        objectives: [
+          "Review energy transformations in electronic circuits.",
+          "Explain the Law of Conservation of Energy in real-world contexts.",
+          "Trace energy flow from source to useful/waste outputs.",
+          "Prepare for deeper study of energy conversion and conservation."
+        ],
+        words: [
+          "Conservation", "Conversion", "Waste energy", "Useful output", "Chemical",
+          "Electrical", "Thermal", "Light", "Audit", "Efficiency"
+        ],
+        wordListDesc: "Key terms for this lesson:",
+        checkpointQuestions: `
+          <ol>
+            <li>What happens to the chemical energy in a battery when you use it?</li>
+            <li>Why does an LED circuit produce heat even though you want light?</li>
+            <li>Is energy ever “used up”? Explain using the conservation law.</li>
+            <li>How could you make your LED circuit more efficient?</li>
+          </ol>
+          <p><em>Confirm your understanding before exploring conservation!</em></p>
+        `,
+        nextPreview: "In Lesson 38, you’ll explore the Law of Conservation of Energy in depth—and learn how to design systems that minimize waste and maximize useful output!",
+        assessmentItems: [
+          { id: "1", prompt: "The Law of Conservation of Energy states:", options: [
+            {id:"a",text:"Energy can be created",is_correct:false},
+            {id:"b",text:"Energy can be destroyed",is_correct:false},
+            {id:"c",text:"Energy changes form but total amount stays constant",is_correct:true},
+            {id:"d",text:"Only humans use energy",is_correct:false}
+          ]},
+          { id: "2", prompt: "In an LED circuit, chemical energy becomes:", options: [
+            {id:"a",text:"Only light",is_correct:false},
+            {id:"b",text:"Light and heat",is_correct:true},
+            {id:"c",text:"Only heat",is_correct:false},
+            {id:"d",text:"Sound only",is_correct:false}
+          ]},
+          { id: "3", prompt: "“Waste” energy usually means:", options: [
+            {id:"a",text:"Energy that disappears",is_correct:false},
+            {id:"b",text:"Useful energy",is_correct:false},
+            {id:"c",text:"Unwanted thermal energy",is_correct:true},
+            {id:"d",text:"Stored chemical energy",is_correct:false}
+          ]},
+          { id: "4", prompt: "A resistor primarily converts electrical energy into:", options: [
+            {id:"a",text:"Light",is_correct:false},
+            {id:"b",text:"Sound",is_correct:false},
+            {id:"c",text:"Heat",is_correct:true},
+            {id:"d",text:"Motion",is_correct:false}
+          ]},
+          { id: "5", prompt: "When a battery “dies,” its energy has:", options: [
+            {id:"a",text:"Vanished",is_correct:false},
+            {id:"b",text:"Been converted to other forms",is_correct:true},
+            {id:"c",text:"Turned into matter",is_correct:false},
+            {id:"d",text:"Become stronger",is_correct:false}
+          ]},
+          { id: "6", prompt: "Which is a useful energy output?", options: [
+            {id:"a",text:"Heat from a resistor",is_correct:false},
+            {id:"b",text:"Light from an LED",is_correct:true},
+            {id:"c",text:"Warm wires",is_correct:false},
+            {id:"d",text:"Battery corrosion",is_correct:false}
+          ]},
+          { id: "7", prompt: "Energy efficiency means:", options: [
+            {id:"a",text:"Maximizing waste",is_correct:false},
+            {id:"b",text:"Maximizing useful output",is_correct:true},
+            {id:"c",text:"Using more batteries",is_correct:false},
+            {id:"d",text:"Ignoring conservation",is_correct:false}
+          ]},
+          { id: "8", prompt: "In a closed system, total energy:", options: [
+            {id:"a",text:"Increases",is_correct:false},
+            {id:"b",text:"Decreases",is_correct:false},
+            {id:"c",text:"Remains constant",is_correct:true},
+            {id:"d",text:"Becomes zero",is_correct:false}
+          ]},
+          { id: "9", prompt: "An energy audit helps you:", options: [
+            {id:"a",text:"Count components",is_correct:false},
+            {id:"b",text:"Trace energy flows and losses",is_correct:true},
+            {id:"c",text:"Buy more batteries",is_correct:false},
+            {id:"d",text:"Ignore heat",is_correct:false}
+          ]},
+          { id: "10", prompt: "Which device is most efficient?", options: [
+            {id:"a",text:"Incandescent bulb (5% light, 95% heat)",is_correct:false},
+            {id:"b",text:"LED (80% light, 20% heat)",is_correct:true},
+            {id:"c",text:"Old resistor heater",is_correct:false},
+            {id:"d",text:"Short-circuited wire",is_correct:false}
+          ]},
+          { id: "11", prompt: "PE = mgh is part of:", options: [
+            {id:"a",text:"Electronics",is_correct:false},
+            {id:"b",text:"Mechanical energy",is_correct:true},
+            {id:"c",text:"Nuclear physics",is_correct:false},
+            {id:"d",text:"Digital literacy",is_correct:false}
+          ]},
+          { id: "12", prompt: "Heat transfer through metal is:", options: [
+            {id:"a",text:"Convection",is_correct:false},
+            {id:"b",text:"Radiation",is_correct:false},
+            {id:"c",text:"Conduction",is_correct:true},
+            {id:"d",text:"Dispersion",is_correct:false}
+          ]},
+          { id: "13", prompt: "Light bending in water is:", options: [
+            {id:"a",text:"Reflection",is_correct:false},
+            {id:"b",text:"Refraction",is_correct:true},
+            {id:"c",text:"Conduction",is_correct:false},
+            {id:"d",text:"Convection",is_correct:false}
+          ]},
+          { id: "14", prompt: "Rainbows show light’s:", options: [
+            {id:"a",text:"Reflection",is_correct:false},
+            {id:"b",text:"Refraction only",is_correct:false},
+            {id:"c",text:"Dispersion",is_correct:true},
+            {id:"d",text:"Absorption",is_correct:false}
+          ]},
+          { id: "15", prompt: "Diodes allow current in:", options: [
+            {id:"a",text:"Both directions",is_correct:false},
+            {id:"b",text:"One direction",is_correct:true},
+            {id:"c",text:"No direction",is_correct:false},
+            {id:"d",text:"Random directions",is_correct:false}
+          ]},
+          { id: "16", prompt: "Capacitors store:", options: [
+            {id:"a",text:"Chemical energy",is_correct:false},
+            {id:"b",text:"Electrical charge",is_correct:true},
+            {id:"c",text:"Light",is_correct:false},
+            {id:"d",text:"Sound",is_correct:false}
+          ]},
+          { id: "17", prompt: "Resistor color bands indicate:", options: [
+            {id:"a",text:"Price",is_correct:false},
+            {id:"b",text:"Resistance value",is_correct:true},
+            {id:"c",text:"Manufacturer",is_correct:false},
+            {id:"d",text:"Date made",is_correct:false}
+          ]},
+          { id: "18", prompt: "LEDs must have correct polarity because:", options: [
+            {id:"a",text:"They only conduct one way",is_correct:true},
+            {id:"b",text:"They change color",is_correct:false},
+            {id:"c",text:"They store charge",is_correct:false},
+            {id:"d",text:"They work either way",is_correct:false}
+          ]},
+          { id: "19", prompt: "Understanding energy flow helps you:", options: [
+            {id:"a",text:"Design more efficient gadgets",is_correct:true},
+            {id:"b",text:"Waste more power",is_correct:false},
+            {id:"c",text:"Ignore science",is_correct:false},
+            {id:"d",text:"Use only phones",is_correct:false}
+          ]},
+          { id: "20", prompt: "The next strand focuses on:", options: [
+            {id:"a",text:"Forces only",is_correct:false},
+            {id:"b",text:"Energy conversion and conservation",is_correct:true},
+            {id:"c",text:"Only nuclear power",is_correct:false},
+            {id:"d",text:"Avoiding circuits",is_correct:false}
+          ]}
+        ]
+      };
+
+      function renderContent() {
+        document.getElementById('chapter-title').textContent = CHAPTER_CONFIG.title;
+        document.getElementById('lo-tags').textContent = CHAPTER_CONFIG.loTags[0];
+
+        document.getElementById('objectives').innerHTML =
+          CHAPTER_CONFIG.objectives.map(obj => `<li>${obj}</li>`).join('');
+
+        document.getElementById('word-list-desc').textContent = CHAPTER_CONFIG.wordListDesc;
+        document.getElementById('word-list').innerHTML =
+          CHAPTER_CONFIG.words.map(w => `<span class="word-item">${w}</span>`).join('');
+
+        document.getElementById('checkpoint-questions').innerHTML = CHAPTER_CONFIG.checkpointQuestions;
+
+        document.getElementById('next-preview').innerHTML = `
+          <h3>🔜 Coming Up</h3>
+          <p>${CHAPTER_CONFIG.nextPreview}</p>
+        `;
+      }
+
+      function renderNavigation() {
+        const nav = document.getElementById('chapter-nav');
+        const buttons = [{ label: "Home", url: "../index.html", active: false }];
+        for (let i = 0; i < 4; i++) {
+          const c = currentChapter + i;
+          const lessonNum = c + 1;
+          if (c > MAX_CHAPTER) break;
+          buttons.push({
+            label: `Lesson ${lessonNum}`,
+            url: `chapter-${c}.html`,
+            active: i === 0
+          });
+        }
+        nav.innerHTML = buttons.map(b =>
+          `<a href="${b.url}" class="chapter-btn ${b.active ? 'active' : ''}">${b.label}</a>`
+        ).join('');
+      }
+
+      function renderQuiz() {
+        const form = document.getElementById('quiz-form');
+        window.quizCorrectMap = {};
+        const baseSeed = currentChapter * 1000000 + (Date.now() % 1000000);
+
+        form.innerHTML = CHAPTER_CONFIG.assessmentItems.map(q => {
+          const seed = baseSeed + parseInt(q.id, 10);
+          const shuffledOpts = shuffleWithSeed([...q.options], seed);
+          const correct = q.options.find(o => o.is_correct);
+          window.quizCorrectMap[q.id] = correct.id;
+
+          const optHtml = shuffledOpts.map((opt, idx) => {
+            const letter = String.fromCharCode(65 + idx);
+            return `<div class="option"><label><input type="radio" name="q${q.id}" value="${opt.id}" required> ${letter}. ${opt.text}</label></div>`;
+          }).join('');
+
+          return `<div class="question"><strong>${q.id}. ${q.prompt}</strong><div class="options">${optHtml}</div></div>`;
+        }).join('');
+      }
+
+      function showFeedback(answers) {
+        const items = CHAPTER_CONFIG.assessmentItems;
+        let correctCount = 0, correctList = [], incorrectList = [];
+
+        items.forEach((item, i) => {
+          const ans = answers[i];
+          const correctId = window.quizCorrectMap[item.id];
+          const correctOpt = item.options.find(o => o.id === correctId);
+          const isCorrect = ans === correctId;
+          if (isCorrect) {
+            correctCount++;
+            correctList.push(`${item.id}. ${item.prompt} → ✅ ${correctOpt.text}`);
+          } else {
+            incorrectList.push(`${item.id}. ${item.prompt} → ❌ Your answer: ${item.options.find(o => o.id === ans)?.text || '—'} | ✅ ${correctOpt.text}`);
+          }
+        });
+
+        const score = correctCount, total = 20, mastery = score >= 15;
+        const timeOnTask = Math.floor((Date.now() - window.startTime) / 1000);
+        const attempts = (parseInt(localStorage.getItem(`quiz_attempts_${currentChapter}`)) || 0) + 1;
+        localStorage.setItem(`quiz_attempts_${currentChapter}`, attempts);
+        localStorage.setItem(`mastery_${currentChapter}`, mastery ? '1' : '0');
+        const studentName = localStorage.getItem('student_name') || '[Name]';
+
+        logEvent('quiz_submitted', { score, time_sec: timeOnTask, mastery, attempts });
+        if (mastery) logEvent('mastery_achieved', {});
+
+        let report = `*Mini OpenStax — ${CHAPTER_CONFIG.title}*\nStudent: ${studentName}\nScore: ${score}/${total} (${Math.round(score/total*100)}%) — ${mastery ? '✅ MASTERED' : '❌ Needs Review'}\nTime: ${timeOnTask}s | Attempts: ${attempts}\n\n`;
+        if (correctList.length) report += `✅ CORRECT (${correctList.length}):\n${correctList.join('\n')}\n\n`;
+        if (incorrectList.length) report += `❌ INCORRECT (${incorrectList.length}):\n${incorrectList.join('\n')}\n\n`;
+        report += `Report generated via Mini OpenStax.`;
+
+        localStorage.setItem(`saved_report_${currentChapter}_${Date.now()}`, report);
+
+        const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(report)}`;
+        document.getElementById('feedback').innerHTML = `
+          <div class="feedback">
+            <h3>📊 Results: ${score}/${total}</h3>
+            <p><strong>${mastery ? '🎉 Excellent!' : score >= 10 ? 'Good!' : 'Keep practicing.'}</strong> ${
+              mastery ? 'You’ve mastered the concept!' :
+              score >= 10 ? 'Review missed items.' : 'Practice this lesson again.'
+            }</p>
+            <p><strong>Time:</strong> ${timeOnTask}s | <strong>Attempts:</strong> ${attempts}</p>
+            <a href="${url}" target="_blank" class="btn" style="background:#25D366;text-decoration:none;">
+              📲 Send Report via WhatsApp
+            </a>
+          </div>
+        `;
+      }
+
+      function setupQuizListeners() {
+        document.getElementById('submit-quiz').addEventListener('click', () => {
+          const form = document.getElementById('quiz-form');
+          const answers = [];
+          for (let i = 1; i <= 20; i++) {
+            const el = form.querySelector(`input[name="q${i}"]:checked`);
+            answers.push(el ? el.value : null);
+          }
+          if (answers.includes(null)) {
+            alert("Please answer all questions.");
+            return;
+          }
+          showFeedback(answers);
+        });
+      }
+
+      function initNamePrompt() {
+        const saved = localStorage.getItem('student_name');
+        const savedRole = localStorage.getItem('user_role') || 'student';
+        const promptDiv = document.getElementById('student-name-prompt');
+        const quizDiv = document.getElementById('quiz-container');
+        const display = document.getElementById('name-display');
+        const input = document.getElementById('student-name');
+        const buttons = document.getElementById('name-buttons');
+        const roleBadge = document.querySelector('.role-badge');
+        roleBadge.textContent = savedRole === 'instructor' ? 'Instructor View' : 'Student View';
+
+        if (saved) {
+          promptDiv.style.display = 'block';
+          quizDiv.style.display = 'none';
+          display.innerHTML = `<p><strong>Current name:</strong> ${saved} (${savedRole})</p>`;
+          buttons.innerHTML = `
+            <button type="button" class="btn" id="keep-btn">✅ Keep This Name</button>
+            <button type="button" class="btn btn-secondary" id="change-btn">✏️ Use a Different Name</button>
+          `;
+          document.getElementById('keep-btn').onclick = () => {
+            promptDiv.style.display = 'none';
+            quizDiv.style.display = 'block';
+            logEvent('lesson_start', {});
+          };
+          document.getElementById('change-btn').onclick = () => {
+            display.style.display = 'none';
+            input.style.display = 'block';
+            buttons.innerHTML = `
+              <button type="button" class="btn" id="save-new">💾 Save and Start Quiz</button>
+              <div style="margin-top:1rem; font-size:0.9rem;">
+                <label>
+                  <input type="checkbox" id="teacher-mode"> 
+                  I'm an instructor (analytics auto-enabled to improve lessons)
+                </label>
+              </div>
+            `;
+            input.value = '';
+            input.focus();
+            document.getElementById('save-new').onclick = () => {
+              const name = input.value.trim();
+              if (name) {
+                localStorage.setItem('student_name', name);
+                const isTeacher = document.getElementById('teacher-mode').checked;
+                localStorage.setItem('user_role', isTeacher ? 'instructor' : 'student');
+                if (isTeacher) enableAnalytics();
+                promptDiv.style.display = 'none';
+                quizDiv.style.display = 'block';
+                roleBadge.textContent = isTeacher ? 'Instructor View' : 'Student View';
+                logEvent('lesson_start', {});
+              } else {
+                alert("Please enter your name.");
+                input.focus();
+              }
+            };
+          };
+        } else {
+          promptDiv.style.display = 'block';
+          quizDiv.style.display = 'none';
+          display.style.display = 'none';
+          input.style.display = 'block';
+          buttons.innerHTML = `
+            <button type="button" class="btn" id="save-first">💾 Save and Start Quiz</button>
+            <div style="margin-top:1rem; font-size:0.9rem;">
+              <label>
+                <input type="checkbox" id="teacher-mode"> 
+                I'm an instructor (analytics auto-enabled to improve lessons)
+              </label>
+            </div>
+          `;
+          document.getElementById('save-first').onclick = () => {
+            const name = input.value.trim();
+            if (name) {
+              localStorage.setItem('student_name', name);
+              const isTeacher = document.getElementById('teacher-mode').checked;
+              localStorage.setItem('user_role', isTeacher ? 'instructor' : 'student');
+              if (isTeacher) enableAnalytics();
+              promptDiv.style.display = 'none';
+              quizDiv.style.display = 'block';
+              roleBadge.textContent = isTeacher ? 'Instructor View' : 'Student View';
+              logEvent('lesson_start', {});
+            } else {
+              alert("Please enter your name.");
+              input.focus();
+            }
+          };
+        }
+      }
+
+      function init() {
+        renderContent();
+        renderNavigation();
+        renderQuiz();
+        setupQuizListeners();
+        initNamePrompt();
+      }
+
+      document.addEventListener('DOMContentLoaded', () => {
+        document.getElementById('send-analytics').onclick = (e) => {
+          e.preventDefault();
+          if (confirm('Send anonymous usage data to help improve Mini OpenStax?')) {
+            sendAnalyticsEvents();
+          }
+        };
+      });
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+      } else {
+        init();
+      }
+    })();
+  </script>
+</body>
+</html>
