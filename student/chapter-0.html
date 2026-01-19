@@ -57,7 +57,7 @@
       font-size: 0.85rem;
     }
 
-    /* === NAVIGATION === */
+    /* === TABS === */
     .tabs {
       display: flex;
       gap: 0.8rem;
@@ -195,7 +195,7 @@
     .options { margin-left: 1rem; }
     .option { margin: 0.4rem 0; }
 
-    /* === DASHBOARD & ANALYTICS === */
+    /* === DASHBOARD & REPORTS === */
     .card {
       background: white;
       padding: 1.5rem;
@@ -242,6 +242,49 @@
       padding: 1rem;
       border-radius: 6px;
       margin: 1rem 0;
+    }
+
+    /* === REPORT LIST === */
+    .report-card {
+      background: #f8f9fa;
+      border-left: 4px solid var(--green);
+      padding: 1rem;
+      margin-bottom: 1rem;
+      border-radius: 0 8px 8px 0;
+      position: relative;
+    }
+    .report-header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 0.5rem;
+      font-weight: bold;
+    }
+    .report-meta {
+      font-size: 0.85rem;
+      color: #666;
+      margin-bottom: 0.5rem;
+    }
+    .report-actions {
+      margin-top: 0.75rem;
+      display: flex;
+      gap: 0.5rem;
+    }
+    .report-actions button {
+      padding: 0.3rem 0.6rem;
+      font-size: 0.85rem;
+    }
+    .report-detail {
+      margin-top: 0.75rem;
+      padding-top: 0.75rem;
+      border-top: 1px dashed #ddd;
+      font-size: 0.9rem;
+      white-space: pre-wrap;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+    .report-detail.show {
+      max-height: 500px;
     }
 
     /* === FEEDBACK === */
@@ -422,9 +465,11 @@
         <div id="recent-lessons">No activity yet.</div>
       </div>
       <div class="card">
-        <h2><i class="fas fa-file-alt"></i> Reports</h2>
-        <button class="btn btn-whatsapp" id="btn-send-all">Send All Reports via WhatsApp</button>
-        <div id="report-summary" style="margin-top:1rem;font-size:0.9rem;color:#666;"></div>
+        <h2><i class="fas fa-file-alt"></i> Quiz Reports</h2>
+        <div id="reports-list">
+          <p>Loading reports...</p>
+        </div>
+        <button class="btn btn-whatsapp" id="btn-send-all" style="margin-top:1rem;">Send All Reports via WhatsApp</button>
       </div>
     </div>
 
@@ -461,15 +506,12 @@
       const WHATSAPP_NUMBER = "233257320201";
       window.startTime = Date.now();
 
-      // Initialize user data
       let userName = localStorage.getItem('student_name') || 'Learner';
       let userRole = localStorage.getItem('user_role') || 'student';
 
-      // Save to localStorage immediately
       localStorage.setItem('student_name', userName);
       localStorage.setItem('user_role', userRole);
 
-      // Update UI
       document.getElementById('dashboard-name').textContent = userName;
       document.getElementById('current-role').textContent = 
         userRole === 'instructor' ? 'Instructor View' : 'Student View';
@@ -527,6 +569,7 @@
         modal.style.display = 'none';
         if (document.querySelector('.tab-btn.active').dataset.tab === 'dashboard') {
           updateDashboard();
+          loadReports();
         }
       };
       window.onclick = (e) => {
@@ -614,7 +657,8 @@
         if (incorrectList.length) report += `❌ INCORRECT:\n${incorrectList.join('\n')}\n\n`;
         report += `Report generated via Mini OpenStax.\n\nCALL OR WHATSAPP TO REGISTER FOR A CLASS @ +233257320201`;
 
-        localStorage.setItem(`saved_report_0_${Date.now()}`, report);
+        const timestamp = Date.now();
+        localStorage.setItem(`saved_report_0_${timestamp}`, report);
 
         document.getElementById('feedback').innerHTML = `
           <div class="feedback">
@@ -626,7 +670,86 @@
             </a>
           </div>
         `;
+
+        // Refresh dashboard if open
+        if (document.querySelector('.tab-btn[data-tab="dashboard"]').classList.contains('active')) {
+          updateDashboard();
+          loadReports();
+        }
       });
+
+      // === LOAD & DISPLAY REPORTS ===
+      function loadReports() {
+        const reportsContainer = document.getElementById('reports-list');
+        const reports = [];
+        for (const key in localStorage) {
+          if (key.startsWith('saved_report_')) {
+            const content = localStorage.getItem(key);
+            const timestamp = parseInt(key.split('_').pop()) || 0;
+            reports.push({ key, content, timestamp });
+          }
+        }
+
+        if (reports.length === 0) {
+          reportsContainer.innerHTML = '<p>No quiz reports yet.</p>';
+          return;
+        }
+
+        // Sort by newest first
+        reports.sort((a, b) => b.timestamp - a.timestamp);
+
+        const html = reports.map(rep => {
+          const lines = rep.content.split('\n');
+          const studentLine = lines.find(l => l.startsWith('Student:')) || '';
+          const scoreLine = lines.find(l => l.startsWith('Score:')) || '';
+          const date = new Date(rep.timestamp).toLocaleString();
+
+          const studentName = studentLine.replace('Student: ', '').trim() || 'Unknown';
+          const scoreInfo = scoreLine || 'Score unknown';
+
+          return `
+            <div class="report-card">
+              <div class="report-header">
+                <span>States of Matter Quiz</span>
+                <span>${date}</span>
+              </div>
+              <div class="report-meta">Student: ${studentName} • ${scoreInfo}</div>
+              <div class="report-detail" id="detail-${rep.timestamp}"></div>
+              <div class="report-actions">
+                <button class="btn" onclick="toggleDetail(${rep.timestamp})">View Details</button>
+                <button class="btn btn-whatsapp" onclick="sendReport('${rep.key}')">Send via WhatsApp</button>
+              </div>
+            </div>
+          `;
+        }).join('');
+
+        reportsContainer.innerHTML = html;
+
+        // Store full content for toggling
+        window.reportContents = {};
+        reports.forEach(rep => {
+          window.reportContents[rep.timestamp] = rep.content;
+        });
+      }
+
+      // === TOGGLE REPORT DETAILS ===
+      window.toggleDetail = function(timestamp) {
+        const detailEl = document.getElementById(`detail-${timestamp}`);
+        if (detailEl.classList.contains('show')) {
+          detailEl.classList.remove('show');
+        } else {
+          detailEl.textContent = window.reportContents[timestamp] || '';
+          detailEl.classList.add('show');
+        }
+      };
+
+      // === SEND SINGLE REPORT ===
+      window.sendReport = function(key) {
+        const content = localStorage.getItem(key);
+        if (content) {
+          window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(content)}`, '_blank');
+        }
+      };
 
       // === DASHBOARD ===
       function updateDashboard() {
@@ -644,12 +767,6 @@
             <span>${mastered ? 'Mastered' : 'In Progress'}</span>
           </div>
         `;
-
-        let reportCount = 0;
-        for (const key in localStorage) {
-          if (key.startsWith('saved_report_')) reportCount++;
-        }
-        document.getElementById('report-summary').textContent = `You have ${reportCount} saved quiz report(s).`;
       }
 
       document.getElementById('btn-send-all').addEventListener('click', () => {
@@ -742,7 +859,10 @@
           btn.classList.add('active');
           const tab = btn.dataset.tab;
           document.getElementById(`tab-${tab}`).style.display = 'block';
-          if (tab === 'dashboard') updateDashboard();
+          if (tab === 'dashboard') {
+            updateDashboard();
+            loadReports();
+          }
           if (tab === 'analytics') loadAnalytics();
         });
       });
