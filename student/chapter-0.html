@@ -238,6 +238,18 @@
       justify-content: center;
       font-weight: bold;
     }
+    .settings-btn {
+      background: none;
+      border: none;
+      font-size: 1.4rem;
+      color: var(--green);
+      cursor: pointer;
+      padding: 0.25rem;
+      border-radius: 6px;
+    }
+    .settings-btn:hover {
+      background: #f0f0f0;
+    }
     .tabs {
       display: flex;
       gap: 0.8rem;
@@ -257,6 +269,43 @@
       background: var(--green);
       color: white;
     }
+
+    /* === MODAL === */
+    .modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+    .modal-content {
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      width: 90%;
+      max-width: 400px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+    .modal h3 {
+      margin-top: 0;
+      color: var(--green);
+    }
+    .modal-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: none;
+      border: none;
+      font-size: 1.2rem;
+      cursor: pointer;
+      color: #999;
+    }
+    .modal-close:hover { color: var(--red); }
 
     /* === LESSON CONTENT === */
     .section {
@@ -477,7 +526,9 @@
           <div class="logo-icon">MO</div>
           <h2 id="page-title">Mini OpenStax</h2>
         </div>
-        <div id="current-role" class="role-badge">Student View</div>
+        <button class="settings-btn" id="open-settings" title="Change name or role">
+          <i class="fas fa-cog"></i>
+        </button>
       </div>
 
       <div class="tabs" id="main-tabs">
@@ -555,6 +606,25 @@
         <p>Data stored locally • No external servers • Ghana-made 🇬🇭</p>
         <p>WhatsApp: +233257320201</p>
       </div>
+    </div>
+  </div>
+
+  <!-- SETTINGS MODAL -->
+  <div id="settings-modal" class="modal" style="display:none;">
+    <div class="modal-content">
+      <button class="modal-close" id="close-settings">&times;</button>
+      <h3>👤 Account Settings</h3>
+      <div class="input-group">
+        <label for="edit-name">Your Name</label>
+        <input type="text" id="edit-name" maxlength="30">
+      </div>
+      <div class="input-group">
+        <label>
+          <input type="checkbox" id="edit-role">
+          Switch to Instructor Mode
+        </label>
+      </div>
+      <button class="btn-app" id="save-settings" style="width:100%; margin-top:1rem;">Save Changes</button>
     </div>
   </div>
 
@@ -640,6 +710,65 @@
         document.getElementById(`view-${view}`).classList.add('active');
       };
 
+      // === SETTINGS MODAL ===
+      function initSettingsModal() {
+        const modal = document.getElementById('settings-modal');
+        const openBtn = document.getElementById('open-settings');
+        const closeBtn = document.getElementById('close-settings');
+        const saveBtn = document.getElementById('save-settings');
+        const nameInput = document.getElementById('edit-name');
+        const roleCheckbox = document.getElementById('edit-role');
+
+        openBtn.onclick = () => {
+          nameInput.value = userName || '';
+          roleCheckbox.checked = (userRole === 'instructor');
+          modal.style.display = 'flex';
+        };
+
+        closeBtn.onclick = () => {
+          modal.style.display = 'none';
+        };
+
+        saveBtn.onclick = () => {
+          const newName = nameInput.value.trim();
+          if (!newName) {
+            alert("Name cannot be empty.");
+            return;
+          }
+
+          const newRole = roleCheckbox.checked ? 'instructor' : 'student';
+          userName = newName;
+          userRole = newRole;
+
+          localStorage.setItem('student_name', userName);
+          localStorage.setItem('user_role', userRole);
+
+          if (newRole === 'instructor') {
+            localStorage.setItem('miniopenstax_analytics_consent', '1');
+          }
+
+          // Update UI
+          document.getElementById('current-role').textContent = 
+            newRole === 'instructor' ? 'Instructor View' : 'Student View';
+          document.getElementById('dashboard-name').textContent = userName;
+
+          // Show/hide analytics tab
+          const analyticsTab = document.getElementById('analytics-tab');
+          analyticsTab.style.display = newRole === 'instructor' ? 'block' : 'none';
+
+          modal.style.display = 'none';
+
+          // Refresh dashboard if needed
+          if (document.querySelector('.tab-btn.active').dataset.tab === 'dashboard') {
+            updateDashboard();
+          }
+        };
+
+        window.onclick = (e) => {
+          if (e.target === modal) modal.style.display = 'none';
+        };
+      }
+
       // === SETUP LOGIC ===
       (function initSetup() {
         const nameInput = document.getElementById('student-name');
@@ -688,16 +817,12 @@
           userRole === 'instructor' ? 'Instructor View' : 'Student View';
         document.getElementById('dashboard-name').textContent = userName;
 
-        // Show/hide analytics tab
         const analyticsTab = document.getElementById('analytics-tab');
-        if (userRole === 'instructor') {
-          analyticsTab.style.display = 'block';
-        } else {
-          analyticsTab.style.display = 'none';
-        }
+        analyticsTab.style.display = userRole === 'instructor' ? 'block' : 'none';
 
         renderLessonContent();
         renderQuiz();
+        initSettingsModal();
 
         // Tab switching
         document.querySelectorAll('.tab-btn').forEach(btn => {
@@ -885,7 +1010,6 @@
                 const score = scoreMatch ? parseInt(scoreMatch[1], 10) : 0;
                 const mastery = score >= 15;
 
-                // Only include valid lesson numbers (simulate multi-lesson support)
                 if (lessonNum && lessonNum >= 1) {
                   reports.push({ studentName, lessonNum, score, mastery });
                 }
@@ -908,7 +1032,6 @@
         const masteredCount = reports.filter(r => r.mastery).length;
         const avgScore = (reports.reduce((sum, r) => sum + r.score, 0) / reports.length).toFixed(1);
 
-        // Group by lesson
         const lessonStats = {};
         reports.forEach(r => {
           if (!lessonStats[r.lessonNum]) {
@@ -919,7 +1042,6 @@
           lessonStats[r.lessonNum].totalScore += r.score;
         });
 
-        // Find lessons needing attention (<70% mastery)
         const strugglingLessons = [];
         for (const [num, stats] of Object.entries(lessonStats)) {
           if (stats.attempts > 0) {
