@@ -268,6 +268,7 @@
       margin-top: 0.75rem;
       display: flex;
       gap: 0.5rem;
+      flex-wrap: wrap;
     }
     .report-actions button {
       padding: 0.3rem 0.6rem;
@@ -301,6 +302,27 @@
       font-size: 0.9rem;
       padding-top: 1.5rem;
       border-top: 1px solid #eee;
+    }
+
+    /* === PRINT STYLES FOR PDF === */
+    @media print {
+      body * {
+        visibility: hidden;
+      }
+      #print-report, #print-report * {
+        visibility: visible;
+      }
+      #print-report {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        font-family: monospace;
+        white-space: pre-wrap;
+        padding: 20px;
+        box-sizing: border-box;
+        font-size: 12pt;
+      }
     }
   </style>
 </head>
@@ -403,7 +425,7 @@
               <th>Property</th>
               <th>Solid</th>
               <th>Liquid</th>
-              <th>Gas</th>
+              <th>GAS</th>
             </tr>
           </thead>
           <tbody>
@@ -671,7 +693,6 @@
           </div>
         `;
 
-        // Refresh dashboard if open
         if (document.querySelector('.tab-btn[data-tab="dashboard"]').classList.contains('active')) {
           updateDashboard();
           loadReports();
@@ -695,7 +716,6 @@
           return;
         }
 
-        // Sort by newest first
         reports.sort((a, b) => b.timestamp - a.timestamp);
 
         const html = reports.map(rep => {
@@ -716,8 +736,9 @@
               <div class="report-meta">Student: ${studentName} • ${scoreInfo}</div>
               <div class="report-detail" id="detail-${rep.timestamp}"></div>
               <div class="report-actions">
-                <button class="btn" onclick="toggleDetail(${rep.timestamp})">View Details</button>
-                <button class="btn btn-whatsapp" onclick="sendReport('${rep.key}')">Send via WhatsApp</button>
+                <button class="btn" onclick="toggleDetail(${rep.timestamp})">Details</button>
+                <button class="btn" onclick="viewReportAsPDF('${rep.key}')">PDF</button>
+                <button class="btn btn-whatsapp" onclick="sendReport('${rep.key}')">WhatsApp</button>
               </div>
             </div>
           `;
@@ -725,14 +746,13 @@
 
         reportsContainer.innerHTML = html;
 
-        // Store full content for toggling
         window.reportContents = {};
         reports.forEach(rep => {
           window.reportContents[rep.timestamp] = rep.content;
         });
       }
 
-      // === TOGGLE REPORT DETAILS ===
+      // === TOGGLE DETAILS ===
       window.toggleDetail = function(timestamp) {
         const detailEl = document.getElementById(`detail-${timestamp}`);
         if (detailEl.classList.contains('show')) {
@@ -743,12 +763,33 @@
         }
       };
 
-      // === SEND SINGLE REPORT ===
+      // === SEND REPORT VIA WHATSAPP ===
       window.sendReport = function(key) {
         const content = localStorage.getItem(key);
         if (content) {
           window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(content)}`, '_blank');
         }
+      };
+
+      // === EXPORT AS PDF (PRINT-FRIENDLY) ===
+      window.viewReportAsPDF = function(key) {
+        const content = localStorage.getItem(key);
+        if (!content) return alert("Report not found.");
+
+        const originalTitle = document.title;
+        document.title = `MiniOpenStax_Report_${new Date().toISOString().slice(0,10)}.txt`;
+
+        const printDiv = document.createElement('div');
+        printDiv.id = 'print-report';
+        printDiv.textContent = content;
+        document.body.appendChild(printDiv);
+
+        window.print();
+
+        setTimeout(() => {
+          document.body.removeChild(printDiv);
+          document.title = originalTitle;
+        }, 1000);
       };
 
       // === DASHBOARD ===
