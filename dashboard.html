@@ -3,699 +3,714 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Mini OpenStax Dashboard</title>
+  <meta name="description" content="Mini OpenStax: Classify materials into liquids, solids and gases">
+  <title>Mini OpenStax — Chapter 0</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     :root {
-      --green: #006b3d;       /* Ghana green */
-      --green-light: #008a4d;
-      --gold: #cead00;        /* Ghana gold */
-      --gold-light: #e6c300;
-      --red: #ce1126;         /* Ghana red */
+      --green: #006b3d;
+      --gold: #cead00;
+      --red: #ce1126;
       --light: #f9f9f9;
       --dark: #2d2d2d;
       --card-bg: #ffffff;
       --border: #eaeaea;
-      --text: #333333;
-      --text-light: #666666;
     }
 
-    * {
-      box-sizing: border-box;
-    }
-
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-      margin: 0;
-      padding: 0;
+      font-family: 'Segoe UI', system-ui, sans-serif;
       background: linear-gradient(135deg, #f5f7fa 0%, #e8f0e6 100%);
-      color: var(--text);
+      color: var(--dark);
       line-height: 1.6;
-    }
-
-    .container {
-      max-width: 840px;
-      margin: 0 auto;
-      padding: 1.5rem;
-    }
-
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 2rem;
-      flex-wrap: wrap;
-      gap: 1rem;
-      background: white;
-      padding: 1.2rem;
-      border-radius: 16px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
-    }
-
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .logo-icon {
-      background: var(--green);
-      color: white;
-      width: 40px;
-      height: 40px;
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: bold;
-      font-size: 18px;
-    }
-
-    h1 {
-      color: var(--green);
+      padding: 0;
       margin: 0;
-      font-weight: 700;
-      font-size: 1.5rem;
     }
-
-    .role-badge {
-      background: var(--gold);
-      color: white;
-      padding: 0.35rem 1rem;
-      border-radius: 20px;
-      font-size: 0.85rem;
-      font-weight: 600;
-      box-shadow: 0 2px 6px rgba(206, 173, 0, 0.3);
-    }
-
-    .header-actions a,
-    .header-actions button {
-      font-size: 0.9rem;
-      text-decoration: none;
-      padding: 0.4rem 0.8rem;
-      border-radius: 8px;
-      transition: all 0.2s ease;
-    }
-
-    .header-actions a {
-      color: var(--green);
-      border: 1px solid var(--green);
-    }
-
-    .header-actions a:hover {
-      background: var(--green);
-      color: white;
-    }
-
-    .header-actions button {
-      background: white;
-      border: 1px solid var(--border);
-      color: var(--text);
-    }
-
-    .header-actions button:hover {
-      background: #f0f0f0;
-      border-color: #ccc;
-    }
-
-    .card {
-      background: var(--card-bg);
-      padding: 1.8rem;
-      border-radius: 16px;
-      margin-bottom: 1.8rem;
-      box-shadow: 0 6px 16px rgba(0,0,0,0.08);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
-    }
-
-    .card h2 {
-      margin-top: 0;
-      color: var(--green);
-      font-size: 1.4rem;
-      font-weight: 700;
-    }
-
-    .stats {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin: 1.2rem 0;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
-
-    .stat-item {
-      text-align: center;
-    }
-
-    .stat-value {
-      font-size: 1.8rem;
-      font-weight: 800;
-      color: var(--green);
-      line-height: 1;
-    }
-
-    .stat-label {
-      font-size: 0.9rem;
-      color: var(--text-light);
-      margin-top: 0.25rem;
-    }
-
-    .progress-container {
-      margin: 1.5rem 0;
-    }
-
-    .progress-label {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 0.5rem;
-      font-size: 0.95rem;
-      color: var(--text-light);
-    }
-
-    .progress-bar {
-      height: 12px;
-      background: #e9ecef;
-      border-radius: 6px;
-      overflow: hidden;
-      position: relative;
-    }
-
-    .progress-fill {
-      height: 100%;
-      background: linear-gradient(90deg, var(--green), var(--green-light));
-      border-radius: 6px;
-      width: 0;
-      transition: width 1s ease;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: var(--green);
-      color: white;
-      text-decoration: none;
-      padding: 0.75rem 1.5rem;
-      border-radius: 10px;
-      font-weight: 600;
-      font-size: 1rem;
-      transition: all 0.25s ease;
-      box-shadow: 0 4px 12px rgba(0, 107, 61, 0.3);
-    }
-
-    .btn:hover {
-      background: var(--green-light);
-      transform: translateY(-2px);
-      box-shadow: 0 6px 16px rgba(0, 107, 61, 0.4);
-    }
-
-    .btn-outline {
-      background: transparent;
-      border: 2px solid var(--green);
-      color: var(--green);
-      box-shadow: none;
-    }
-
-    .btn-outline:hover {
-      background: var(--green);
-      color: white;
-    }
-
-    .btn-whatsapp {
-      background: #25D366;
-      color: white;
-      box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
-    }
-
-    .btn-whatsapp:hover {
-      background: #1ebc58;
-      box-shadow: 0 6px 16px rgba(37, 211, 102, 0.4);
-    }
-
-    .lesson-item {
-      display: flex;
-      justify-content: space-between;
-      padding: 0.8rem 0;
-      border-bottom: 1px solid var(--border);
-      align-items: center;
-    }
-
-    .lesson-item:last-child {
-      border-bottom: none;
-    }
-
-    .lesson-title {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-weight: 600;
-    }
-
-    .mastery-indicator {
-      display: inline-block;
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-    }
-
-    .mastery-yes { background: var(--green); }
-    .mastery-no { background: var(--red); }
-    .mastery-partial { background: #ffc107; }
-
-    .note {
-      font-size: 0.85rem;
-      color: var(--text-light);
-      margin-top: 1.5rem;
-      line-height: 1.6;
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
       padding: 1rem;
-      background: #f8f9fa;
-      border-radius: 10px;
-      border-left: 3px solid var(--gold);
     }
 
-    .loading {
-      text-align: center;
-      color: var(--text-light);
-      padding: 2rem;
-      font-size: 1.1rem;
-    }
-
-    /* === REPORTS PANEL === */
-    #reports-panel {
-      display: none;
-      margin-top: 2rem;
-      padding: 1.8rem;
-      background: var(--card-bg);
-      border-radius: 16px;
-      box-shadow: 0 6px 16px rgba(0,0,0,0.08);
-    }
-
-    .panel-header {
+    /* === COMMON COMPONENTS === */
+    .header {
       display: flex;
       justify-content: space-between;
       align-items: center;
       margin-bottom: 1.5rem;
       flex-wrap: wrap;
-      gap: 12px;
+      gap: 0.5rem;
+      background: white;
+      padding: 1rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
     }
-
-    .panel-header h2 {
-      color: var(--green);
-      margin: 0;
-      font-size: 1.4rem;
-    }
-
-    .search-box {
-      margin: 1.2rem 0;
-      text-align: center;
-    }
-
-    #student-search {
-      padding: 10px 16px;
-      width: 280px;
-      border: 1px solid var(--border);
-      border-radius: 10px;
+    .logo-icon {
+      background: var(--green);
+      color: white;
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
       font-size: 16px;
-      transition: border-color 0.2s;
+    }
+    .role-badge {
+      background: var(--gold);
+      color: white;
+      padding: 0.25rem 0.75rem;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+    .nav-tabs {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .nav-tab {
+      padding: 0.5rem 1rem;
+      background: #e9ecef;
+      border-radius: 8px;
+      text-decoration: none;
+      color: var(--dark);
+    }
+    .nav-tab.active {
+      background: var(--green);
+      color: white;
     }
 
-    #student-search:focus {
-      outline: none;
-      border-color: var(--green);
-      box-shadow: 0 0 0 3px rgba(0, 107, 61, 0.15);
+    /* === LESSON STYLES === */
+    .section {
+      margin-bottom: 1.5rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid #eee;
+    }
+    .word-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin: 0.5rem 0;
+    }
+    .word-item {
+      background: var(--light);
+      padding: 0.25rem 0.5rem;
+      border-radius: 4px;
+      font-family: monospace;
+      font-size: 0.95rem;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 0.5rem;
+      text-align: left;
+    }
+    th {
+      background-color: #f0f7f4;
+    }
+    blockquote {
+      margin: 1rem 0;
+      padding-left: 1rem;
+      border-left: 3px solid var(--green);
+      color: #555;
+      font-style: italic;
+    }
+    .checkpoint {
+      background: #f8f9fa;
+      padding: 1rem;
+      border-left: 4px solid var(--gold);
+      margin: 1.5rem 0;
     }
 
-    #search-btn {
-      padding: 10px 20px;
+    /* === QUIZ STYLES === */
+    .quiz { margin-top: 2rem; }
+    .question { margin-bottom: 1.2rem; }
+    .options { margin-left: 1rem; }
+    .option { margin: 0.4rem 0; }
+
+    /* === DASHBOARD STYLES === */
+    .card {
+      background: var(--card-bg);
+      padding: 1.5rem;
+      border-radius: 12px;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    }
+    .stats {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin: 1rem 0;
+    }
+    .stat-item { text-align: center; }
+    .stat-value {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--green);
+    }
+    .stat-label {
+      font-size: 0.85rem;
+      color: #666;
+    }
+    .progress-bar {
+      height: 10px;
+      background: #e9ecef;
+      border-radius: 5px;
+      overflow: hidden;
+      margin: 1rem 0;
+    }
+    .progress-fill {
+      height: 100%;
+      background: var(--green);
+      width: 0;
+      transition: width 0.8s ease;
+    }
+    .lesson-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.6rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .mastery-indicator {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      margin-right: 8px;
+    }
+    .mastery-yes { background: var(--green); }
+    .mastery-no { background: var(--red); }
+    .mastery-partial { background: #ffc107; }
+
+    /* === BUTTONS === */
+    .btn {
+      display: inline-block;
       background: var(--green);
       color: white;
       border: none;
-      border-radius: 10px;
-      margin-left: 12px;
-      cursor: pointer;
+      padding: 0.6rem 1.2rem;
+      border-radius: 8px;
       font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      margin: 0.5rem 0.25rem;
       transition: background 0.2s;
     }
-
-    #search-btn:hover {
-      background: var(--green-light);
+    .btn:hover { background: #00502e; }
+    .btn-outline {
+      background: transparent;
+      border: 1px solid var(--green);
+      color: var(--green);
     }
-
-    .report-card {
-      background: #f9fbf8;
-      border: 1px solid #e0e8dc;
-      border-radius: 10px;
-      padding: 18px;
-      margin-bottom: 18px;
-      white-space: pre-wrap;
-      font-family: 'Consolas', 'Courier New', monospace;
-      font-size: 13px;
-      line-height: 1.5;
-      overflow-x: auto;
-      position: relative;
-    }
-
-    .report-card::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 4px;
-      height: 100%;
+    .btn-outline:hover {
       background: var(--green);
-      border-radius: 10px 0 0 10px;
+      color: white;
+    }
+    .btn-whatsapp {
+      background: #25D366;
+      color: white;
+    }
+    .btn-whatsapp:hover {
+      background: #1ebc58;
     }
 
-    .report-date {
-      margin-top: 12px;
-      font-style: italic;
-      color: var(--text-light);
-      font-size: 12px;
+    /* === SETUP VIEW === */
+    .setup-view {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+    .form-group label {
       display: block;
+      margin-bottom: 0.4rem;
+      font-weight: 600;
+    }
+    .form-group input {
+      width: 100%;
+      padding: 0.6rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+    .role-options {
+      display: flex;
+      gap: 0.8rem;
+    }
+    .role-btn {
+      flex: 1;
+      padding: 0.6rem;
+      border: 2px solid var(--green);
+      background: white;
+      color: var(--green);
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      text-align: center;
+    }
+    .role-btn.active {
+      background: var(--green);
+      color: white;
     }
 
-    footer.note {
+    /* === FEEDBACK & HIDDEN === */
+    .feedback {
+      margin-top: 1.5rem;
+      padding: 1rem;
+      background: var(--light);
+      border-left: 4px solid var(--green);
+      border-radius: 0 8px 8px 0;
+    }
+    .hidden { display: none !important; }
+
+    /* === FOOTER === */
+    footer {
       text-align: center;
-      margin-top: 2.5rem;
-      padding: 1.5rem;
-      background: white;
-      border-radius: 16px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+      margin-top: 2rem;
+      font-size: 0.85rem;
+      color: #666;
+      padding: 1rem 0;
     }
 
     @media (max-width: 600px) {
-      .container { padding: 1rem; }
-      header { flex-direction: column; text-align: center; }
-      .logo { justify-content: center; }
-      .panel-header { flex-direction: column; }
-      .panel-header > * { width: 100%; text-align: center; }
-      #student-search { width: 100%; margin-bottom: 12px; }
-      #search-btn, .btn { width: 100%; justify-content: center; }
       .stats { flex-direction: column; gap: 0.5rem; }
+      .nav-tabs { justify-content: center; }
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <header>
-      <div class="logo">
+    <!-- HEADER -->
+    <div class="header">
+      <div style="display:flex;align-items:center;gap:10px;">
         <div class="logo-icon">MO</div>
-        <h1>Mini OpenStax Dashboard</h1>
+        <h1 id="page-title">Mini OpenStax</h1>
       </div>
       <div class="role-badge" id="role-badge">Loading...</div>
-      <div class="header-actions">
-        <a href="setup.html"><i class="fas fa-user-edit"></i> Change Role</a>
-        <button id="toggle-reports" class="btn btn-outline"><i class="fas fa-chart-line"></i> Reports</button>
-      </div>
-    </header>
-
-    <main id="dashboard-content">
-      <div class="loading">Loading your dashboard...</div>
-    </main>
-
-    <!-- REPORTS PANEL -->
-    <div id="reports-panel">
-      <div class="panel-header">
-        <h2><i class="fas fa-file-alt"></i> All Quiz Reports</h2>
-        <div style="display:flex;gap:0.75rem;flex-wrap:wrap;">
-          <button id="whatsapp-all" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Send All</button>
-          <button id="close-reports" class="btn btn-outline"><i class="fas fa-times"></i> Close</button>
-        </div>
-      </div>
-      <div class="search-box">
-        <input type="text" id="student-search" placeholder="Enter student name or leave blank for all" />
-        <button id="search-btn"><i class="fas fa-search"></i> Search</button>
-      </div>
-      <div class="note">
-        Reports are saved only in this browser. No data is sent to external servers.
-      </div>
-      <div id="results"></div>
     </div>
 
-    <footer class="note">
-      <p>Data is stored locally in your browser. No personal information is sent to servers.</p>
-      <p>Powered by open educational principles • Ghana-made 🇬🇭</p>
+    <!-- NAVIGATION TABS -->
+    <div class="nav-tabs">
+      <a href="#setup" class="nav-tab" id="tab-setup">Setup</a>
+      <a href="#lesson" class="nav-tab" id="tab-lesson">Lesson</a>
+      <a href="#dashboard" class="nav-tab" id="tab-dashboard">Dashboard</a>
+    </div>
+
+    <!-- VIEWS -->
+    <main id="views">
+      <!-- SETUP VIEW -->
+      <div id="view-setup" class="view">
+        <div class="card setup-view">
+          <h2>👤 Welcome! Set Up Your Profile</h2>
+          <div class="form-group">
+            <label for="input-name">Your Name</label>
+            <input type="text" id="input-name" placeholder="e.g., Kwame or Ama" maxlength="30">
+          </div>
+          <div class="form-group">
+            <label>Your Role</label>
+            <div class="role-options">
+              <div class="role-btn active" data-role="student">Student</div>
+              <div class="role-btn" data-role="instructor">Instructor</div>
+            </div>
+          </div>
+          <button class="btn" id="btn-save-setup">Save & Continue</button>
+        </div>
+      </div>
+
+      <!-- LESSON VIEW -->
+      <div id="view-lesson" class="view hidden">
+        <div class="section">
+          <h2>🎯 What You’ll Learn</h2>
+          <ul id="objectives"></ul>
+        </div>
+        <div class="section">
+          <h2>🔤 Important Words</h2>
+          <p id="word-list-desc"></p>
+          <div class="word-list" id="word-list"></div>
+        </div>
+        <div class="section" id="lesson-content"></div>
+        <div class="section">
+          <h2>✅ Check Your Understanding</h2>
+          <div class="checkpoint" id="checkpoint-questions"></div>
+        </div>
+        <div class="section">
+          <h2>📝 Quick Quiz (20 Questions)</h2>
+          <form id="quiz-form"></form>
+          <button type="button" class="btn" id="submit-quiz">Check Answers</button>
+        </div>
+        <div id="feedback"></div>
+      </div>
+
+      <!-- DASHBOARD VIEW -->
+      <div id="view-dashboard" class="view hidden">
+        <div class="card">
+          <h2>Hello, <span id="dashboard-name">Learner</span>!</h2>
+          <div class="stats">
+            <div class="stat-item">
+              <div class="stat-value" id="stat-mastered">0</div>
+              <div class="stat-label">Mastered</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-value" id="stat-total">1</div>
+              <div class="stat-label">Total Lessons</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-value" id="stat-percent">0%</div>
+              <div class="stat-label">Progress</div>
+            </div>
+          </div>
+          <div>
+            <div class="progress-bar">
+              <div class="progress-fill" id="progress-fill"></div>
+            </div>
+          </div>
+          <a href="#lesson" class="btn" id="btn-continue">Continue Learning</a>
+        </div>
+        <div class="card">
+          <h2><i class="fas fa-history"></i> Recent Activity</h2>
+          <div id="recent-lessons">No activity yet.</div>
+        </div>
+        <div class="card">
+          <h2><i class="fas fa-file-alt"></i> Reports</h2>
+          <button class="btn btn-whatsapp" id="btn-send-all">Send All Reports via WhatsApp</button>
+          <div id="report-summary" style="margin-top:1rem;font-size:0.9rem;color:#666;"></div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <p>Data stored locally • No external servers • Ghana-made 🇬🇭</p>
+      <p>WhatsApp: +233257320201 / +233205626264</p>
     </footer>
   </div>
 
   <script>
     (function () {
       'use strict';
-
-      const ROLE = localStorage.getItem('user_role') || 'student';
-      const STUDENT_NAME = localStorage.getItem('student_name') || 'Learner';
       const WHATSAPP_NUMBER = "233257320201";
       const REGISTRATION_LINE = "\n\nCALL OR WHATSAPP TO REGISTER FOR A CLASS @ +233257320201 / +233205626264";
+      let startTime = Date.now();
 
-      // === DYNAMIC LESSON DETECTION ===
+      // === UTILS ===
+      function createSeededRNG(seed) {
+        let state = Math.abs((seed * 9301 + 49297) % 233280);
+        return () => {
+          state = (state * 9301 + 49297) % 233280;
+          return state / 233280;
+        };
+      }
+      function shuffleWithSeed(array, seed) {
+        const rng = createSeededRNG(seed);
+        const arr = [...array];
+        for (let i = arr.length - 1; i > 0; i--) {
+          const j = Math.floor(rng() * (i + 1));
+          [arr[i], arr[j]] = [arr[j], arr[i]];
+        }
+        return arr;
+      }
+
+      // === CONFIG ===
+      const CHAPTER_CONFIG = {
+        title: "Classify materials into liquids, solids and gases",
+        loTags: ["B7/JHS1.1.1.1.1"],
+        objectives: [
+          "Create a table to record texture, appearance, colour, and shape of materials from your environment.",
+          "Classify everyday materials into solids, liquids, and gases based on observable properties.",
+          "Discuss the differences among the three states of matter using particle models.",
+          "Identify real-life examples of solids, liquids, and gases in Ghanaian homes and communities."
+        ],
+        words: ["Solid", "Liquid", "Gas", "State of matter", "Particle", "Volume", "Shape", "Texture"],
+        wordListDesc: "Key terms for this lesson:",
+        checkpointQuestions: `
+          <ol>
+            <li>Create a mini-table for three materials in your room: list their state, colour, and shape.</li>
+            <li>Why can’t you hold gas in your hand like you hold a stone?</li>
+            <li>How are liquids and gases similar? How are they different?</li>
+            <li>Name one solid, one liquid, and one gas used in cooking in Ghana.</li>
+          </ol>
+          <p><em>Confirm your understanding before moving on.</em></p>
+        `,
+        assessmentItems: [
+          {id:"1",prompt:"Which of the following has a fixed shape and fixed volume?",options:[{id:"a",text:"Water",is_correct:false},{id:"b",text:"Air",is_correct:false},{id:"c",text:"Wood",is_correct:true},{id:"d",text:"Steam",is_correct:false}]},
+          {id:"2",prompt:"Which state of matter takes the shape of its container but has a fixed volume?",options:[{id:"a",text:"Solid",is_correct:false},{id:"b",text:"Liquid",is_correct:true},{id:"c",text:"Gas",is_correct:false},{id:"d",text:"Plasma",is_correct:false}]},
+          {id:"3",prompt:"Which of these is a gas you breathe every day?",options:[{id:"a",text:"Water vapour",is_correct:false},{id:"b",text:"Oxygen",is_correct:true},{id:"c",text:"Milk",is_correct:false},{id:"d",text:"Sand",is_correct:false}]},
+          {id:"4",prompt:"What happens to the shape of a liquid when poured from a cup into a bowl?",options:[{id:"a",text:"It keeps its original shape",is_correct:false},{id:"b",text:"It disappears",is_correct:false},{id:"c",text:"It takes the shape of the bowl",is_correct:true},{id:"d",text:"It becomes solid",is_correct:false}]},
+          {id:"5",prompt:"Which material is a solid commonly found in Ghanaian homes?",options:[{id:"a",text:"Palm oil",is_correct:false},{id:"b",text:"Charcoal",is_correct:true},{id:"c",text:"Cooking gas",is_correct:false},{id:"d",text:"Rainwater",is_correct:false}]},
+          {id:"6",prompt:"Gases do NOT have:",options:[{id:"a",text:"Particles",is_correct:false},{id:"b",text:"Mass",is_correct:false},{id:"c",text:"Fixed shape or volume",is_correct:true},{id:"d",text:"Energy",is_correct:false}]},
+          {id:"7",prompt:"Which of the following is a liquid?",options:[{id:"a",text:"Ice",is_correct:false},{id:"b",text:"Smoke",is_correct:false},{id:"c",text:"Honey",is_correct:true},{id:"d",text:"Rock",is_correct:false}]},
+          {id:"8",prompt:"Which property is TRUE for all solids?",options:[{id:"a",text:"They can flow easily",is_correct:false},{id:"b",text:"They take the shape of their container",is_correct:false},{id:"c",text:"They have fixed shape and volume",is_correct:true},{id:"d",text:"They are always hard",is_correct:false}]},
+          {id:"9",prompt:"Which of these is an example of a gas used in cooking in many Ghanaian households?",options:[{id:"a",text:"Kerosene",is_correct:false},{id:"b",text:"LPG (cooking gas)",is_correct:true},{id:"c",text:"Water",is_correct:false},{id:"d",text:"Salt",is_correct:false}]},
+          {id:"10",prompt:"If you leave a piece of ice on a plate, it turns into water. What state change occurred?",options:[{id:"a",text:"Freezing",is_correct:false},{id:"b",text:"Melting",is_correct:true},{id:"c",text:"Evaporation",is_correct:false},{id:"d",text:"Condensation",is_correct:false}]},
+          {id:"11",prompt:"Which material cannot be poured?",options:[{id:"a",text:"Juice",is_correct:false},{id:"b",text:"Milk",is_correct:false},{id:"c",text:"Stone",is_correct:true},{id:"d",text:"Oil",is_correct:false}]},
+          {id:"12",prompt:"Which of the following best describes the particles in a gas?",options:[{id:"a",text:"Tightly packed and vibrating",is_correct:false},{id:"b",text:"Close together but sliding",is_correct:false},{id:"c",text:"Far apart and moving quickly",is_correct:true},{id:"d",text:"Fixed in place",is_correct:false}]},
+          {id:"13",prompt:"Which of these is NOT a liquid?",options:[{id:"a",text:"Blood",is_correct:false},{id:"b",text:"Mercury",is_correct:false},{id:"c",text:"Vapour",is_correct:true},{id:"d",text:"Coconut water",is_correct:false}]},
+          {id:"14",prompt:"What do air, oxygen, and carbon dioxide have in common?",options:[{id:"a",text:"They are all solids",is_correct:false},{id:"b",text:"They are all liquids",is_correct:false},{id:"c",text:"They are all gases",is_correct:true},{id:"d",text:"They are all visible",is_correct:false}]},
+          {id:"15",prompt:"Which observation would help you classify a material as a solid?",options:[{id:"a",text:"It fills the entire room",is_correct:false},{id:"b",text:"It takes the shape of its bottle",is_correct:false},{id:"c",text:"It keeps its own shape",is_correct:true},{id:"d",text:"It evaporates quickly",is_correct:false}]},
+          {id:"16",prompt:"Which of the following is a liquid used for cleaning in most homes?",options:[{id:"a",text:"Soap solution",is_correct:true},{id:"b",text:"Cement",is_correct:false},{id:"c",text:"Dust",is_correct:false},{id:"d",text:"Smoke",is_correct:false}]},
+          {id:"17",prompt:"Which state of matter has particles that slide past one another?",options:[{id:"a",text:"Solid",is_correct:false},{id:"b",text:"Liquid",is_correct:true},{id:"c",text:"Gas",is_correct:false},{id:"d",text:"All of the above",is_correct:false}]},
+          {id:"18",prompt:"Which material is a gas that forms when water boils?",options:[{id:"a",text:"Ice",is_correct:false},{id:"b",text:"Steam",is_correct:true},{id:"c",text:"Fog",is_correct:false},{id:"d",text:"Dew",is_correct:false}]},
+          {id:"19",prompt:"Which of these can be compressed (squeezed into a smaller space)?",options:[{id:"a",text:"A brick",is_correct:false},{id:"b",text:"Water in a bottle",is_correct:false},{id:"c",text:"Air in a syringe",is_correct:true},{id:"d",text:"A metal spoon",is_correct:false}]},
+          {id:"20",prompt:"When classifying materials, which property is MOST useful for distinguishing a liquid from a solid?",options:[{id:"a",text:"Colour",is_correct:false},{id:"b",text:"Ability to flow",is_correct:true},{id:"c",text:"Temperature",is_correct:false},{id:"d",text:"Weight",is_correct:false}]}
+        ]
+      };
+
+      // === STATE ===
+      let currentView = 'setup';
+      let userRole = localStorage.getItem('user_role') || null;
+      let userName = localStorage.getItem('student_name') || null;
+
+      // === RENDER CONTENT ===
+      function renderLessonContent() {
+        document.getElementById('objectives').innerHTML =
+          CHAPTER_CONFIG.objectives.map(obj => `<li>${obj}</li>`).join('');
+        document.getElementById('word-list-desc').textContent = CHAPTER_CONFIG.wordListDesc;
+        document.getElementById('word-list').innerHTML =
+          CHAPTER_CONFIG.words.map(w => `<span class="word-item">${w}</span>`).join('');
+        document.getElementById('checkpoint-questions').innerHTML = CHAPTER_CONFIG.checkpointQuestions;
+
+        const lessonHTML = `
+          <h2>📘 ${CHAPTER_CONFIG.title}</h2>
+          <p>Matter is anything that has mass and takes up space. Everything around you—your school bag, drinking water, the air—is made of matter. Matter exists in three main forms called <strong>states of matter</strong>: solids, liquids, and gases.</p>
+          <h3>🔍 Exemplar Activity: Observe & Record</h3>
+          <p>NaCCA asks you to <em>create a table</em> for materials from your environment. Here’s an example:</p>
+          <table>
+            <thead><tr><th>Material</th><th>State</th><th>Colour</th><th>Texture</th><th>Shape</th></tr></thead>
+            <tbody>
+              <tr><td>Charcoal</td><td>Solid</td><td>Black</td><td>Rough</td><td>Irregular</td></tr>
+              <tr><td>Palm oil</td><td>Liquid</td><td>Red-orange</td><td>Smooth/oily</td><td>Takes container shape</td></tr>
+              <tr><td>Air</td><td>Gas</td><td>Colourless</td><td>Invisible</td><td>Fills room</td></tr>
+            </tbody>
+          </table>
+          <h3>🧱 Solids</h3>
+          <ul><li>Fixed shape and volume</li><li>Particles vibrate in place</li><li>Examples: stone, wood, metal spoon, sand, plastic bottle</li></ul>
+          <h3>💧 Liquids</h3>
+          <ul><li>No fixed shape (takes container shape), but fixed volume</li><li>Particles slide past each other</li><li>Examples: water, milk, oil, blood, rain</li></ul>
+          <h3>💨 Gases</h3>
+          <ul><li>No fixed shape or volume—they spread out</li><li>Particles move rapidly in all directions</li><li>Examples: air, oxygen, steam, cooking gas, carbon dioxide</li></ul>
+          <blockquote>💭 <strong>Thought Experiment</strong>: You collect five items from home: a rock, water, a balloon filled with air, honey, and smoke from burning wood. Classify each. Which one is hardest to observe? Why?</blockquote>
+          <h3>📊 Key Differences Summary</h3>
+          <table>
+            <thead><tr><th>Property</th><th>Solid</th><th>Liquid</th><th>Gas</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Shape</strong></td><td>Fixed</td><td>Takes container shape</td><td>Fills entire space</td></tr>
+              <tr><td><strong>Volume</strong></td><td>Fixed</td><td>Fixed</td><td>Not fixed</td></tr>
+              <tr><td><strong>Flow?</strong></td><td>No</td><td>Yes</td><td>Yes</td></tr>
+              <tr><td><strong>Compressible?</strong></td><td>No</td><td>No</td><td>Yes</td></tr>
+            </tbody>
+          </table>
+        `;
+        document.getElementById('lesson-content').innerHTML = lessonHTML;
+      }
+
+      function renderQuiz() {
+        const form = document.getElementById('quiz-form');
+        window.quizCorrectMap = {};
+        const baseSeed = 0 * 1000000 + (Date.now() % 1000000);
+        form.innerHTML = CHAPTER_CONFIG.assessmentItems.map(q => {
+          const seed = baseSeed + parseInt(q.id, 10);
+          const shuffledOpts = shuffleWithSeed([...q.options], seed);
+          const correct = q.options.find(o => o.is_correct);
+          window.quizCorrectMap[q.id] = correct.id;
+          const optHtml = shuffledOpts.map((opt, idx) => {
+            const letter = String.fromCharCode(65 + idx);
+            return `<div class="option"><label><input type="radio" name="q${q.id}" value="${opt.id}" required> ${letter}. ${opt.text}</label></div>`;
+          }).join('');
+          return `<div class="question"><strong>${q.id}. ${q.prompt}</strong><div class="options">${optHtml}</div></div>`;
+        }).join('');
+      }
+
       function getTotalLessons() {
-        let maxIndex = -1;
-        for (let i = 0; i <= 300; i++) {
-          if (
-            localStorage.getItem(`mastery_${i}`) !== null ||
-            localStorage.getItem(`quiz_attempts_${i}`) !== null
-          ) {
-            maxIndex = i;
-          } else if (i > maxIndex + 5) {
-            break;
-          }
-        }
-        return maxIndex + 1;
+        return 1; // Only chapter-0 exists
       }
 
-      function renderHeader() {
-        document.getElementById('role-badge').textContent = 
-          ROLE === 'instructor' ? 'Instructor View' : 'Student View';
-      }
-
-      // ===== STUDENT VIEW =====
-      function renderStudentDashboard() {
-        const totalLessons = Math.max(1, getTotalLessons());
+      function updateDashboard() {
+        const total = getTotalLessons();
         let mastered = 0;
-        for (let i = 0; i < totalLessons; i++) {
-          if (localStorage.getItem(`mastery_${i}`) === '1') mastered++;
+        if (localStorage.getItem('mastery_0') === '1') mastered = 1;
+        const percent = total > 0 ? Math.round((mastered / total) * 100) : 0;
+
+        document.getElementById('dashboard-name').textContent = userName || 'Learner';
+        document.getElementById('stat-mastered').textContent = mastered;
+        document.getElementById('stat-total').textContent = total;
+        document.getElementById('stat-percent').textContent = `${percent}%`;
+        document.getElementById('progress-fill').style.width = `${percent}%`;
+
+        // Recent lessons
+        const recent = `<div class="lesson-item">
+          <div><span class="mastery-indicator ${mastered ? 'mastery-yes' : 'mastery-partial'}"></span>Lesson 1</div>
+          <span>${mastered ? 'Mastered' : 'In Progress'}</span>
+        </div>`;
+        document.getElementById('recent-lessons').innerHTML = recent;
+
+        // Report count
+        let reportCount = 0;
+        for (const key in localStorage) {
+          if (key.startsWith('saved_report_')) reportCount++;
         }
-        const masteryPercent = totalLessons > 0 ? Math.round((mastered / totalLessons) * 100) : 0;
-
-        let nextLesson = 0;
-        for (let i = 0; i < totalLessons; i++) {
-          if (localStorage.getItem(`mastery_${i}`) !== '1') {
-            nextLesson = i;
-            break;
-          }
-        }
-        if (mastered === totalLessons) {
-          nextLesson = totalLessons;
-        }
-
-        const html = `
-          <div class="card">
-            <h2>Hello, ${STUDENT_NAME}!</h2>
-            <div class="stats">
-              <div class="stat-item">
-                <div class="stat-value">${mastered}</div>
-                <div class="stat-label">Mastered</div>
-              </div>
-              <div class="stat-item">
-                <div class="stat-value">${totalLessons}</div>
-                <div class="stat-label">Total Lessons</div>
-              </div>
-              <div class="stat-item">
-                <div class="stat-value">${masteryPercent}%</div>
-                <div class="stat-label">Progress</div>
-              </div>
-            </div>
-
-            <div class="progress-container">
-              <div class="progress-label">
-                <span>Your Progress</span>
-                <span>${masteryPercent}%</span>
-              </div>
-              <div class="progress-bar">
-                <div class="progress-fill" id="progress-fill" style="width:0%"></div>
-              </div>
-            </div>
-
-            <a href="student/chapter-${nextLesson}.html" class="btn">
-              <i class="fas fa-play-circle"></i> Continue Learning
-            </a>
-          </div>
-
-          <div class="card">
-            <h2><i class="fas fa-history"></i> Recent Activity</h2>
-            <div id="recent-lessons">
-              ${getRecentLessons(totalLessons)}
-            </div>
-          </div>
-        `;
-        document.getElementById('dashboard-content').innerHTML = html;
-
-        // Animate progress bar
-        setTimeout(() => {
-          document.getElementById('progress-fill').style.width = `${masteryPercent}%`;
-        }, 100);
+        document.getElementById('report-summary').textContent = `You have ${reportCount} saved quiz report(s).`;
       }
 
-      function getRecentLessons(totalLessons) {
-        const lessons = [];
-        for (let i = totalLessons - 1; i >= 0 && lessons.length < 5; i--) {
-          const mastered = localStorage.getItem(`mastery_${i}`) === '1';
-          if (mastered || localStorage.getItem(`quiz_attempts_${i}`)) {
-            const lessonNum = i + 1;
-            const masteryClass = mastered ? 'mastery-yes' : 'mastery-partial';
-            const masteryText = mastered ? 'Mastered' : 'In Progress';
-            lessons.push(`
-              <div class="lesson-item">
-                <div class="lesson-title">
-                  <span class="mastery-indicator ${masteryClass}"></span>
-                  Lesson ${lessonNum}
-                </div>
-                <span>${masteryText}</span>
-              </div>
-            `);
-          }
+      // === SHOW VIEW ===
+      function showView(viewName) {
+        if (!['setup', 'lesson', 'dashboard'].includes(viewName)) return;
+        currentView = viewName;
+        document.querySelectorAll('.view').forEach(el => el.classList.add('hidden'));
+        document.getElementById(`view-${viewName}`).classList.remove('hidden');
+        document.querySelectorAll('.nav-tab').forEach(el => el.classList.remove('active'));
+        document.getElementById(`tab-${viewName}`).classList.add('active');
+        document.getElementById('page-title').textContent = 
+          viewName === 'setup' ? 'Setup' :
+          viewName === 'lesson' ? CHAPTER_CONFIG.title :
+          'Dashboard';
+        if (viewName === 'lesson') {
+          startTime = Date.now();
+          renderLessonContent();
+          renderQuiz();
+        } else if (viewName === 'dashboard') {
+          updateDashboard();
         }
-        return lessons.length ? lessons.join('') : '<p style="text-align:center;color:#888;">No recent activity.</p>';
       }
 
-      // ===== INSTRUCTOR VIEW =====
-      function renderInstructorDashboard() {
-        document.getElementById('dashboard-content').innerHTML = `
-          <div class="card">
-            <h2><i class="fas fa-chalkboard-teacher"></i> Instructor Dashboard</h2>
-            <p>Welcome! As an instructor, you can:</p>
-            <ul style="margin: 1.2rem 0 1.5rem; padding-left: 1.4rem; line-height: 1.7;">
-              <li>Review anonymized student reports via WhatsApp</li>
-              <li>Guide learners using their mastery data</li>
-              <li>Encourage consistent practice in science</li>
-            </ul>
-            <div class="note">
-              <p><strong>Note:</strong> This demo does not include real-time class analytics.<br>
-              In a live deployment, you'd receive aggregated reports from students who opt in.</p>
-            </div>
-          </div>
-        `;
-      }
+      // === EVENT HANDLERS ===
+      function initSetup() {
+        let role = 'student';
+        const roleBtns = document.querySelectorAll('.role-btn');
+        roleBtns.forEach(btn => {
+          btn.onclick = () => {
+            roleBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            role = btn.dataset.role;
+          };
+        });
 
-      // ===== REPORTS SYSTEM =====
-      (function() {
-        const originalSetItem = localStorage.setItem;
-        localStorage.setItem = function(key, value) {
-          if (typeof value === 'string' && value.includes('*Mini OpenStax —') && value.includes('Student:')) {
-            const lessonMatch = value.match(/Lesson (\d+)/);
-            if (lessonMatch) {
-              const lessonNum = parseInt(lessonMatch[1], 10);
-              if (lessonNum >= 1) {
-                const chapter = lessonNum - 1;
-                const reportKey = `saved_report_${chapter}_${Date.now()}`;
-                originalSetItem.call(localStorage, reportKey, value);
-              }
-            }
+        document.getElementById('btn-save-setup').onclick = () => {
+          const name = document.getElementById('input-name').value.trim();
+          if (!name) { alert("Please enter your name."); return; }
+          userName = name;
+          userRole = role;
+          localStorage.setItem('student_name', name);
+          localStorage.setItem('user_role', role);
+          if (role === 'instructor') {
+            localStorage.setItem('miniopenstax_analytics_consent', '1');
           }
-          return originalSetItem.apply(this, arguments);
+          showView('dashboard');
         };
-      })();
-
-      function formatDate(timestamp) {
-        if (!timestamp) return 'Unknown date';
-        return new Date(timestamp).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
       }
 
-      function getFilteredReports(searchTerm = '') {
-        const allKeys = Object.keys(localStorage);
-        const reportEntries = [];
-        for (const key of allKeys) {
-          if (key.startsWith('saved_report_')) {
-            const reportText = localStorage.getItem(key);
-            if (reportText && typeof reportText === 'string') {
-              const studentMatch = reportText.match(/Student:\s*(.+)\n/);
-              const studentName = studentMatch ? studentMatch[1].trim() : '[Unknown]';
-              if (!searchTerm || studentName.toLowerCase().includes(searchTerm.toLowerCase())) {
-                const parts = key.split('_');
-                const timestamp = parts.length >= 4 ? parseInt(parts[parts.length - 1], 10) : 0;
-                reportEntries.push({ text: reportText, time: timestamp });
-              }
+      function initQuiz() {
+        document.getElementById('submit-quiz').onclick = () => {
+          const form = document.getElementById('quiz-form');
+          const answers = [];
+          for (let i = 1; i <= 20; i++) {
+            const el = form.querySelector(`input[name="q${i}"]:checked`);
+            answers.push(el ? el.value : null);
+          }
+          if (answers.includes(null)) {
+            alert("Please answer all questions.");
+            return;
+          }
+
+          // Grade
+          let correctCount = 0;
+          const items = CHAPTER_CONFIG.assessmentItems;
+          const incorrectList = [];
+          items.forEach((item, i) => {
+            const ans = answers[i];
+            const correctId = window.quizCorrectMap[item.id];
+            if (ans === correctId) correctCount++;
+            else {
+              const correctOpt = item.options.find(o => o.id === correctId);
+              const yourAns = item.options.find(o => o.id === ans)?.text || '—';
+              incorrectList.push(`${item.id}. ${item.prompt} → ❌ Your: ${yourAns} | ✅ ${correctOpt.text}`);
+            }
+          });
+
+          const score = correctCount, total = 20, mastery = score >= 15;
+          const timeOnTask = Math.floor((Date.now() - startTime) / 1000);
+          const attempts = (parseInt(localStorage.getItem('quiz_attempts_0')) || 0) + 1;
+          localStorage.setItem('quiz_attempts_0', attempts);
+          localStorage.setItem('mastery_0', mastery ? '1' : '0');
+
+          // Save report
+          let report = `*Mini OpenStax — ${CHAPTER_CONFIG.title}*\nStudent: ${userName}\nScore: ${score}/${total} (${Math.round(score/total*100)}%) — ${mastery ? '✅ MASTERED' : '❌ Needs Review'}\nTime: ${timeOnTask}s | Attempts: ${attempts}\n\n`;
+          if (incorrectList.length) report += `❌ INCORRECT:\n${incorrectList.join('\n')}\n\n`;
+          report += `Report generated via Mini OpenStax.` + REGISTRATION_LINE;
+          localStorage.setItem(`saved_report_0_${Date.now()}`, report);
+
+          // Show feedback
+          document.getElementById('feedback').innerHTML = `
+            <div class="feedback">
+              <h3>📊 Results: ${score}/${total}</h3>
+              <p><strong>${mastery ? '🎉 Excellent!' : score >= 10 ? 'Good!' : 'Keep practicing.'}</strong></p>
+              <p><strong>Time:</strong> ${timeOnTask}s | <strong>Attempts:</strong> ${attempts}</p>
+              <a href="https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(report)}" target="_blank" class="btn btn-whatsapp">
+                📲 Send Report via WhatsApp
+              </a>
+            </div>
+          `;
+        };
+      }
+
+      function initDashboard() {
+        document.getElementById('btn-continue').onclick = (e) => {
+          e.preventDefault();
+          showView('lesson');
+        };
+        document.getElementById('btn-send-all').onclick = () => {
+          let msg = `*📚 Mini OpenStax — All Quiz Reports*\nStudent: ${userName}\n\n`;
+          let count = 0;
+          for (const key in localStorage) {
+            if (key.startsWith('saved_report_')) {
+              msg += `\n---\n${localStorage.getItem(key)}\n`;
+              count++;
             }
           }
-        }
-        return reportEntries.sort((a, b) => b.time - a.time);
+          if (count === 0) {
+            alert("No reports to send.");
+            return;
+          }
+          msg += REGISTRATION_LINE;
+          if (msg.length > 3800) msg = msg.substring(0, 3800) + "\n\n... (truncated)";
+          window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`, '_blank');
+        };
       }
 
-      function renderReportCard(reportText, timestamp) {
-        const fullReportText = reportText + REGISTRATION_LINE;
-        const safeHTML = fullReportText
-          .replace(/&/g, '&amp;')
-          .replace(/</g, '&lt;')
-          .replace(/>/g, '&gt;')
-          .replace(/\n/g, '<br>');
-
-        const card = document.createElement('div');
-        card.className = 'report-card';
-        card.innerHTML = `
-          <div>${safeHTML}</div>
-          <div class="report-date">Report Date: ${formatDate(timestamp)}</div>
-        `;
-        return card;
-      }
-
-      function showReports() {
-        const searchTerm = document.getElementById('student-search').value.trim();
-        const reports = getFilteredReports(searchTerm);
-        const container = document.getElementById('results');
-
-        if (reports.length === 0) {
-          container.innerHTML = `<div style="text-align:center;color:#ce1126;padding:24px;font-size:1.1rem;">
-            No quiz reports found${searchTerm ? ` for "${searchTerm}"` : ''}.
-          </div>`;
-          return;
-        }
-
-        const frag = document.createDocumentFragment();
-        reports.forEach(entry => frag.appendChild(renderReportCard(entry.text, entry.time)));
-        container.innerHTML = '';
-        container.appendChild(frag);
-      }
-
-      function sendAllReportsViaWhatsApp() {
-        const searchTerm = document.getElementById('student-search').value.trim();
-        const reports = getFilteredReports(searchTerm);
-        if (reports.length === 0) return alert("No reports to send.");
-
-        let msg = `*📚 Mini OpenStax — All Quiz Reports*\nStudent: ${STUDENT_NAME}\nFiltered: ${searchTerm || 'All'}\nTotal: ${reports.length} report(s)\n\n---\n`;
-        reports.forEach(r => msg += `\n${r.text}\n---\n`);
-        msg += REGISTRATION_LINE;
-
-        if (msg.length > 3800) msg = msg.substring(0, 3800) + "\n\n... (truncated)";
-
-        window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`, '_blank');
-      }
-
-      // ===== INIT =====
+      // === INIT ===
       function init() {
-        renderHeader();
-        if (ROLE === 'instructor') {
-          renderInstructorDashboard();
+        // Set role badge
+        const badge = document.getElementById('role-badge');
+        if (userRole) {
+          badge.textContent = userRole === 'instructor' ? 'Instructor' : 'Student';
         } else {
-          renderStudentDashboard();
+          badge.textContent = 'Not set';
         }
 
-        document.getElementById('toggle-reports').onclick = () => {
-          document.getElementById('reports-panel').style.display = 'block';
-          showReports();
+        // Handle hash navigation
+        const handleHash = () => {
+          const hash = window.location.hash.slice(1) || (userRole ? 'dashboard' : 'setup');
+          if (hash === 'setup' && userRole) {
+            showView('dashboard');
+          } else {
+            showView(hash);
+          }
         };
-        document.getElementById('close-reports').onclick = () => {
-          document.getElementById('reports-panel').style.display = 'none';
-        };
-        document.getElementById('search-btn').onclick = showReports;
-        document.getElementById('student-search').onkeypress = (e) => {
-          if (e.key === 'Enter') showReports();
-        };
-        document.getElementById('whatsapp-all').onclick = sendAllReportsViaWhatsApp;
+        window.addEventListener('hashchange', handleHash);
+        handleHash();
+
+        // Render initial lesson content (for quick switch)
+        renderLessonContent();
+
+        // Initialize components
+        initSetup();
+        initQuiz();
+        initDashboard();
       }
 
       if (document.readyState === 'loading') {
